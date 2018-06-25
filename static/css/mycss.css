@@ -1,0 +1,93 @@
+body{
+    background-color:rgb(0, 0, 0);
+    /* background: linear-gradient(to right, black ,white); */
+}
+nav{
+    margin:0!important;
+}
+.navbar {
+    padding:1% 2%;
+    margin-bottom:0;
+    background-color: rgba(0, 0, 0, 0);
+    border:0;
+    font-size: 18px !important;
+    border-radius: 0;
+    letter-spacing: 4px;
+    font-weight:bold;
+    color:rgb(255, 255, 255)!important;
+
+}
+.nav.navbar-nav.navbar-right a:hover {
+    color:rgb(134, 216, 12);
+}
+.highlight {
+    color:rgb(134, 216, 12) ;
+}
+.navbar-brand{
+    font-size:20px;
+}
+.section-title {
+    text-align:center;
+    margin-top: 1em;
+    background-color: rgb(202, 200, 200);
+    padding : .5em 0;
+    border-radius: .3em;
+}
+
+.service {
+    margin: 30px 0 30px 0 ;
+    border-radius: .3em;
+    background-color: rgb(202, 200, 200);
+    text-align: center;
+    padding:3em 2em 1em 2em;
+}
+#section {
+    margin:0;
+    height:510px;
+    background-image: url("../images/work10.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:100%;
+    height:80%;
+    /* background-position: 380% 0; */
+    opacity: 0.7;
+}
+#section .text{
+    color:rgb(0, 0, 0);
+    font-size: 280%;
+    letter-spacing: 5%;
+    text-align: right;
+    margin:8% 65% 30% 0;
+    font-family: Open Sans;
+    font-weight:900;
+}
+#section button {
+    padding:2% 8%;
+}
+#section #myCarousel{
+    padding:0;
+    height:20%;
+}
+.carousel-indicators{
+    padding:20%;
+}
+.col-md-3 img {
+    width:200px;
+}
+.modal-header{
+    background-color: rgb(65, 65, 65);
+    text-align: center;
+    font-family: Open Sans;
+    font-weight:900;
+    color: white;
+}
+.modal{
+    margin-top:5%;
+    font-family: Open Sans;
+    font-weight:900;
+    color: white;
+    background-color: rgb(0, 0, 0);
+}
+.modal-content{
+    margin-top:20%;
+}

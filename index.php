@@ -5,7 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Money solutions</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="mycss.css" rel="stylesheet">
+        <link href="static/css/mycss.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open Sans" rel="stylesheet">
     </head>
     <body>
         <nav class="navbar navbar-default">
@@ -19,7 +20,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Money solutions</a>
+                    <a class="navbar-brand" href="#"><span class="highlight">ECONOMY-</span>MIST</a>
                 </div>
                 <div class="collapse navbar-collapse" id="mynavbar">
                     <ul class="nav navbar-nav navbar-right">
@@ -31,14 +32,27 @@
                             <a href="#" data-toggle="modal" data-target="#loginmodal" >Login</a>
                         </li>
                         <li>
-                            <a href="#">About Us</a>
+                            <a href="#">Leaderboard</a>
+                        </li>
+                        <li>
+                            <a href="#">contact us</a>
                         </li>
                     </ul>
                 </div>
              </div>
         </nav>
         
-        <div id="section" class="container-fluid">
+        <div id="section" class="container">
+            <div class="text">
+                <p>Creating<span class="highlight">lasting value</span> <br>
+                    through experience<br>
+                    and engagement.<br>
+                    
+                    <p>Read More...</p><br><hr>
+                </p>
+                <button data-toggle="modal" data-target="#registermodal"  class="btn btn-success">Register</button>
+                <button data-toggle="modal" data-target="#loginmodal" class="btn btn-info">Login</button>
+            </div>
         </div>
         
         <!-- our services section -->
@@ -72,38 +86,6 @@
                          adipiscing elit, sed do eiusmod tempor
                           incididunt ut labore et dolore magna aliqua
                     </div>
-                </div>
-            </div>
-        </div>
-        <!-- team section -->
-        <div class="container-fluid">
-            <h2 class="section-title"><strong>Our Team</strong></h2>
-            <div class="row">
-                <div class="col-md-3" style="text-align:center">
-                    <img src="images/minions.jpg" alt="Team" class="img-circle">
-                    <h3><strong>de manager</strong></h3>
-                    <em>de manager</em>
-                </div>
-                <div class="col-md-3" style="text-align:center">
-                    <img src="images/minions.jpg" alt="Team" class="img-circle">
-                    <h3>
-                        <strong>de manager</strong>
-                    </h3>
-                    <em>de other manager</em>
-                </div>
-                <div class="col-md-3" style="text-align:center">
-                    <img src="images/minions.jpg" alt="Team" class="img-circle">
-                    <h3>
-                        <strong>de manager</strong>
-                    </h3>
-                    <em>de other other manager</em>
-                </div>
-                <div class="col-md-3" style="text-align:center">
-                    <img src="images/minions.jpg" alt="Team" class="img-circle">
-                    <h3>
-                        <strong>de manager</strong>
-                    </h3>
-                    <em>de other other other manager</em>
                 </div>
             </div>
         </div>
@@ -176,7 +158,7 @@
                             <label for="password">Password</label>
                             <input type="password" class="form-control" id="password" placeholder="password here">
                         </div>
-                        <button type="submit" class="btn btn-default">Submit</button>
+                        <button type="submit" class="btn btn-success">Submit</button>
                     </form>
                 </div>
                 <div class="modal-footer"></div>
@@ -201,7 +183,7 @@
                             <input type="Email" class="form-control" id="email" placeholder="enter email here">
                         </div>
                         <div class="form-group">
-                            <label for="phonenumber">Password</label>
+                            <label for="phonenumber">Phone number</label>
                             <input type="number" class="form-control" id="phonenumber" placeholder="phonenumber">
                         </div>
                         <div class="form-group">
@@ -212,7 +194,7 @@
                             <label for="password">Password</label>
                             <input type="password" class="form-control" id="password" placeholder="password here">
                         </div>
-                        <button type="submit" class="btn btn-default">Submit</button>
+                        <button type="submit" class="btn btn-success">Submit</button>
                     </form>
                 </div>
                 <div class="modal-footer">
