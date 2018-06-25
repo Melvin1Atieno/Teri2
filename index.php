@@ -44,16 +44,67 @@
         
         <div id="section" class="container">
             <div class="text">
-                <p>Creating<span class="highlight">lasting value</span> <br>
+                <p>Creating <span class="highlight">lasting value</span> <br>
                     through experience<br>
                     and engagement.<br>
                     
-                    <p>Read More...</p><br><hr>
+                    <p>Read More...</p><br><hr style="margin-top:0">
                 </p>
                 <button data-toggle="modal" data-target="#registermodal"  class="btn btn-success">Register</button>
                 <button data-toggle="modal" data-target="#loginmodal" class="btn btn-info">Login</button>
+                <hr>
             </div>
+            <h3 style="margin-left:20%">What we do</h3>
+           <div id="info-section">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target ="#myCarousel" data-slide-to="2"></li>
+                </ol> 
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <div>
+                            <p>Creating a lasting value<br>
+                                through experience<br>
+                                and engagement.<br>
+                                <p>Read More...</p><br><hr>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div>
+                            <p>Creating a lasting value<br>
+                                through experience<br>
+                                and engagement.<br>
+                                <p>Read More...</p><br><hr>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div>
+                            <p>Creating a lasting value<br>
+                                through experience<br>
+                                and engagement.<br>
+                                <p>Read More...</p><br><hr>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+           </div>
         </div>
+        
+        
         
         <!-- our services section -->
         <div class="container-fluid">
@@ -116,6 +167,7 @@
                 </div>
             </div>
         </div>
+        <hr>
         <!-- footer -->
         <footer class-"footer" style="margin:0">
             <div class="container-fluid">
