@@ -87,7 +87,6 @@ nav{
     font-size:200%;
     font-weight:bold;
     background-color:rgb(0, 0, 0);
-    /* background: linear-gradient(to right, black ,white); */
     color:white;
     opacity: 0.5;
     background-blend-mode: darken;
@@ -112,4 +111,16 @@ nav{
 }
 .modal-content{
     margin-top:20%;
+}
+footer  .footer-items {
+    list-style-type: none;
+    /* padding:2% 8%; */
+    color:white;
+    font-size:150%;
+    
+}
+footer.footer-items li a{
+    font-weight:bold;
+    
+    margin-bottom: 2%;
 }

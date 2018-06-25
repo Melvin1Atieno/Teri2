@@ -7,6 +7,7 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="static/css/mycss.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Open Sans" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <nav class="navbar navbar-default">
@@ -176,7 +177,7 @@
                         <div>
                             <h3><strong>ECONOMY-MIST</strong></h3>
                             
-                            <ul>
+                            <ul class="footer-items">
                                 <li><a href="#">About Us</a></li>
                                 <li>
                                     <a href="#">Testimonials</a>
@@ -195,18 +196,18 @@
                             <h3>
                                 <strong>CONNECT WITH US</strong>
                             </h3>
-                            <ul>
+                            <ul class="footer-items">
                                 <li>
-                                    <a href="#">Facebook</a>
+                                    <a href="#"><i class="fa fa-facebook"></i> Facebook</a>
                                 </li>
                                 <li>
-                                    <a href="#">Twitter</a>
+                                    <a href="#"><i class="fa fa-twitter"></i> Twitter</a>
                                 </li>
                                 <li>
-                                    <a href="#">Instagram</a>
+                                    <a href="#"><i class="fa fa-instagram"></i> Instagram</a>
                                 </li>
                                 <li>
-                                    <a href="#">YouTube</a>
+                                    <a href="#"><i class="fa fa-youtube"></i> YouTube</a>
                                 </li>
                             </ul>
                         </div>
@@ -214,22 +215,14 @@
                     <div class="col-sm-4">
                         <div>
                             <h3>
-                                <strong>FOLLOW US</strong>
+                                <strong>Contact US</strong>
                             </h3>
-                            <ul>
-                                <li>
-                                    <a href="#">Facebook</a>
-                                </li>
-                                <li>
-                                    <a href="#">Twitter</a>
-                                </li>
-                                <li>
-                                    <a href="#">Instagram</a>
-                                </li>
-                                <li>
-                                    <a href="#">YouTube</a>
-                                </li>
-                            </ul>
+                            <form class="form-inline">
+                                <div class="form-group">
+                                    <label for="email-us">Email Us</label>
+                                    <textarea type="text" class="form-control" id="email-us" placeholder="Enter text here"></textarea>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
