@@ -57,63 +57,91 @@
         
         <!-- our services section -->
         <div class="container-fluid">
-            <h2 class="section-title"><strong>Our services</strong></h2>
+            <h2 class="section-title"><strong>Available Packages</strong></h2>
             <div class="row">
                 <div class="col-md-4">
-                    <div class="service">
-                        <h3><strong>Loans</strong></h3>
-                         Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor 
-                         incididunt ut labore et dolore magna aliqua
+                    <div class="service panel-group">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">PACKAGE1</div>
+                            <div class="panel-body service">KSh3,000</div><hr>
+                            <div class="panel-body service">2:1 Matrix Structure</div><hr>
+                            <div class="panel-body service">ROI: KSh6,000</div><hr>
+                            <button class="service btn btn-success"> start</button>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="service">
-                        <h3>
-                            <strong>Saving options</strong>
-                        </h3>
-                        Lorem ipsum dolor sit amet, consectetur 
-                        adipiscing elit, sed do eiusmod tempor 
-                        incididunt ut labore et dolore magna aliqua
+                    <div class="service panel-group">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">PACKAGE 2</div>
+                            <div class="panel-body service">KSh3,000</div><hr>
+                            <div class="panel-body service">2:1 Matrix Structure</div><hr>
+                            <div class="panel-body service">ROI: KSh6,000</div><hr>
+                            <button class="service btn btn-success"> start</button>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="service">
-                        <h3>
-                            <strong>Lenders platform</strong>
-                        </h3>
-                        Lorem ipsum dolor sit amet, consectetur
-                         adipiscing elit, sed do eiusmod tempor
-                          incididunt ut labore et dolore magna aliqua
+                    <div class="service panel-group">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">PACKAGE 3</div>
+                            <div class="panel-body service">KSh3,000</div><hr>
+                            <div class="panel-body service">2:1 Matrix Structure</div><hr>
+                            <div class="panel-body service">ROI: KSh6,000</div><hr>
+                            <button class="service btn btn-success"> start</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service panel-group">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">PACKAGE 4</div>
+                            <div class="panel-body service">KSh3,000</div><hr>
+                            <div class="panel-body service">2:1 Matrix Structure</div><hr>
+                            <div class="panel-body service">ROI: KSh6,000</div><hr>
+                            <button class="service btn btn-success"> start</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service panel-group">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">PACKAGE 5</div>
+                            <div class="panel-body service">KSh3,000</div><hr>
+                            <div class="panel-body service">2:1 Matrix Structure</div><hr>
+                            <div class="panel-body service">ROI: KSh6,000</div><hr>
+                            <button class="service btn btn-success"> start</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- footer -->
-        <footer class-"footer" style="margin: 5em 0em 1em 0em;">
-            <div class="container" style="padding-left:0">
+        <footer class-"footer" style="margin:0">
+            <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="wrapper"style="background-color:#ecf0f1; padding: 1em 2em;">
-                            <h3><strong>Quick Links</strong></h3>
+                    <div class="col-sm-4">
+                        <div>
+                            <h3><strong>ECONOMY-MIST</strong></h3>
+                            
                             <ul>
-                                <li><a href="#">Home</a></li>
+                                <li><a href="#">About Us</a></li>
                                 <li>
-                                    <a href="#">Portfolio</a>
+                                    <a href="#">Testimonials</a>
                                 </li>
                                 <li>
-                                    <a href="#">About</a>
+                                    <a href="#">Services</a>
                                 </li>
                                 <li>
-                                    <a href="#">Partners</a>
+                                    <a href="#">Latest News</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="wrapper" style="background-color:#ecf0f1; padding: 1em 2em;">
+                    <div class="col-sm-4">
+                        <div>
                             <h3>
-                                <strong>Follow Us</strong>
+                                <strong>CONNECT WITH US</strong>
                             </h3>
                             <ul>
                                 <li>
@@ -131,8 +159,29 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="row" style="text-align: center; padding: 1em; margin: 1em 0; background-color:#ecf0f1;"> All Rights Reserved Â©. MelvinAtieno 2018.
+                    <div class="col-sm-4">
+                        <div>
+                            <h3>
+                                <strong>FOLLOW US</strong>
+                            </h3>
+                            <ul>
+                                <li>
+                                    <a href="#">Facebook</a>
+                                </li>
+                                <li>
+                                    <a href="#">Twitter</a>
+                                </li>
+                                <li>
+                                    <a href="#">Instagram</a>
+                                </li>
+                                <li>
+                                    <a href="#">YouTube</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
+                </div>
+                <div class="row" style="text-align:center;"> All Rights Reserved Â©. MelvinAtieno 2018.
                 </div>
             </div>
         </footer>
