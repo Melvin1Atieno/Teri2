@@ -7,7 +7,9 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="static/css/mycss.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Open Sans" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"rel="stylesheet">
+        <link href="form-helpers/css/bootstrap-formhelpers.min.css" rel="stylesheet">
+
     </head>
     <body>
         <nav class="navbar navbar-default">
@@ -27,7 +29,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#" =>Home</a></li>
                         <li>
-                            <a href="#"data-toggle="modal" data-target="#registermodal">Register</a>
+                            <a href="#"data-toggle="modal" data-target="#registermodal">SignUp</a>
                         </li>
                         <li>
                             <a href="#" data-toggle="modal" data-target="#loginmodal" >Login</a>
@@ -51,7 +53,7 @@
                     
                     <p>Read More...</p><br><hr style="margin-top:0">
                 </p>
-                <button data-toggle="modal" data-target="#registermodal"  class="btn btn-success">Register</button>
+                <button data-toggle="modal" data-target="#registermodal"  class="btn btn-success">SignUp</button>
                 <button data-toggle="modal" data-target="#loginmodal" class="btn btn-info">Login</button>
                 <hr>
             </div>
@@ -114,10 +116,16 @@
                 <div class="col-md-4">
                     <div class="service panel-group">
                         <div class="panel panel-success">
-                            <div class="panel-heading">PACKAGE1</div>
-                            <div class="panel-body service">KSh3,000</div><hr>
-                            <div class="panel-body service">2:1 Matrix Structure</div><hr>
-                            <div class="panel-body service">ROI: KSh6,000</div><hr>
+                            <div class="panel-heading">Level 1</div>
+                            <div id="level-one" class="panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Gold<br>
+                                ksh 10,000</a>
+                            </div>
+                            <div id="level-two" class="panel-body service"><a>Silver<br>
+                                ksh 5000</a>
+                            </div>
+                            <div id="level-three" class="panel-body service"><a>Bronze<br>
+                                ksh 3000</a>
+                            </div>
                             <button class="service btn btn-success"> start</button>
                         </div>
                     </div>
@@ -125,49 +133,33 @@
                 <div class="col-md-4">
                     <div class="service panel-group">
                         <div class="panel panel-success">
-                            <div class="panel-heading">PACKAGE 2</div>
-                            <div class="panel-body service">KSh3,000</div><hr>
-                            <div class="panel-body service">2:1 Matrix Structure</div><hr>
-                            <div class="panel-body service">ROI: KSh6,000</div><hr>
+                            <div class="panel-heading">Level 2</div>
+                            <div id="level-one"class="panel-body service"><a>Gold<br>
+                                Ksh 50,000</a>
+                            </div>
+                            <div id="level-two" class="panel-body service"><a>Silver<br>
+                                ksh 30,000</a></div>
+                            <div id="level-three"class="panel-body service"><a>Bronze<br>
+                                ksh 20,000</a></div>
                             <button class="service btn btn-success"> start</button>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="service panel-group">
+                    <div class=" service panel-group">
                         <div class="panel panel-success">
-                            <div class="panel-heading">PACKAGE 3</div>
-                            <div class="panel-body service">KSh3,000</div><hr>
-                            <div class="panel-body service">2:1 Matrix Structure</div><hr>
-                            <div class="panel-body service">ROI: KSh6,000</div><hr>
-                            <button class="service btn btn-success"> start</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service panel-group">
-                        <div class="panel panel-success">
-                            <div class="panel-heading">PACKAGE 4</div>
-                            <div class="panel-body service">KSh3,000</div><hr>
-                            <div class="panel-body service">2:1 Matrix Structure</div><hr>
-                            <div class="panel-body service">ROI: KSh6,000</div><hr>
-                            <button class="service btn btn-success"> start</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service panel-group">
-                        <div class="panel panel-success">
-                            <div class="panel-heading">PACKAGE 5</div>
-                            <div class="panel-body service">KSh3,000</div><hr>
-                            <div class="panel-body service">2:1 Matrix Structure</div><hr>
-                            <div class="panel-body service">ROI: KSh6,000</div><hr>
+                            <div class="panel-heading">Level 3</div>
+                            <div id="level-one"class="panel-body service"><a>Gold<br>
+                                150,000</a><br>
+                                </a></div>
+                            <div id="level-two"class="panel-body service"><a>Silver<br>ksh 100,000</a></div>
+                            <div id="level-three"class="panel-body service"><a>Bronze<br>
+                                ksh 70,000</a></div>
                             <button class="service btn btn-success"> start</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         <hr>
         <!-- footer -->
         <footer class-"footer" style="margin:0">
@@ -258,6 +250,32 @@
                 <div class="modal-footer"></div>
             </div>
         </div>
+        <!-- more info on package modal -->
+        <div class="modal fade" id="infomodal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span>
+                            <span class="sr-only">close</span>
+                        </button>
+                        <h4 class="modal-title" id="LoginModalLabel">Login</h4>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <p>100% returns<br>
+                        You think the deal is too good!!<br>
+                        Try Us!!!!<br>
+                        100% returns<br>
+                        You think the deal is too good!!<br>
+                        Try Us!!!!<br>
+                    </p>
+                </div>
+                <div class="modal-footer"></div>
+            </div>
+        </div>
+
+        <!-- more info on packages modal>
         <!-- register modal -->
         <div class="modal fade" id="registermodal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -267,18 +285,34 @@
                             <span aria-hidden="true">&times;</span>
                             <span class="sr-only">close</span>
                         </button>
-                        <h4 class="modal-title" id="registerModalLabel">Register</h4>
+                        <h4 class="modal-title" id="registerModalLabel">SignUp</h4>
                     </div>
                 </div>
                 <div class="modal-body">
                     <form class="form-horizontal">
                         <div class="form-group">
-                            <label for="Email">Email</label>
-                            <input type="Email" class="form-control" id="email" placeholder="enter email here">
+                            <label for="firstname">First Name: </label>
+                            <input type="text" class="form-control" id="firstname" placeholder="Enter Firstname" required>
                         </div>
                         <div class="form-group">
-                            <label for="phonenumber">Phone number</label>
-                            <input type="number" class="form-control" id="phonenumber" placeholder="phonenumber">
+                            <label for="lastname">Last Name: </label>
+                            <input type="text" class="form-control" id="lastname" placeholder="Enter Lastname" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="othername">Other name</label>
+                            <input type="text" class="form-control" id="othername" placeholder="optional">
+                        </div>
+                        <div class="form-group">
+                            <label for="Email">Email</label>
+                            <input type="Email" class="form-control" id="email" placeholder="enter email here" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Country</label>
+                            <select id="countries_phone1" class="form-control bfh-countries" data-country="KE"></select>
+                        </div>
+                        <div class="form-group">
+                        <label for="phonenumber">Phone number</label>
+                        <input type="text" class="form-control bfh-phone" data-country="countries_phone1" required>
                         </div>
                         <div class="form-group">
                             <label for="username">Username</label>
@@ -297,5 +331,6 @@
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="form-helpers/js/bootstrap-formhelpers.min.js"></script>
     </body>
 </html>

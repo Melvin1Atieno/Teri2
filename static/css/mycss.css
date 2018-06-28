@@ -6,7 +6,7 @@ nav{
     margin:0!important;
 }
 .navbar {
-    padding:1% 2%;
+    padding:1% 1% 2% 2%;
     margin-bottom:0;
     background-color: rgba(0, 0, 0, 0);
     border:0;
@@ -29,7 +29,7 @@ nav{
 .section-title {
     text-align:center;
     margin: 2% 0 2% 0;
-    background-color: rgb(41, 138, 17);
+    background-color: rgb(7, 40, 102);
     padding : .5em 0;
     font-size:200%;
     font-weight:bold;
@@ -41,12 +41,13 @@ nav{
     margin: 20px 20px 20px 20px; ;
     border-radius: 0;
     text-align: center;
+    
 }
 .panel-group {
     border-radius: 0;
 }
 .panel .panel-heading{
-    background-color: green;
+    background-color: rgb(7, 40, 102);
     font-size:200%;
     font-weight:bold;
     color:white;
@@ -103,14 +104,11 @@ nav{
     color: white;
 }
 .modal{
-    margin-top:5%;
+    /* margin-top:5%; */
     font-family: Open Sans;
     font-weight:900;
     color: white;
     background-color: rgb(0, 0, 0);
-}
-.modal-content{
-    margin-top:20%;
 }
 footer  .footer-items {
     list-style-type: none;
@@ -123,4 +121,24 @@ footer.footer-items li a{
     font-weight:bold;
     
     margin-bottom: 2%;
+}
+.service.panel-group{
+    border-radius: 340px;
+}
+
+#level-one.panel-body {
+    background-color: rgb(223, 193, 26);
+}
+#level-two.panel-body {
+    background-color: silver;
+}
+#level-three.panel-body{
+    background-color:rgb(148, 69, 5);
+    
+}
+.panel-body a{
+    color:black;
+    font-size: 120%;
+    font-weight: bold;
+    padding:0;
 }
