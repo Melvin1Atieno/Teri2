@@ -1,17 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+    <!-- Basic -->
+        <meta charset = "utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Meta -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Money solutions</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="static/css/mycss.css" rel="stylesheet">
+    
+    <!-- site Meta -->
+        <title>Investors solutions</title>
+        <meta name="keyword" content="">
+        <meta name="descriptiom" content="">
+        <meta name="author" content="">
+
+    <!-- Site Icons -->
+        <link rel="shortcut icon " href="#">
+
+    <!-- Google Fonts-->
         <link href="https://fonts.googleapis.com/css?family=Open Sans" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i" rel="stylesheet"> 
+
+    <!-- custom and default styles -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"rel="stylesheet">
         <link href="form-helpers/css/bootstrap-formhelpers.min.css" rel="stylesheet">
+        <link href="static/css/mycss.css" rel="stylesheet">
 
     </head>
     <body>
+        <!-- LOADER -->
+        <div id="preloader">
+                <img class="preloader" src="images/loader.gif" alt="">
+        </div>
+        <!--END-->
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <!-- brand and toggle grouped for better mobile display -->
@@ -48,10 +71,7 @@
         <div id="section" class="container">
             <div class="text">
                 <p>Creating <span class="highlight">lasting value</span> <br>
-                    through experience<br>
-                    and engagement.<br>
-                    
-                    <p>Read More...</p><br><hr style="margin-top:0">
+                    <br><hr style="margin-top:0">
                 </p>
                 <button data-toggle="modal" data-target="#registermodal"  class="btn btn-success">SignUp</button>
                 <button data-toggle="modal" data-target="#loginmodal" class="btn btn-info">Login</button>
@@ -289,7 +309,7 @@
                     </div>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                         <div class="form-group">
                             <label for="firstname">First Name: </label>
                             <input type="text" class="form-control" id="firstname" placeholder="Enter Firstname" required>
