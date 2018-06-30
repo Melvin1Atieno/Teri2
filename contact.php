@@ -61,7 +61,28 @@
              </div>
         </nav>
         <div class=" home-section container-fluid">
-
+            <form class="form-horizontal">
+                <div style="text-align:center">
+                    <h2>Send Us an Email</h2><hr>
+                </div>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="your name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" id="email" placeholder="your email">
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" class="form-control" id="subject" placeholder="subject">
+                </div>
+                <div class="form-group">
+                    <label for="password">Query</label>
+                    <textarea type="text" class="form-control" id="query" placeholder="Enter your text here"></textarea>
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
         </div>
         <footer class-"footer" style="margin:0">
             <div class="container-fluid">
@@ -123,8 +144,8 @@
                 </div>
             </div>
         </footer>
-       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-       <script src="js/bootstrap.min.js"></script>
-       <script src="form-helpers/js/bootstrap-formhelpers.min.js"></script> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="form-helpers/js/bootstrap-formhelpers.min.js"></script>
     </body>
 </html>
