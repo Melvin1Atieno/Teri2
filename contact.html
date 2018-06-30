@@ -48,10 +48,10 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#" =>Home</a></li>
                         <li>
-                            <a href="leaders.php">Leaderboard</a>
+                            <a href="leaders.html">Leaderboard</a>
                         </li>
                         <li>
-                            <a href="#">contact us</a>
+                            <a href="contact.html">contact us</a>
                         </li>
                         <li>
                             <a href="#" data-toggle="modal" data-target="#loginmodal" >Logout</a>
@@ -60,90 +60,29 @@
                 </div>
              </div>
         </nav>
-        <div class=" table-responsive home-section container-fluid">
-            <h2 style="text-align:center">Todays top investors</h2>
-            <div class="input-group"> <span class="input-group-addon">Search</span>
-            <input style="width:40%"id="filter" type="text" class="form-control" placeholder="Search here...">
-        </div>
-        <hr>
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th>Positon</th>
-                    <th>username</th>
-                    <th>Today's referral</th>
-                    <th>bounty</th>
-                    <th>Country</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>John</td>
-                    <td>0</td>
-                    <td>10,000</td>
-                    <td>Kenya</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Winnie</td>
-                    <td>0</td>
-                    <td>10,000</td>
-                    <td>Kenya</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Lucy</td>
-                    <td>0</td>
-                    <td>10,000</td>
-                    <td>Kenya</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>simba</td>
-                    <td>0</td>
-                    <td>10,000</td>
-                    <td>Uganda</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>well1234</td>
-                    <td>0</td>
-                    <td>10,000</td>
-                    <td>Uganda</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>Maina1234</td>
-                    <td>0</td>
-                    <td>10,000</td>
-                    <td>Uganda</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>winnie34</td>
-                    <td>0</td>
-                    <td>10,000</td>
-                    <td>Uganda</td>
-                </tr>
-                </tbody>
-            </table>
-            <div class="row">
-                <div class="col-md-4">
-                    <p>Showing 1-7 of 50 entries</p>
+        <div class=" home-section container-fluid">
+            <form class="form-horizontal">
+                <div style="text-align:center">
+                    <h2>Send Us an Email</h2><hr>
                 </div>
-                <div class="col-md-6">
-                    <div class="container">
-                        <ul class="pagination">
-                            <li><a href="#">1</a></li>
-                            <li class="active"><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                        </ul>
-                    </div>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="your name">
                 </div>
-            </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" id="email" placeholder="your email">
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" class="form-control" id="subject" placeholder="subject">
+                </div>
+                <div class="form-group">
+                    <label for="password">Query</label>
+                    <textarea type="text" class="form-control" id="query" placeholder="Enter your text here"></textarea>
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
         </div>
         <footer class-"footer" style="margin:0">
             <div class="container-fluid">
