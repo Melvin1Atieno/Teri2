@@ -295,6 +295,7 @@
             </div>
         </div>
 
+            
         <!-- more info on packages modal>
         <!-- register modal -->
         <div class="modal fade" id="registermodal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
@@ -309,38 +310,38 @@
                     </div>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                    <form class="form-horizontal" method="post" action="registration.php">
                         <div class="form-group">
                             <label for="firstname">First Name: </label>
-                            <input type="text" class="form-control" id="firstname" placeholder="Enter Firstname" required>
+                            <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter Firstname" required>
                         </div>
                         <div class="form-group">
                             <label for="lastname">Last Name: </label>
-                            <input type="text" class="form-control" id="lastname" placeholder="Enter Lastname" required>
+                            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter Lastname" required>
                         </div>
                         <div class="form-group">
                             <label for="othername">Other name</label>
-                            <input type="text" class="form-control" id="othername" placeholder="optional">
+                            <input type="text" class="form-control" id="othername" name="othername" placeholder="optional">
                         </div>
                         <div class="form-group">
                             <label for="Email">Email</label>
-                            <input type="Email" class="form-control" id="email" placeholder="enter email here" required>
+                            <input type="Email" class="form-control" id="email"  name="email" placeholder="enter email here" required>
                         </div>
                         <div class="form-group">
                             <label for="country">Country</label>
-                            <select id="countries_phone1" class="form-control bfh-countries" data-country="KE"></select>
+                            <select id="countries_phone1" class="form-control bfh-countries" name="country" data-country="KE"></select>
                         </div>
                         <div class="form-group">
                         <label for="phonenumber">Phone number</label>
-                        <input type="text" class="form-control bfh-phone" data-country="countries_phone1" required>
+                        <input type="text" class="form-control bfh-phone" data-country="countries_phone1" name="phonenumber" required>
                         </div>
                         <div class="form-group">
                             <label for="username">Username</label>
-                            <input type="text" class="form-control" id="username" placeholder="preferred username">
+                            <input type="text" class="form-control" id="username" name="username" placeholder="preferred username">
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" placeholder="password here">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="password here">
                         </div>
                         <button type="submit" class="btn btn-success">Submit</button>
                     </form>
