@@ -30,11 +30,7 @@
 
     </head>
     <body>
-        <!-- LOADER -->
-        <div id="preloader">
-                <img class="preloader" src="images/loader.gif" alt="">
-        </div>
-        <!--END-->
+        
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <!-- brand and toggle grouped for better mobile display -->
@@ -58,10 +54,10 @@
                             <a href="#" data-toggle="modal" data-target="#loginmodal" >Login</a>
                         </li>
                         <li>
-                            <a href="#">Leaderboard</a>
+                            <a href="leaders.php">Leaderboard</a>
                         </li>
                         <li>
-                            <a href="#">contact us</a>
+                            <a href="contact.php">contact us</a>
                         </li>
                     </ul>
                 </div>
