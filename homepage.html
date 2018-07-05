@@ -30,7 +30,6 @@
 
     </head>
     <body>
-        
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <!-- brand and toggle grouped for better mobile display -->
@@ -46,7 +45,8 @@
                 </div>
                 <div class="collapse navbar-collapse" id="mynavbar">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#" =>Home</a></li>
+                        <li>
+                            <a href="#" =>Home</a></li>
                         <li>
                             <a href="leaders.html">Leaderboard</a>
                         </li>
@@ -60,8 +60,96 @@
                 </div>
              </div>
         </nav>
-        <div class=" home-section container-fluid">
-
+        <div class="header container-fluid" >
+            <div class="row">
+                <div class="col-md-3">
+                    <h4>your ultimate <span class="highlight">Investment</span> company</h4><br><br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <ul class=" header-items">
+                        <li>
+                            <button class="btn btn-primary btn-sm" href="#"><i class="fa fa-facebook"></i>FaceBook</button>
+                        </li><br>
+                        <li>
+                            <button class="btn btn-info btn-sm" href="#"><i class="fa fa-twitter"></i>Twitter</button>
+                        </li><br>
+                        <li>
+                            <button class="btn btn-sm" style="background-color:rgb(233, 22, 92);" href="#"><i class="fa fa-instagram"></i>Instagram</button>
+                        </li><br>
+                        <li>
+                            <button class="btn btn-danger btn-xm" href="#"><i class="fa fa-youtube"></i>YouTube</button>
+                        </li><br>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="investments container-fluid ">
+            <h2>MY INVESTMENT PLANS</h2><br><br>
+            <ul class="nav nav-pills">
+                <li class="active"><a data-toggle="pill" href="#cinvestments">current investments</a></li>
+                <li><a data-toggle="pill" href="#investors">My Investors</a></li>
+                <li><a data-toggle="pill" href="#notifications">Notifications</a></li>
+                <li><a data-toggle="pill" href="#messages">Messages</a></li>
+            </ul>
+            <div class="tab-content">
+                <div id="cinvestments" class="tab-pane fade in active">
+                    <h3>My Investments</h3>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Package</th>
+                                <th>package Tye</th>
+                                <th>Amount</th>
+                                <th>state</th>
+                                <th>Expected Earnings</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Leve 1 </td>
+                                <td>gold</td>
+                                <td>ksh10,000</td>
+                                <td>Paid</td>
+                                <td>ksh20,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="investors" class="tab-pane fade">
+                    <h3>My Investors</h3>
+                    <p>list of your investors, their details and payment state </p>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Amount</th>
+                                <th>Payment Method</th>
+                                <th>phone number</th>
+                                <th>payment state</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Simba 1</td>
+                                <td>ksh10,000</td>
+                                <td>Bank</td>
+                                <td>07187651651</td>
+                                <td><button class="btn btn-danger btn-sm">Paid</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="notifications" class="tab-pane fade">
+                    <h3>My Notifications</h3>
+                    <p>No new notifications</p>
+                </div>
+                <div id="messages" class="tab-pane fade">
+                    <h3>My messages</h3>
+                    <p>Direct massages from admin and investors</p>
+                </div>
+            </div>
         </div>
         <footer class-"footer" style="margin:0">
             <div class="container-fluid">
