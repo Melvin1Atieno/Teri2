@@ -151,6 +151,59 @@
                 </div>
             </div>
         </div>
+
+        <div class="container-fluid">
+            <h2 class="section-title"><strong>Available Packages</strong></h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="service panel-group">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">Level 1</div>
+                            <div id="level-one" class="panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Gold<br>
+                                ksh 10,000</a>
+                            </div>
+                            <div id="level-two" class="panel-body service"><a>Silver<br>
+                                ksh 5000</a>
+                            </div>
+                            <div id="level-three" class="panel-body service"><a>Bronze<br>
+                                ksh 3000</a>
+                            </div>
+                            <button class="service btn btn-success"> start</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service panel-group">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">Level 2</div>
+                            <div id="level-one"class="panel-body service"><a>Gold<br>
+                                Ksh 50,000</a>
+                            </div>
+                            <div id="level-two" class="panel-body service"><a>Silver<br>
+                                ksh 30,000</a>
+                            </div>
+                            <div id="level-three"class="panel-body service"><a>Bronze<br>
+                                ksh 20,000</a></div>
+                            <button class="service btn btn-success"> start</button>
+                         </div>
+                     </div>
+                </div>
+                <div class="col-md-4">
+                    <div class=" service panel-group">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">Level 3</div>
+                            <div id="level-one"class="panel-body service"><a>Gold<br>
+                                150,000</a>
+                            </div>
+                            <div id="level-two"class="panel-body service"><a>Silver<br>ksh 100,000</a></div>
+                            <div id="level-three"class="panel-body service"><a>Bronze<br>
+                                ksh 70,000</a></div>
+                            <button class="service btn btn-success"> start</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <footer class-"footer" style="margin:0">
             <div class="container-fluid">
                 <div class="row">
