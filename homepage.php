@@ -86,7 +86,6 @@
             </div>
         </div>
         <div class="investments container-fluid ">
-            <hr>
             <h2>MY INVESTMENT PLANS</h2><br><br>
             <ul class="nav nav-pills">
                 <li class="active"><a data-toggle="pill" href="#cinvestments">current investments</a></li>
@@ -101,6 +100,7 @@
                         <thead>
                             <tr>
                                 <th>Package</th>
+                                <th>package Tye</th>
                                 <th>Amount</th>
                                 <th>state</th>
                                 <th>Expected Earnings</th>
@@ -108,7 +108,8 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Leve 1 goldl</td>
+                                <td>Leve 1 </td>
+                                <td>gold</td>
                                 <td>ksh10,000</td>
                                 <td>Paid</td>
                                 <td>ksh20,000</td>
