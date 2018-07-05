@@ -46,12 +46,12 @@
                 </div>
                 <div class="collapse navbar-collapse" id="mynavbar">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#" =>Home</a></li>
+                        <li><a href="index.php" =>Home</a></li>
                         <li>
                             <a href="leaders.php">Leaderboard</a>
                         </li>
                         <li>
-                            <a href="#">contact us</a>
+                            <a href="contact.php">contact us</a>
                         </li>
                         <li>
                             <a href="#" data-toggle="modal" data-target="#loginmodal" >Logout</a>
