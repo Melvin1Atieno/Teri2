@@ -238,7 +238,8 @@
                 </div>
             </footer>
             <!-- login form modal -->
-            <?php include('login.php')  ?>
+            
+            
             <div class="modal fade" id="loginmodal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -251,14 +252,14 @@
                         </div>
                     </div>
                     <div class="modal-body">
-                        <form class="form-horizontal">
+                        <form class="form-horizontal" method="post" action="<?php echo htmlspecialchars("login.php");?>">
                             <div class="form-group">
                                 <label for="lusername">Username</label>
-                                <input type="text" class="form-control" id="lusername" placeholder="Username">
+                                <input type="text" class="form-control" id="lusername" name="lusername" placeholder="Username">
                             </div>
                             <div class="form-group">
                             <label for="lpassword">Password</label>
-                            <input type="password" class="form-control" id="lpassword" placeholder="password here">
+                            <input type="password" class="form-control" id="lpassword" name="lpassword" placeholder="password here">
                         </div>
                         <button type="submit" class="btn btn-success">Submit</button>
                     </form>
