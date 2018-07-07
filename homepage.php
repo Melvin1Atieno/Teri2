@@ -184,7 +184,7 @@
                             </div>
                             <div id="level-three"class="panel-body service"><a>Bronze<br>
                                 ksh 20,000</a></div>
-                            <button class="service btn btn-success"> start</button>
+                            <button type="submit" class="service btn btn-success"> start</button>
                          </div>
                      </div>
                 </div>
