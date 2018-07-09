@@ -1,5 +1,6 @@
 <?php 
 require_once 'config.php';
+session_start();
 // defining variables and initialize with empty values
     $lusername = $lpassword = "";
    // processing form data when its submitted
@@ -11,11 +12,14 @@ require_once 'config.php';
         $results = mysqli_query($con, $query);
         
         if (mysqli_num_rows($results) == 1){
+
+           $add_query = mysqli_query($con, "INSERT INTO logged (username,logged) VALUES('$lusername',1)");
         
-           $_SESSION['username'] = $username;
-            $_SESSION['success'] = "You are now logged in";
-            header('location: homepage.php');
+           $_SESSION['username'] = $lusername;
+           $_SESSION['success'] = "You are now logged in";
+           header('location: homepage.php');
         }
+        
 
 
 
