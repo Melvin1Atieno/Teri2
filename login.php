@@ -8,7 +8,7 @@ session_start();
         $lusername = trim($_POST["lusername"]);
         $lpassword = trim ($_POST["lpassword"]);
 
-        $query = "SELECT username , password FROM users where username = '$lusername' AND password= '$lpassword'";
+        $query = "SELECT username , password FROM users where username = '$lusername' AND password='$lpassword'";
         $results = mysqli_query($con, $query);
         
         if (mysqli_num_rows($results) == 1){

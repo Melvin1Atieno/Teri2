@@ -1,5 +1,8 @@
 <?php require('config.php');
-    session_start();?>
+    session_start();
+    if(!isset($_SESSION['username'])){
+        header('location: index.php');
+    }?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -103,18 +106,35 @@
                             <tr>
                                 <th>package Type</th>
                                 <th>Amount</th>
+                                <th>Investment date</th>
                                 <th>Paid</th>
                                 <th>Expected Earnings</th>
+                                <th>Match found</th>
                             </tr>
                         </thead>
                         <tbody>
                         <?php  
                                 $username = $_SESSION['username'];
+
+
                                 $sql = "SELECT * FROM investments WHERE username='$username'";
                                 $records = mysqli_query($con,$sql);
                                 while ($row = $records->fetch_assoc()){
-                                    echo "<tr><td>" .$row["package_type"] . "</td><td>" . $row["amount"]. "</td><td>" . $row["paid"].  "</td><td> " . $row["expected_earnings"]. "</td></tr>";
-                                }
+                                    echo "<tr><td>" .$row["package_type"] . "</td><td>" . $row["amount"]."</td><td>" . $row["date_made"]. "</td><td>" . $row["paid"].  "</td><td> " . $row["expected_earnings"]."</td><td> " . $row["match_found"].  "</td></tr>";
+                                    $amount = $row['amount'];
+                                    $noOfMatchesFound = (int)$row['noOfMatchesFound'];
+                                    $one  = (int)'1';
+                                    $zero = (int)'0';
+                                    $query = "SELECT * FROM investments WHERE username != '$username' AND amount='$amount'";
+                                    $matches = mysqli_query($con, $query);
+                                    if (mysqli_num_rows($matches) == 1) {
+                                        $urow = $matches->fetch_assoc();
+                                        $match_username = $urow['username'];
+                                        $nquery = mysqli_query($con,"UPDATE investments SET noOfMatchesFound='1', match_username='$match_username', match_found='one_found' WHERE username = '$username'");
+                                    }
+
+                                     
+                                    }
                          ?>
                         </tbody>
                     </table>
@@ -127,19 +147,27 @@
                             <tr>
                                 <th>Username</th>
                                 <th>Amount</th>
-                                <th>Payment Method</th>
                                 <th>phone number</th>
                                 <th>payment state</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Simba 1</td>
-                                <td>ksh10,000</td>
-                                <td>Bank</td>
-                                <td>07187651651</td>
-                                <td><button class="btn btn-danger btn-sm">Paid</td>
-                            </tr>
+                        <?php  
+                                $username = $_SESSION['username'];
+                                $sql = "SELECT * FROM investments WHERE username='$username' AND noOfMatchesFound != '0'";
+                                $records = mysqli_query($con,$sql);
+                                while ($row = $records->fetch_assoc()){
+                                    $match_username = $row['match_username'];
+                                    $query = mysqli_query($con,"SELECT * FROM users where username = '$match_username'");
+                                    if($query->num_rows > 0){
+                                        while ($nrow = $query->fetch_assoc()){
+                                            echo "<tr><td>" .$row["match_username"] . "</td><td>" . $row["amount"]."</td><td>" . $nrow["phonenumber"]."</td><td>" . "<button id='confirm'class='btn btn-success'><a href='#'data-toggle='modal' data-target='#confirmmodal'>confirm</a></button>" ."</td></tr>";
+                                        }
+                                    }
+                                     
+                                    
+                                    }
+                         ?>
                         </tbody>
                     </table>
                 </div>

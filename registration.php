@@ -64,7 +64,7 @@
                     $add_user_query = "INSERT INTO users (firstname, lastname, othername, email, country, phonenumber, username, password) 
                     VALUES('$firstname', '$lastname', '$othername', '$email', '$country','$phonenumber','$username','$password')";
                     $add_logged_query = mysqli_query($con,"INSERT INTO logged (username,logged) VALUES('$username',1)");
-                    
+
                     if ($con->query($add_user_query) === TRUE) {
                         
                         $_SESSION["username"] = $username;

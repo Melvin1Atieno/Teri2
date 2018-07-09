@@ -1,6 +1,6 @@
 
 <?php 
-    require_once ('config.php');
+    require('config.php');
     session_start();
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -14,10 +14,8 @@
 
        
         
-        $result = mysqli_query($con,"INSERT INTO investments(package_type, amount,expected_earnings,username,paid)
-            VALUES('$goldone','$amount','$expected_amount','$username', 'not_paid')");
+        $result = mysqli_query($con,"INSERT INTO investments(package_type, amount,expected_earnings,username,paid,date_made,match_found)
+            VALUES('$goldone','$amount','$expected_amount','$username', 'not_paid', NOW(), 'not_found')");
     }
-    
-    
 
 ?>
