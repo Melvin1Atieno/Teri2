@@ -132,16 +132,16 @@
                     <div class="service panel-group">
                         <div class="panel panel-success">
                             <div class="panel-heading">Level 1</div>
-                            <div id="level-one" class="panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Gold<br>
+                            <div id="gone" class="level-one panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Gold<br>
                                 ksh 10,000</a>
                             </div>
-                            <div id="level-two" class="panel-body service"><a>Silver<br>
+                            <div  id="sone" class="level-two panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Silver<br>
                                 ksh 5000</a>
                             </div>
-                            <div id="level-three" class="panel-body service"><a>Bronze<br>
+                            <div id="bone" class="level-three panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Bronze<br>
                                 ksh 3000</a>
                             </div>
-                            <button class="service btn btn-success"> start</button>
+                            <button class="service btn btn-success"><a>start</a></button>
                         </div>
                     </div>
                 </div>
@@ -149,12 +149,12 @@
                     <div class="service panel-group">
                         <div class="panel panel-success">
                             <div class="panel-heading">Level 2</div>
-                            <div id="level-one"class="panel-body service"><a>Gold<br>
+                            <div id="gtwo" class="level-one panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Gold<br>
                             Ksh 50,000</a>
                         </div>
-                        <div id="level-two" class="panel-body service"><a>Silver<br>
+                        <div id="stwo" class="level-two panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Silver<br>
                         ksh 30,000</a></div>
-                        <div id="level-three"class="panel-body service"><a>Bronze<br>
+                        <div id="btwo" class="level-three panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Bronze<br>
                         ksh 20,000</a></div>
                         <button class="service btn btn-success"> start</button>
                     </div>
@@ -164,11 +164,11 @@
                 <div class=" service panel-group">
                     <div class="panel panel-success">
                         <div class="panel-heading">Level 3</div>
-                        <div id="level-one"class="panel-body service"><a>Gold<br>
+                        <div id="gthree"class="level-one panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Gold<br>
                         150,000</a><br>
                     </a></div>
-                    <div id="level-two"class="panel-body service"><a>Silver<br>ksh 100,000</a></div>
-                    <div id="level-three"class="panel-body service"><a>Bronze<br>
+                    <div id="sthree"class="level-two panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal" >Silver<br>ksh 100,000</a></div>
+                    <div id="bthree"class="level-three panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Bronze<br>
                     ksh 70,000</a></div>
                     <button class="service btn btn-success"> start</button>
                 </div>
@@ -276,7 +276,7 @@
                             <span aria-hidden="true">&times;</span>
                             <span class="sr-only">close</span>
                         </button>
-                        <h4 class="modal-title" id="LoginModalLabel">Login</h4>
+                        <h4 class="modal-title" id="LoginModalLabel"><span class="highlight">Economy-</span>mist</h4>
                     </div>
                 </div>
                 <div class="modal-body">
@@ -286,9 +286,13 @@
                         100% returns<br>
                         You think the deal is too good!!<br>
                         Try Us!!!!<br>
+                        <?php 
+                        require("load.php") ?>
                     </p>
                 </div>
-                <div class="modal-footer"></div>
+                <div class="modal-footer">
+                    <button class="btn btn-success"><a href="#" data-toggle="modal" data-target="#registermodal">Start</a></button>
+                </div>
             </div>
         </div>
 
@@ -341,13 +345,13 @@
                         <div class="form-group">
                            <label for="username">Username 
                            <span style="color:red">*<?php echo $username_error ?></label>
-                           <input type="text" class="form-control" id="username" name="username" placeholder="preferred username">
+                           <input type="text" class="form-control" id="username" name="username" placeholder="preferred username"required>
                            </br>
                         </div>
                         <div class="form-group">
                             <label for="password">Password 
                             <span style="color:red">*</span></label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="password here">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="password here" required>
                         </div>
                         <div>
                             <input type="submit" class="btn btn-success">

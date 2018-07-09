@@ -54,7 +54,7 @@
                             <a href="#">contact us</a>
                         </li>
                         <li>
-                            <a href="#" data-toggle="modal" data-target="#loginmodal" >Logout</a>
+                            <a id="logout" href="logout.php">Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -159,13 +159,13 @@
                     <div class="service panel-group">
                         <div class="panel panel-success">
                             <div class="panel-heading">Level 1</div>
-                            <div id="level-one" class="panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Gold<br>
+                            <div id="gone" class="level-one panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Gold<br>
                                 ksh 10,000</a>
                             </div>
-                            <div id="level-two" class="panel-body service"><a>Silver<br>
+                            <div id="sone" class="level-two panel-body service"><a>Silver<br>
                                 ksh 5000</a>
                             </div>
-                            <div id="level-three" class="panel-body service"><a>Bronze<br>
+                            <div id="bone" class="level-three panel-body service"><a>Bronze<br>
                                 ksh 3000</a>
                             </div>
                             <button class="service btn btn-success"> start</button>
@@ -176,13 +176,13 @@
                     <div class="service panel-group">
                         <div class="panel panel-success">
                             <div class="panel-heading">Level 2</div>
-                            <div id="level-one"class="panel-body service"><a>Gold<br>
+                            <div id="gtwo"class="level-one panel-body service"><a>Gold<br>
                                 Ksh 50,000</a>
                             </div>
-                            <div id="level-two" class="panel-body service"><a>Silver<br>
+                            <div id="stwo" class="level-two panel-body service"><a>Silver<br>
                                 ksh 30,000</a>
                             </div>
-                            <div id="level-three"class="panel-body service"><a>Bronze<br>
+                            <div id="btwo"class="level-three panel-body service"><a>Bronze<br>
                                 ksh 20,000</a></div>
                             <button type="submit" class="service btn btn-success"> start</button>
                          </div>
@@ -192,11 +192,11 @@
                     <div class=" service panel-group">
                         <div class="panel panel-success">
                             <div class="panel-heading">Level 3</div>
-                            <div id="level-one"class="panel-body service"><a>Gold<br>
+                            <div id="gthree"class="level-one panel-body service"><a>Gold<br>
                                 150,000</a>
                             </div>
-                            <div id="level-two"class="panel-body service"><a>Silver<br>ksh 100,000</a></div>
-                            <div id="level-three"class="panel-body service"><a>Bronze<br>
+                            <div id="sthree"class="level-two panel-body service"><a>Silver<br>ksh 100,000</a></div>
+                            <div id="bthree"class="level-three panel-body service"><a>Bronze<br>
                                 ksh 70,000</a></div>
                             <button class="service btn btn-success"> start</button>
                         </div>
@@ -266,6 +266,7 @@
         </footer>
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
        <script src="js/bootstrap.min.js"></script>
+       <script src="js/process.js"></script>
        <script src="form-helpers/js/bootstrap-formhelpers.min.js"></script> 
     </body>
 </html>

@@ -123,13 +123,13 @@ footer.footer-items li a{
     border-radius: 340px;
 }
 
-#level-one.panel-body {
+.level-one.panel-body {
     background-color: rgb(223, 193, 26);
 }
-#level-two.panel-body {
+.level-two.panel-body {
     background-color: silver;
 }
-#level-three.panel-body{
+.level-three.panel-body{
     background-color:rgb(148, 69, 5);
     
 }
