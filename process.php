@@ -14,8 +14,10 @@
 
        
         
-        $result = mysqli_query($con,"INSERT INTO investments(package_type, amount,expected_earnings,username)
-            VALUES('$goldone','$amount','$expected_amount','$username')");
+        $result = mysqli_query($con,"INSERT INTO investments(package_type, amount,expected_earnings,username,paid)
+            VALUES('$goldone','$amount','$expected_amount','$username', 'not_paid')");
     }
+    
+    
 
 ?>

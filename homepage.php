@@ -1,3 +1,5 @@
+<?php require('config.php');
+    session_start();?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -99,21 +101,21 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>Package</th>
-                                <th>package Tye</th>
+                                <th>package Type</th>
                                 <th>Amount</th>
-                                <th>state</th>
+                                <th>Paid</th>
                                 <th>Expected Earnings</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Leve 1 </td>
-                                <td>gold</td>
-                                <td>ksh10,000</td>
-                                <td>Paid</td>
-                                <td>ksh20,000</td>
-                            </tr>
+                        <?php  
+                                $username = $_SESSION['username'];
+                                $sql = "SELECT * FROM investments WHERE username='$username'";
+                                $records = mysqli_query($con,$sql);
+                                while ($row = $records->fetch_assoc()){
+                                    echo "<tr><td>" .$row["package_type"] . "</td><td>" . $row["amount"]. "</td><td>" . $row["paid"].  "</td><td> " . $row["expected_earnings"]. "</td></tr>";
+                                }
+                         ?>
                         </tbody>
                     </table>
                 </div>
