@@ -354,10 +354,15 @@
                             <span style="color:red">*</span></label>
                             <input type="password" class="form-control" id="password" name="password" minlength='8' placeholder="password here" required>
                         </div>
+                        <div class="form-group">
+                            <label for="referall">Referall</label>
+                            <input type="text" class="form-control" id="referall" name="referall" minlength='10' placeholder="Referall code if any">
+                        </div>
                         <div>
                             <input type="submit" class="btn btn-success">
                             <input type="reset" class="btn btn-default" value="Reset">
                         </div>
+
                         <div>
                             <p>Already have an account? <a style="color:green; font-size:200%; text-decoration=none;" href="#" data-toggle="modal" data-target="#loginmodal" data-dismiss="modal">Login here</a>.</p>
                         </div>
