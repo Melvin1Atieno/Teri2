@@ -238,8 +238,6 @@
                 </div>
             </footer>
             <!-- login form modal -->
-            
-            
             <div class="modal fade" id="loginmodal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -258,15 +256,15 @@
                                 <input type="text" class="form-control" id="lusername" name="lusername" placeholder="Username">
                             </div>
                             <div class="form-group">
-                            <label for="lpassword">Password</label>
-                            <input type="password" class="form-control" id="lpassword" name="lpassword" placeholder="password here">
-                        </div>
-                        <button type="submit" class="btn btn-success">Submit</button>
-                    </form>
+                                <label for="lpassword">Password</label>
+                                <input type="password" class="form-control" id="lpassword" name="lpassword" placeholder="password here">
+                            </div>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer"></div>
                 </div>
-                <div class="modal-footer"></div>
             </div>
-        </div>
         <!-- more info on package modal -->
         <div class="modal fade" id="infomodal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -295,9 +293,7 @@
                 </div>
             </div>
         </div>
-
-            
-        <!-- more info on packages modal>
+        <!-- more info on packages modal-->
         <!-- register modal -->
         <div class="modal fade" id="registermodal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -351,7 +347,7 @@
                         <div class="form-group">
                             <label for="password">Password 
                             <span style="color:red">*</span></label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="password here" required>
+                            <input type="password" class="form-control" id="password" name="password" minlength='8' placeholder="password here" required>
                         </div>
                         <div>
                             <input type="submit" class="btn btn-success">

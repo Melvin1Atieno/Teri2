@@ -178,6 +178,6 @@ img#preloader {
     display: flex !important;
 }
 .investments{
-    height: 600px;
+    height: 600%;
     margin-left:10%;
 }
