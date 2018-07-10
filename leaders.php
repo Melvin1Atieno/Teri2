@@ -56,7 +56,7 @@
                             <a href="contact.php">contact us</a>
                         </li>
                         <li>
-                            <a href="logout.php" data-toggle="modal" data-target="#loginmodal" >Logout</a>
+                            <a href="logout.php" >Logout</a>
                         </li>
                     </ul>
                 </div>

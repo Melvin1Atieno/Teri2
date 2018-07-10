@@ -141,7 +141,7 @@
                             <div id="bone" class="level-three panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Bronze<br>
                                 ksh 3000</a>
                             </div>
-                            <button class="service btn btn-success"><a>start</a></button>
+                            <button class="service btn btn-success"><a href="#" data-toggle="modal" data-target="#registermodal" >start</a></button>
                         </div>
                     </div>
                 </div>
@@ -156,7 +156,7 @@
                         ksh 30,000</a></div>
                         <div id="btwo" class="level-three panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Bronze<br>
                         ksh 20,000</a></div>
-                        <button class="service btn btn-success"> start</button>
+                        <button class="service btn btn-success"><a href="#"data-toggle="modal" data-target="#registermodal" >start</a></button>
                     </div>
                 </div>
             </div>
@@ -170,7 +170,7 @@
                     <div id="sthree"class="level-two panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal" >Silver<br>ksh 100,000</a></div>
                     <div id="bthree"class="level-three panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Bronze<br>
                     ksh 70,000</a></div>
-                    <button class="service btn btn-success"> start</button>
+                    <button class="service btn btn-success"><a href="#"data-toggle="modal" data-target="#registermodal">start</a></button>
                 </div>
             </div>
         </div>
@@ -259,7 +259,12 @@
                                 <label for="lpassword">Password</label>
                                 <input type="password" class="form-control" id="lpassword" name="lpassword" placeholder="password here">
                             </div>
-                            <button type="submit" class="btn btn-success">Submit</button>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                            <div class="form-group">
+                                <p>Don't have an account? <a style="color:green; font-size:200%; text-decoration=none;" href="#" data-toggle="modal" data-target="#registermodal" data-dismiss="modal">Register Now here</a>.</p>
+                            </div>
                         </form>
                     </div>
                     <div class="modal-footer"></div>
@@ -354,7 +359,7 @@
                             <input type="reset" class="btn btn-default" value="Reset">
                         </div>
                         <div>
-                            <p>Already have an account? <a href="#" data-toggle="modal" data-target="#loginmodal">Login here</a>.</p>
+                            <p>Already have an account? <a style="color:green; font-size:200%; text-decoration=none;" href="#" data-toggle="modal" data-target="#loginmodal" data-dismiss="modal">Login here</a>.</p>
                         </div>
                     </form>
                 </div>
