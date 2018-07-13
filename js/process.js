@@ -173,5 +173,26 @@ $(document).ready(function () {
     });
   });
 
+
+    $("#confirm a").click(function () { //10000
+      var package_type = $("#confirm a").text();
+
+      alert("Confirmation received")
+
+      $.ajax({
+        type: "POST",
+        url: "confirm.php",
+        data: "confirm=true",
+        success: function (data) {
+          alert("success ");
+        },
+        error: function (error) {
+          alert("error in ajax form submission" + error);
+        }
+      });
+
+
+    });
+
    
 });

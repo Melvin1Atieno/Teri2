@@ -19,11 +19,17 @@ session_start();
            $_SESSION['success'] = "You are now logged in";
            header('location: homepage.php');
         }
-        
+        else{
+            echo "alert('You are not a registered user. Click okay andv register First')";
+            header('location: index.php');
+        }
 
 
 
 
+}else {
+    echo "alert('You are not a registered user. Click okay andv register First')";
+    header('location:index.php');
 }
 
 ?>

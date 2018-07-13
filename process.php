@@ -17,5 +17,7 @@
         $result = mysqli_query($con,"INSERT INTO investments(package_type, amount,expected_earnings,username,paid,date_made,match_found)
             VALUES('$goldone','$amount','$expected_amount','$username', 'not_paid', NOW(), 'not_found')");
     }
+    
+
 
 ?>

@@ -312,7 +312,7 @@
                     </div>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                    <form class="form-horizontal" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" autocomplete="on">
                         <div class="form-group">
                             <label for="firstname">First Name 
                             <span style="color:red">*<?php echo $firstname_error;?></span></label>
@@ -352,11 +352,11 @@
                         <div class="form-group">
                             <label for="password">Password 
                             <span style="color:red">*</span></label>
-                            <input type="password" class="form-control" id="password" name="password" minlength='8' placeholder="password here" required>
+                            <input type="password" class="form-control" id="password" name="password"   minlength='8'   placeholder="password here" required>
                         </div>
                         <div class="form-group">
-                            <label for="referall">Referall</label>
-                            <input type="text" class="form-control" id="referall" name="referall" minlength='10' placeholder="Referall code if any">
+                            <label for="refereal">Referral</label>
+                            <input type="text" class="form-control" id="referall" name="referall" minlength='10' placeholder="Referral code if any">
                         </div>
                         <div>
                             <input type="submit" class="btn btn-success">
