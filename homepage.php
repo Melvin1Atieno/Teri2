@@ -109,19 +109,18 @@
                                 <th>Amount</th>
                                 <th>Investment date</th>
                                 <th>Paid</th>
-                                <th>Expected Earnings</th>
-                                <th>Match found</th>
+                                <th>Expected Returns</th>
                                 <th>Make Payment</th>
                             </tr>
                         </thead>
                         <tbody>
                         <?php  
                             $username = $_SESSION['username'];
-                            
                             $sql = "SELECT * FROM investments WHERE InvestorsUsername='$username'";
+                            // echo "<script>alert('$sql')</script>";
                             $records = mysqli_query($con,$sql);
                             while ($row = $records->fetch_assoc()){
-                                echo "<tr><td>" .$row["package_type"] . "</td><td>" . $row["amount"]."</td><td>" . $row["date_made"]. "</td><td>" . $row["paid"].  "</td><td> " . $row["expected_earnings"]."</td><td> " . $row["match_found"]."</td><td>"."<button id='confirm'class='btn btn-success'><a style='color:white'href='#'data-toggle='modal' data-target='#makepaymentmmodal'>Confirm Payment made</a></button>" .   "</td></tr>";
+                                echo "<tr><td>" .$row["PackageType"] . "</td><td>" . $row["Amount"]."</td><td>" . $row["InvestmentDate"]. "</td><td>" . $row["Paid"].  "</td><td> " . $row["ExpectedReturns"]. "</td><td>". "<button id='confirm'class='btn btn-success'><a style='color:white'href='#'data-toggle='modal' data-target='#makepaymentmmodal'>Confirm Payment made</a></button>" .   "</td></tr>";
                                     }
                          ?>
                         </tbody>
@@ -141,16 +140,16 @@
                         </thead>
                         <tbody>
                         <?php  
-                            $username = $_SESSION['username'];
-                            $sql = "SELECT * FROM investments WHERE username IN (SELECT MatchOneUsername, MatchTwoUsername FROM Matches)";
-                            $records = mysqli_query($con,$sql);
-                            while ($row = $records->fetch_assoc()){
-                                $match_username = $row['InvestorsUsername'];
-                                $query = mysqli_query($con,"SELECT * FROM users where username = '$match_username'");
-                                    while ($nrow = $query->fetch_assoc()){
-                                        echo "<tr><td>" .$row["InvestorsUsername"] . "</td><td>" . $row["Amount"]."</td><td>" . $nrow["phonenumber"]."</td><td>" . "<button id='confirm'class='btn btn-success'><a style='color:white' href='#'data-toggle='modal' data-target='#confirmmodal'>confirm Reception</a></button>" ."</td></tr>";
-                                }
-                                }
+                            // $username = $_SESSION['username'];
+                            // $sql = "SELECT * FROM investments WHERE username IN (SELECT MatchOneUsername, MatchTwoUsername FROM Matches)";
+                            // $records = mysqli_query($con,$sql);
+                            // while ($row = $records->fetch_assoc()){
+                            //     $match_username = $row['InvestorsUsername'];
+                            //     $query = mysqli_query($con,"SELECT * FROM users where username = '$match_username'");
+                            //         while ($nrow = $query->fetch_assoc()){
+                            //             echo "<tr><td>" .$row["InvestorsUsername"] . "</td><td>" . $row["Amount"]."</td><td>" . $nrow["phonenumber"]."</td><td>" . "<button id='confirm'class='btn btn-success'><a style='color:white' href='#'data-toggle='modal' data-target='#confirmmodal'>confirm Reception</a></button>" ."</td></tr>";
+                            //     }
+                            //     }
                          ?>
                         </tbody>
                     </table>
