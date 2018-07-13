@@ -34,7 +34,7 @@
             //insert details to matches table
             
             $result = mysqli_query($con,"INSERT INTO matches(InvestmentID, ToBePaidBy,ToPayTo)
-            VALUES('$id','$musername','$Username')");
+            VALUES('$id','$Username','$musername')");
      
         }
     }

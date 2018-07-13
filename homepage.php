@@ -171,8 +171,8 @@
                                 $InvestmentId = $row['InvestmentID'];
                                 $query = mysqli_query($con,"SELECT * FROM matches where InvestmentID = '$InvestmentId'");
                                     while ($nrow = $query->fetch_assoc()){
-                                        $ToBePaidBy = $nrow['ToBePaidBy'];
-                                        $Isql = "SELECT * FROM users where username='$ToBePaidBy'";
+                                        $ToPayTo = $nrow['ToPayTo'];
+                                        $Isql = "SELECT * FROM users where username='$ToPayTo'";
                                         $Iresults = mysqli_query($con,$Isql);
                                         while ($Irow = $Iresults ->fetch_assoc()){
                                             $contactinfo = $Irow['phonenumber'];
