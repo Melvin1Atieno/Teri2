@@ -118,32 +118,25 @@
                         <tbody>
                         <?php  
                             $username = $_SESSION['username'];
+                            $Musername = '0000000000';
+                            $Mphonenumber = 'not_found';
                             $sql = "SELECT * FROM investments WHERE InvestorsUsername='$username'";
-                            $Musername = "";
-                            $Mphonenumber = "";
-                            // echo "<script>alert('$sql')</script>";
                             $records = mysqli_query($con,$sql);
                             while ($row = $records->fetch_assoc()){
-                                $InvestmentsId = (int)$row['InvestmentID'];
-                                $NoOfMatchesFound = (int)$row['NoOfMatchesFound'];
-                                if ($NoOfMatchesFound != 0){
-                                    $ssql = "SELECT * FROM matches WHERE InvestmentID='$InvestmentsId'";
-                                    $sresults = mysqli_query($con,$ssql);
-                                    while ($srow = $sresults->fetch_assoc()){
-                                        $Musername = $srow['ToPayTo'];
+                                    $fsql = "SELECT * FROM matches WHERE ToBePaidBy='$username'";
+                                    $fresults = mysqli_query($con,$fsql);
+                                    while ($frow = $fresults->fetch_assoc()){
+                                        $Musername = $frow['ToPayTo'];
                                         $nsql = "SELECT * FROM users WHERE username='$Musername'";
                                         $nrecords = mysqli_query($con,$nsql);
                                         while ($nrow = $nrecords->fetch_assoc()){
-                                            $Mphonenumber = $nrow['phonenumber'];
+                                             $Mphonenumber = $nrow['phonenumber'];
+                                         }
                                         }
-
-                                    }
-                                }else{
-                                    $Mphonenumber = '0000000000';
-                                    $Musername = 'not_found';
-                                }
                                 echo "<tr><td>" .$row["PackageType"] ."</td><td>" . $row["Amount"]."</td><td>" . $row["InvestmentDate"]."</td><td>".$Musername. "</td><td>".  $Mphonenumber ."</td><td>". "</td><td>" . $row["Paid"]. "</td><td>". $row["ExpectedReturns"]. "</td><td>". "<button id='confirm'class='btn btn-success'><a style='color:white'href='#'data-toggle='modal' data-target='#makepaymentmmodal'>Confirm Payment made</a></button>" .   "</td></tr>";
-                                    }
+
+                                }
+                            
                          ?>
                         </tbody>
                     </table>
@@ -171,8 +164,8 @@
                                 $InvestmentId = $row['InvestmentID'];
                                 $query = mysqli_query($con,"SELECT * FROM matches where InvestmentID = '$InvestmentId'");
                                     while ($nrow = $query->fetch_assoc()){
-                                        $ToPayTo = $nrow['ToPayTo'];
-                                        $Isql = "SELECT * FROM users where username='$ToPayTo'";
+                                        $ToBePaidBy = $nrow['ToBePaidBy'];
+                                        $Isql = "SELECT * FROM users where username='$ToBePaidBy'";
                                         $Iresults = mysqli_query($con,$Isql);
                                         while ($Irow = $Iresults ->fetch_assoc()){
                                             $contactinfo = $Irow['phonenumber'];
