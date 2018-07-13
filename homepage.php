@@ -108,6 +108,8 @@
                                 <th>package Type</th>
                                 <th>Amount</th>
                                 <th>Investment date</th>
+                                <th>Match Username</th>
+                                <th>Match Contcat Info<th>
                                 <th>Paid</th>
                                 <th>Expected Returns</th>
                                 <th>Make Payment</th>
@@ -117,10 +119,30 @@
                         <?php  
                             $username = $_SESSION['username'];
                             $sql = "SELECT * FROM investments WHERE InvestorsUsername='$username'";
+                            $Musername = "";
+                            $Mphonenumber = "";
                             // echo "<script>alert('$sql')</script>";
                             $records = mysqli_query($con,$sql);
                             while ($row = $records->fetch_assoc()){
-                                echo "<tr><td>" .$row["PackageType"] . "</td><td>" . $row["Amount"]."</td><td>" . $row["InvestmentDate"]. "</td><td>" . $row["Paid"].  "</td><td> " . $row["ExpectedReturns"]. "</td><td>". "<button id='confirm'class='btn btn-success'><a style='color:white'href='#'data-toggle='modal' data-target='#makepaymentmmodal'>Confirm Payment made</a></button>" .   "</td></tr>";
+                                $InvestmentsId = (int)$row['InvestmentID'];
+                                $NoOfMatchesFound = (int)$row['NoOfMatchesFound'];
+                                if ($NoOfMatchesFound != 0){
+                                    $ssql = "SELECT * FROM matches WHERE InvestmentID='$InvestmentsId'";
+                                    $sresults = mysqli_query($con,$ssql);
+                                    while ($srow = $sresults->fetch_assoc()){
+                                        $Musername = $srow['ToPayTo'];
+                                        $nsql = "SELECT * FROM users WHERE username='$Musername'";
+                                        $nrecords = mysqli_query($con,$nsql);
+                                        while ($nrow = $nrecords->fetch_assoc()){
+                                            $Mphonenumber = $nrow['phonenumber'];
+                                        }
+
+                                    }
+                                }else{
+                                    $Mphonenumber = '0000000000';
+                                    $Musername = 'not_found';
+                                }
+                                echo "<tr><td>" .$row["PackageType"] ."</td><td>" . $row["Amount"]."</td><td>" . $row["InvestmentDate"]."</td><td>".$Musername. "</td><td>".  $Mphonenumber ."</td><td>". "</td><td>" . $row["Paid"]. "</td><td>". $row["ExpectedReturns"]. "</td><td>". "<button id='confirm'class='btn btn-success'><a style='color:white'href='#'data-toggle='modal' data-target='#makepaymentmmodal'>Confirm Payment made</a></button>" .   "</td></tr>";
                                     }
                          ?>
                         </tbody>
@@ -140,16 +162,24 @@
                         </thead>
                         <tbody>
                         <?php  
-                            // $username = $_SESSION['username'];
-                            // $sql = "SELECT * FROM investments WHERE username IN (SELECT MatchOneUsername, MatchTwoUsername FROM Matches)";
-                            // $records = mysqli_query($con,$sql);
-                            // while ($row = $records->fetch_assoc()){
-                            //     $match_username = $row['InvestorsUsername'];
-                            //     $query = mysqli_query($con,"SELECT * FROM users where username = '$match_username'");
-                            //         while ($nrow = $query->fetch_assoc()){
-                            //             echo "<tr><td>" .$row["InvestorsUsername"] . "</td><td>" . $row["Amount"]."</td><td>" . $nrow["phonenumber"]."</td><td>" . "<button id='confirm'class='btn btn-success'><a style='color:white' href='#'data-toggle='modal' data-target='#confirmmodal'>confirm Reception</a></button>" ."</td></tr>";
-                            //     }
-                            //     }
+                            $username = $_SESSION['username'];
+                            $contactinfo = "";
+                            $ToBePaidBy = "";
+                            $sql = "SELECT * FROM investments WHERE InvestorsUsername='$username'AND Merged !=0 ";
+                            $records = mysqli_query($con,$sql);
+                            while ($row = $records->fetch_assoc()){
+                                $InvestmentId = $row['InvestmentID'];
+                                $query = mysqli_query($con,"SELECT * FROM matches where InvestmentID = '$InvestmentId'");
+                                    while ($nrow = $query->fetch_assoc()){
+                                        $ToBePaidBy = $nrow['ToBePaidBy'];
+                                        $Isql = "SELECT * FROM users where username='$ToBePaidBy'";
+                                        $Iresults = mysqli_query($con,$Isql);
+                                        while ($Irow = $Iresults ->fetch_assoc()){
+                                            $contactinfo = $Irow['phonenumber'];
+                                        }
+                                    }
+                                    echo "<tr><td>" .$ToBePaidBy . "</td><td>" . $row["Amount"]."</td><td>" . $contactinfo."</td><td>" . "<button id='confirm'class='btn btn-success'><a style='color:white' href='#'data-toggle='modal' data-target='#confirmmodal'>confirm Reception</a></button>" ."</td></tr>";
+                                }
                          ?>
                         </tbody>
                     </table>

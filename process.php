@@ -33,12 +33,9 @@
             $mupdate = mysqli_query($con, "UPDATE investments SET NoOfMatchesFound = 1 WHERE InvestorsUsername='$musername'");
             //insert details to matches table
             
-            $result = mysqli_query($con,"INSERT INTO matches(InvestmentID, MatchOneUsername)
-            VALUES('$id','$musername')");
-
-            
-            
-            
+            $result = mysqli_query($con,"INSERT INTO matches(InvestmentID, ToBePaidBy,ToPayTo)
+            VALUES('$id','$musername','$Username')");
+     
         }
     }
     
