@@ -30,6 +30,7 @@
                     $username_error = "Only letters and white space allowed";
                 }
                 $password = $con->real_escape_string(test_input($_POST["password"]));
+                $hashed_password = password_hash($password, PASSWORD_DEFAULT);
                 $bool = true;
                 
                 $query = mysqli_query($con,"SELECT * FROM users");
@@ -62,7 +63,7 @@
                 {
                     
                     $add_user_query = "INSERT INTO users (firstname, lastname, othername, email, country, phonenumber, username, password) 
-                    VALUES('$firstname', '$lastname', '$othername', '$email', '$country','$phonenumber','$username','$password')";
+                    VALUES('$firstname', '$lastname', '$othername', '$email', '$country','$phonenumber','$username','$hashed_password')";
                     $add_logged_query = mysqli_query($con,"INSERT INTO logged (username,logged) VALUES('$username',1)");
 
                     if ($con->query($add_user_query) === TRUE) {
