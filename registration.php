@@ -30,6 +30,7 @@
                     $username_error = "Only letters and white space allowed";
                 }
                 $password = $con->real_escape_string(test_input($_POST["password"]));
+                $hashed_password = password_hash($password, PASSWORD_DEFAULT);
                 $bool = true;
                 
                 $query = mysqli_query($con,"SELECT * FROM users");
@@ -56,26 +57,24 @@
                     {
                         $bool = false;
                         $username_error = "Username already exists";
-                        break;
                     }
                 }
                 if($bool) //checks if bool is true
                 {
                     
                     $add_user_query = "INSERT INTO users (firstname, lastname, othername, email, country, phonenumber, username, password) 
-                    VALUES('$firstname', '$lastname', '$othername', '$email', '$country','$phonenumber','$username',$password)";
-                    // mysqli_query($con, $query);
+                    VALUES('$firstname', '$lastname', '$othername', '$email', '$country','$phonenumber','$username','$hashed_password')";
+                    $add_logged_query = mysqli_query($con,"INSERT INTO logged (username,logged) VALUES('$username',1)");
+
                     if ($con->query($add_user_query) === TRUE) {
-                        // echo "New user created successfully";
+                        
                         $_SESSION["username"] = $username;
                         $_SESSION["success"] = "You are now logged in";
                         header('location: homepage.php');
                     } else {
                         echo "Error: " . $add_user_query . "<br>" . $con->error;
                     }
-                    // print '<script>alert("Successfully Resgistered")</script>';
-                    // header("location:homepage.php");
-                    // echo "<h2> Processing.....</h2";
+                    
                     $con->close();
                 }
             }

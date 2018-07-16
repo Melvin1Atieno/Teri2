@@ -132,16 +132,16 @@
                     <div class="service panel-group">
                         <div class="panel panel-success">
                             <div class="panel-heading">Level 1</div>
-                            <div id="level-one" class="panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Gold<br>
+                            <div id="gone" class="level-one panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Gold<br>
                                 ksh 10,000</a>
                             </div>
-                            <div id="level-two" class="panel-body service"><a>Silver<br>
+                            <div  id="sone" class="level-two panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Silver<br>
                                 ksh 5000</a>
                             </div>
-                            <div id="level-three" class="panel-body service"><a>Bronze<br>
+                            <div id="bone" class="level-three panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Bronze<br>
                                 ksh 3000</a>
                             </div>
-                            <button class="service btn btn-success"> start</button>
+                            <button class="service btn btn-success"><a href="#" data-toggle="modal" data-target="#registermodal" >start</a></button>
                         </div>
                     </div>
                 </div>
@@ -149,14 +149,14 @@
                     <div class="service panel-group">
                         <div class="panel panel-success">
                             <div class="panel-heading">Level 2</div>
-                            <div id="level-one"class="panel-body service"><a>Gold<br>
+                            <div id="gtwo" class="level-one panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Gold<br>
                             Ksh 50,000</a>
                         </div>
-                        <div id="level-two" class="panel-body service"><a>Silver<br>
+                        <div id="stwo" class="level-two panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Silver<br>
                         ksh 30,000</a></div>
-                        <div id="level-three"class="panel-body service"><a>Bronze<br>
+                        <div id="btwo" class="level-three panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Bronze<br>
                         ksh 20,000</a></div>
-                        <button class="service btn btn-success"> start</button>
+                        <button class="service btn btn-success"><a href="#"data-toggle="modal" data-target="#registermodal" >start</a></button>
                     </div>
                 </div>
             </div>
@@ -164,13 +164,13 @@
                 <div class=" service panel-group">
                     <div class="panel panel-success">
                         <div class="panel-heading">Level 3</div>
-                        <div id="level-one"class="panel-body service"><a>Gold<br>
+                        <div id="gthree"class="level-one panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Gold<br>
                         150,000</a><br>
                     </a></div>
-                    <div id="level-two"class="panel-body service"><a>Silver<br>ksh 100,000</a></div>
-                    <div id="level-three"class="panel-body service"><a>Bronze<br>
+                    <div id="sthree"class="level-two panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal" >Silver<br>ksh 100,000</a></div>
+                    <div id="bthree"class="level-three panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Bronze<br>
                     ksh 70,000</a></div>
-                    <button class="service btn btn-success"> start</button>
+                    <button class="service btn btn-success"><a href="#"data-toggle="modal" data-target="#registermodal">start</a></button>
                 </div>
             </div>
         </div>
@@ -238,8 +238,6 @@
                 </div>
             </footer>
             <!-- login form modal -->
-            
-            
             <div class="modal fade" id="loginmodal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -258,15 +256,20 @@
                                 <input type="text" class="form-control" id="lusername" name="lusername" placeholder="Username">
                             </div>
                             <div class="form-group">
-                            <label for="lpassword">Password</label>
-                            <input type="password" class="form-control" id="lpassword" name="lpassword" placeholder="password here">
-                        </div>
-                        <button type="submit" class="btn btn-success">Submit</button>
-                    </form>
+                                <label for="lpassword">Password</label>
+                                <input type="password" class="form-control" id="lpassword" name="lpassword" placeholder="password here">
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                            <div class="form-group">
+                                <p>Don't have an account? <a style="color:green; font-size:200%; text-decoration=none;" href="#" data-toggle="modal" data-target="#registermodal" data-dismiss="modal">Register Now here</a>.</p>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer"></div>
                 </div>
-                <div class="modal-footer"></div>
             </div>
-        </div>
         <!-- more info on package modal -->
         <div class="modal fade" id="infomodal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -276,7 +279,7 @@
                             <span aria-hidden="true">&times;</span>
                             <span class="sr-only">close</span>
                         </button>
-                        <h4 class="modal-title" id="LoginModalLabel">Login</h4>
+                        <h4 class="modal-title" id="LoginModalLabel"><span class="highlight">Economy-</span>mist</h4>
                     </div>
                 </div>
                 <div class="modal-body">
@@ -286,14 +289,16 @@
                         100% returns<br>
                         You think the deal is too good!!<br>
                         Try Us!!!!<br>
+                        <?php 
+                        require("load.php") ?>
                     </p>
                 </div>
-                <div class="modal-footer"></div>
+                <div class="modal-footer">
+                    <button class="btn btn-success"><a href="#" data-toggle="modal" data-target="#registermodal">Start</a></button>
+                </div>
             </div>
         </div>
-
-            
-        <!-- more info on packages modal>
+        <!-- more info on packages modal-->
         <!-- register modal -->
         <div class="modal fade" id="registermodal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -307,7 +312,7 @@
                     </div>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                    <form class="form-horizontal" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" autocomplete="on">
                         <div class="form-group">
                             <label for="firstname">First Name 
                             <span style="color:red">*<?php echo $firstname_error;?></span></label>
@@ -341,20 +346,25 @@
                         <div class="form-group">
                            <label for="username">Username 
                            <span style="color:red">*<?php echo $username_error ?></label>
-                           <input type="text" class="form-control" id="username" name="username" placeholder="preferred username">
+                           <input type="text" class="form-control" id="username" name="username" placeholder="preferred username"required>
                            </br>
                         </div>
                         <div class="form-group">
                             <label for="password">Password 
                             <span style="color:red">*</span></label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="password here">
+                            <input type="password" class="form-control" id="password" name="password"   minlength='8'   placeholder="password here" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="refereal">Referral</label>
+                            <input type="text" class="form-control" id="referall" name="referall" minlength='10' placeholder="Referral code if any">
                         </div>
                         <div>
                             <input type="submit" class="btn btn-success">
                             <input type="reset" class="btn btn-default" value="Reset">
                         </div>
+
                         <div>
-                            <p>Already have an account? <a href="#" data-toggle="modal" data-target="#loginmodal">Login here</a>.</p>
+                            <p>Already have an account? <a style="color:green; font-size:200%; text-decoration=none;" href="#" data-toggle="modal" data-target="#loginmodal" data-dismiss="modal">Login here</a>.</p>
                         </div>
                     </form>
                 </div>
