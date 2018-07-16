@@ -174,15 +174,19 @@ $(document).ready(function () {
   });
 
 
-    $("#confirm a").click(function () { //10000
-      var package_type = $("#confirm a").text();
+  $("#confirmbutton button").click(function () { //10000
+    var to_be_paid_by = $("id='tobepaidby").text();
+    var data = {
+      confirm:'true',
+      To_Be_Paid_By :json.dumps(to_be_paid_by)
+    }
 
       alert("Confirmation received")
 
       $.ajax({
         type: "POST",
         url: "confirm.php",
-        data: "confirm=true",
+        data: data,
         success: function (data) {
           alert("success ");
         },

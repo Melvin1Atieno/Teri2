@@ -171,7 +171,7 @@
                                             $contactinfo = $Irow['phonenumber'];
                                         }
                                     }
-                                    echo "<tr><td>" .$ToBePaidBy . "</td><td>" . $row["Amount"]."</td><td>" . $contactinfo."</td><td>" . "<button id='confirm'class='btn btn-success'><a style='color:white' href='#'data-toggle='modal' data-target='#confirmmodal'>confirm Reception</a></button>" ."</td></tr>";
+                                    echo "<tr><td id='tobepaidby'>" .$ToBePaidBy . "</td><td>" . $row["Amount"]."</td><td>" . $contactinfo."</td><td>" . "<button id='confirm'class='btn btn-success'><a style='color:white' href='#'data-toggle='modal' data-target='#confirmmodal'>confirm Reception</a></button>" ."</td></tr>";
                                 }
                          ?>
                         </tbody>
@@ -321,7 +321,7 @@
                         echo "I "."$username"." CONFIRM I have received the said amount.";
                        ?>
                    </p>
-                <button id="confirm" type="submit" class="btn btn-success">Submit</button>
+                <button id="confirmbutton" type="submit" class="btn btn-success">Submit</button>
                 </form>
                 </div>
                 <div class="modal-footer">
@@ -349,7 +349,7 @@
                     <form class="form-horizontal">
                         <div class="form-group">
                             <label for="myFile">Upload payment evidence: </label>
-                            <input class="form-control" type="file" id="myFile"name="myFile" placeholder="Add snapshot of payment receipt">
+                            <input class="form-control" type="file" id="myFile"name="myFile" placeholder="Add snapshot of payment receipt" required>
                         </div>
                         <div class="form-group">
                             <label for="paymentMethod">Payment Method </label>
@@ -360,11 +360,11 @@
                         </div>
                         <div class="form-group">
                             <label for="amountPaid">Amout Paid</label>
-                            <input class="form-control" type="number" min="3000" step="1000" placeholder="amount paid">
+                            <input class="form-control" type="number" min="3000" step="1000" placeholder="amount paid" required>
                         </div>
                         <div class="form-group">
                             <label for="dateofpayment">Payment date: </label>
-                            <input class="form-control" id="dateofpayment" name="dateofpayment" type="datetime-local">
+                            <input class="form-control" id="dateofpayment" name="dateofpayment" type="datetime-local" required>
                         </div><br>
                         <div class="form-group">
                             <input onclick="alert('Please wait as payment reception to be confirmed')" type="submit" value="Confirm" class="btn btn-success">

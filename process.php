@@ -20,11 +20,11 @@
     $Username = "";
     $id = "";
     while ($row = $query->fetch_assoc()){
-        // $Merged = (int)$row['Merged'];
         $id = (int)$row['InvestmentID'];
         $Username = $row['InvestorsUsername'];
+        $Amount = $row['Amount'];
         //select the user to merge I.e to be a match
-        $nquery = mysqli_query($con, "SELECT * FROM investments WHERE InvestorsUsername != '$Username' AND NoOfMatchesFound < 1 ");
+        $nquery = mysqli_query($con, "SELECT * FROM investments WHERE InvestorsUsername != '$Username' AND NoOfMatchesFound < 1 AND Amount='$Amount' ");
         while ($nrow = $nquery->fetch_assoc()){
             $musername = $nrow['InvestorsUsername'];
             //update user who's been merged
