@@ -93,6 +93,31 @@
         </div>
         <div class="investments container-fluid ">
             <h2>MY INVESTMENT PLANS</h2><br><br>
+            <!-- timer function -->
+            <?php $username = $_SESSION['username'];
+            $query = mysqli_query($con,"SELECT * FROM users WHERE username = '$username'");
+            while ($row = $query ->fetch_assoc()){
+                $registrationtime  = $row['Registration_date'];
+                // $timenow = date("Y-m-d H:i:s");
+                $registrationtime = date_create($registrationtime);
+                $timenow = date_create();
+                $diff = date_diff( $registrationtime, $timenow );
+                if($diff->h>48 and $diff->i>59 and $diff->s){
+                    $dquery = mysqli_query($con, "DELETE * FROM users WHERE username=$username ");
+                }else{
+
+                    $mquery = mysqli_query($con, "SELECT * FROM investemnts WHERE InvestorsUsername='$username' AND Paid='paid' ");
+                    if(!$mquery){
+                        echo "<p style=' color:rgb(134, 216, 12);;font-size:160%; margin-top:0'>Make an investment and make payments in 48 hours after registration or you will be removed from list.</p>";
+                        echo "<p> You have been a user for:"."<span style='color:red'>". $diff->h."hours"." ".$diff->i." "."minitues and ".$diff->s."seconds"."</span>"."</p>"."<br>"; 
+                        echo "<p style ='color:red; font-size:180%;'>You have  ".(48-$diff->h)."hours ".(60-$diff->i)."minitues and ".(60-$diff->s)."seconds Left!!!!"."</p>";
+                    }
+                }
+
+                // $timeLapse = date_sub($registrationtime,$timenow);
+                // echo $registrationtime;               // if($timelapse >=  )
+            }
+            ?>
             <ul class="nav nav-pills">
                 <li class="active"><a data-toggle="pill" href="#cinvestments">current investments</a></li>
                 <li><a data-toggle="pill" href="#investors">My Investors</a></li>
