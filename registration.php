@@ -61,23 +61,34 @@
                 }
                 if($bool) //checks if bool is true
                 {
-                    
-                    $add_user_query = "INSERT INTO users (firstname, lastname, othername, email, country, phonenumber, username, password,Registration_date) 
-                    VALUES('$firstname', '$lastname', '$othername', '$email', '$country','$phonenumber','$username','$hashed_password',NOW())";
-                    $add_logged_query = mysqli_query($con,"INSERT INTO logged (username,logged) VALUES('$username',1)");
+                    $hash = md5( rand(0,1000) );
 
-                    if ($con->query($add_user_query) === TRUE) {
-                        
-                        $_SESSION["username"] = $username;
-                        $_SESSION["success"] = "You are now logged in";
-                        header('location: homepage.php');
+                    $add_user_query = "INSERT INTO users (firstname, lastname, othername, email, country, phonenumber, username, password,Registration_date,Hash) 
+                    VALUES('$firstname', '$lastname', '$othername', '$email', '$country','$phonenumber','$username','$hashed_password',NOW(),'$hash')";
+                    $add_logged_query = mysqli_query($con,"INSERT INTO logged (username,logged) VALUES('$username',1)");
+                    $to = $email; //send email to user
+                    $subject = 'Verify your email';
+                    $message = "
+Welcome to Economy-mist!
+You have successfully taken your ultimate invenstment step. One final step, please click the link below to verify your account with the following credentials. If this is not you simply ignore.
+----------------------------------------
+Username : '$username'
+Password :  '$password'
+-----------------------------------------
+
+please follow this link to activate your account and start making investments right away:
+http://www.economy-mist.com/verify.php?email='.$email.'&hash='.$hash.'
+";
+$headers = 'From:noreply@economymist.com'. "\r\n";//set from headers
+mail($to,$subject,$message,$headers);
+                    // if (
                     } else {
                         echo "Error: " . $add_user_query . "<br>" . $con->error;
                     }
                     
                     $con->close();
                 }
-            }
+            
             function test_input($data){
                 $data = trim($data);
                 $data = stripslashes($data);
