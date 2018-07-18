@@ -2,7 +2,7 @@
     session_start();
 
     $firstname_error = $lastname_error = $othername_error = $email_error = $phonenumber_error = $username_error ="";
-    $firstname = $lastname = $othername = $email = $username = $phonenumber = "";
+    $firstname = $lastname = $othername = $email = $username = $phonenumber = $hash=$results= "";
     if($_SERVER["REQUEST_METHOD"] === "POST")
     {
                
@@ -63,27 +63,26 @@
                 {
                     $hash = md5( rand(0,1000) );
 
-                    $add_user_query = "INSERT INTO users (firstname, lastname, othername, email, country, phonenumber, username, password,Registration_date,Hash) 
-                    VALUES('$firstname', '$lastname', '$othername', '$email', '$country','$phonenumber','$username','$hashed_password',NOW(),'$hash')";
-                    $add_logged_query = mysqli_query($con,"INSERT INTO logged (username,logged) VALUES('$username',1)");
+                    $add_user_query = "INSERT INTO users (firstname, lastname, othername, email, verified, country, phonenumber, username, password, Registration_date,randhash) 
+                    VALUES('$firstname', '$lastname', '$othername', '$email',0 ,'$country','$phonenumber','$username','$hashed_password',NOW(),'$hash')";
+                    $results = mysqli_query($con, $add_user_query);
                     $to = $email; //send email to user
                     $subject = 'Verify your email';
-                    $message = "
+                    $message = '
 Welcome to Economy-mist!
 You have successfully taken your ultimate invenstment step. One final step, please click the link below to verify your account with the following credentials. If this is not you simply ignore.
 ----------------------------------------
-Username : '$username'
-Password :  '$password'
+Username : '.$username.'
+Password :  '.$password.'
 -----------------------------------------
 
 please follow this link to activate your account and start making investments right away:
 http://www.economy-mist.com/verify.php?email='.$email.'&hash='.$hash.'
-";
+';
 $headers = 'From:noreply@economymist.com'. "\r\n";//set from headers
 mail($to,$subject,$message,$headers);
-                    // if (
                     } else {
-                        echo "Error: " . $add_user_query . "<br>" . $con->error;
+                        echo "Error: " . $results. "<br>" . $con->error;
                     }
                     
                     $con->close();
