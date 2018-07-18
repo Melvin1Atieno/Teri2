@@ -1,0 +1,183 @@
+body{
+    background-color: rgba(0, 0, 0, 0);
+}
+nav{
+    margin:0!important;
+}
+.navbar {
+    margin-bottom:0;
+    background-color: rgba(0, 0, 0, 0);
+    border:0;
+    font-size: 100% !important;
+    border-radius: 0;
+    letter-spacing: 2px;
+    color:white!important;
+    
+}
+.nav.navbar-nav.navbar-right a:hover {
+    color:rgb(134, 216, 12);
+}
+.highlight {
+    color:rgb(134, 216, 12) ;
+}
+.navbar-brand{
+    font-size:20px;
+}
+.section-title {
+    text-align:center;
+    margin: 2% 0 2% 0;
+    background-color: rgb(7, 40, 102);
+    padding : .5em 0;
+    font-size:200%;
+    font-weight:bold;
+    color:white;
+}
+
+.service {
+    z-index:99;
+    margin: 20px 20px 20px 20px; ;
+    border-radius: 0;
+    text-align: center;
+    
+}
+.panel-group {
+    border-radius: 0;
+}
+.panel .panel-heading{
+    background-color: rgb(7, 40, 102);
+    font-size:200%;
+    font-weight:bold;
+    color:white;
+}
+#section {
+    margin:0;
+    height:510px;
+    background-image: url("../images/work10.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:100%;
+    height:50%;
+    opacity: 0.9;
+}
+#section .text{
+    color:rgb(0, 0, 0);
+    font-size: 200%;
+    letter-spacing: 5%;
+    text-align: right;
+    margin:8% 65% 0 0;
+    font-family: Open Sans;
+    font-weight:900;
+}
+#section button {
+    padding:2% 8%;
+    font-size:50%;
+    font-weight:bold;
+    color:white;
+    margin-bottom: 2%;
+}
+#info-section{
+    z-index:2;
+    width:50%;
+    height:100%;
+    margin-top:0;
+    padding:5%;
+    text-align: center;
+    font-size:200%;
+    font-weight:bold;
+    background-color:rgb(0, 0, 0);
+    color:white;
+    opacity: 0.5;
+    background-blend-mode: darken;
+}
+
+.col-md-3 img {
+    width:200px;
+}
+.modal-header{
+    background-color: rgb(65, 65, 65);
+    text-align: center;
+    font-family: Open Sans;
+    font-weight:900;
+    color: white;
+}
+.modal{
+    /* margin-top:5%; */
+    font-family: Open Sans;
+    font-weight:900;
+    color: white;
+    background-color: rgb(0, 0, 0);
+}
+footer  .footer-items {
+    list-style-type: none;
+    /* padding:2% 8%; */
+    color:white;
+    font-size:150%;
+    
+}
+footer.footer-items li a{
+    font-weight:bold;
+    
+    margin-bottom: 2%;
+}
+.service.panel-group{
+    border-radius: 340px;
+}
+
+.level-one.panel-body {
+    background-color: rgb(223, 193, 26);
+}
+.level-two.panel-body {
+    background-color: silver;
+}
+.level-three.panel-body{
+    background-color:rgb(148, 69, 5);
+    
+}
+.panel-body a{
+    color:black;
+    font-size: 120%;
+    font-weight: bold;
+    padding:0;
+}
+img#preloader {
+    width: 10%;
+    display: block;
+    margin-top:20%;
+    margin-left: auto;
+    margin-right: auto;
+    height:20%;
+}
+
+.home-section{
+    margin:2% 0 5% 0;
+    height:100%;
+    width:100%;
+    background-color:white;
+}
+.home-section form{
+    width: 80%;
+    height:auto;
+    margin:auto;
+    display:block;
+    
+}
+.error {
+    color: rgb(233, 22, 92);
+}
+.header{
+    background-color: rgba(255, 255, 255, 0.76);
+    height: 500px;
+    margin-left:0;
+    background-image: url("../images/people.jpg");
+    background-size: cover;
+}
+/* let the games begin */
+.header-items{
+    list-style-type: none;
+    color:white;
+    display: flex !important;
+}
+.investments{
+    height: 600%;
+    margin-left:10%;
+}
