@@ -109,8 +109,8 @@
                     $mquery = mysqli_query($con, "SELECT * FROM investemnts WHERE InvestorsUsername='$username' AND Paid='paid' ");
                     if(!$mquery){
                         echo "<p style=' color:rgb(134, 216, 12);;font-size:160%; margin-top:0'>Make an investment and make payments in 48 hours after registration or you will be removed from list.</p>";
-                        echo "<p> You have been a user for:"."<span style='color:red'>". $diff->h."hours"." ".$diff->i." "."minitues and ".$diff->s."seconds"."</span>"."</p>"."<br>"; 
-                        echo "<p style ='color:red; font-size:180%;'>You have  ".(48-$diff->h)."hours ".(60-$diff->i)."minitues and ".(60-$diff->s)."seconds Left!!!!"."</p>";
+                        echo "<p> You have been a user for:"."<span style='color:red'>". $diff->h."hours"." ".(60-($diff->i))." "."minitues and ".$diff->s."seconds"."</span>"."</p>"."<br>"; 
+                        echo "<p style ='color:red; font-size:180%;'>You have  ".(48-$diff->h)."hours ".($diff->i)."minitues and ".(60-$diff->s)."seconds Left!!!!"."</p>";
                     }
                 }
 
