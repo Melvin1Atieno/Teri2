@@ -8,7 +8,7 @@ session_start();
        $lusername = trim($_POST["lusername"]);
        $lpassword = trim ($_POST["lpassword"]);
        
-        $query = "SELECT * FROM users where username = '$lusername'";
+        $query = "SELECT * FROM users where username = '$lusername' AND verified=1";
         $results = mysqli_query($con, $query);
         while ($row = $results->fetch_assoc()){
             $hashed_password = $row['password'];

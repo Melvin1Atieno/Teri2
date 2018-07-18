@@ -66,7 +66,9 @@
         <!-- LOADER -->
         <img id="preloader"  class="preloader" src="static/images/loader.gif" alt="">
         <!--END-->
-    </div>
+        <?php 
+        ?>
+        </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="form-helpers/js/bootstrap-formhelpers.min.js"></script>

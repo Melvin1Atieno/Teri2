@@ -92,73 +92,34 @@
             </div>
         </div>
         <div class="investments container-fluid ">
-            <h2>MY INVESTMENT PLANS</h2><br><br>
-            <!-- timer function -->
-            <?php $username = $_SESSION['username'];
-            $query = mysqli_query($con,"SELECT * FROM users WHERE username = '$username'");
-            while ($row = $query ->fetch_assoc()){
-                $registrationtime  = $row['Registration_date'];
-                // $timenow = date("Y-m-d H:i:s");
-                $registrationtime = date_create($registrationtime);
-                $timenow = date_create();
-                $diff = date_diff( $registrationtime, $timenow );
-                if($diff->h>48 and $diff->i>59 and $diff->s){
-                    $dquery = mysqli_query($con, "DELETE * FROM users WHERE username=$username ");
-                }else{
-
-                    $mquery = mysqli_query($con, "SELECT * FROM investemnts WHERE InvestorsUsername='$username' AND Paid='paid' ");
-                    if(!$mquery){
-                        echo "<p style=' color:rgb(134, 216, 12);;font-size:160%; margin-top:0'>Make an investment and make payments in 48 hours after registration or you will be removed from list.</p>";
-                        echo "<p> You have been a user for:"."<span style='color:red'>". $diff->h."hours"." ".$diff->i." "."minitues and ".$diff->s."seconds"."</span>"."</p>"."<br>"; 
-                        echo "<p style ='color:red; font-size:180%;'>You have  ".(48-$diff->h)."hours ".(60-$diff->i)."minitues and ".(60-$diff->s)."seconds Left!!!!"."</p>";
-                    }
-                }
-
-                // $timeLapse = date_sub($registrationtime,$timenow);
-                // echo $registrationtime;               // if($timelapse >=  )
-            }
-            ?>
+                <!-- timer function -->
             <ul class="nav nav-pills">
-                <li class="active"><a data-toggle="pill" href="#cinvestments">current investments</a></li>
-                <li><a data-toggle="pill" href="#investors">My Investors</a></li>
+                <li class="active"><a data-toggle="pill" href="#cinvestments">List of  Investments</a></li>
+                <li><a data-toggle="pill" href="#investors">Matches</a></li>
                 <li><a data-toggle="pill" href="#notifications">Notifications</a></li>
                 <li><a data-toggle="pill" href="#messages">Messages</a></li>
             </ul>
             <div class="tab-content">
                 <div id="cinvestments" class="tab-pane fade in active">
-                    <h3>My Investments</h3>
+                    <h3>List of  Investments</h3>
                     <table class="table table-hover">
                         <thead>
                             <tr>
+                                <th>InvestorsUsername</th>
                                 <th>package Type</th>
                                 <th>Amount</th>
                                 <th>Investment date</th>
-                                <th>Match Username</th>
-                                <th>Match Contcat Info<th>
                                 <th>Paid</th>
                                 <th>Expected Returns</th>
-                                <th>Make Payment</th>
+                                <th>NO of Merges</th>
                             </tr>
                         </thead>
                         <tbody>
                         <?php  
-                            $username = $_SESSION['username'];
-                            $Musername = '0000000000';
-                            $Mphonenumber = 'not_found';
-                            $sql = "SELECT * FROM investments WHERE InvestorsUsername='$username'";
+                            $sql = "SELECT * FROM investments";
                             $records = mysqli_query($con,$sql);
                             while ($row = $records->fetch_assoc()){
-                                    $fsql = "SELECT * FROM matches WHERE ToBePaidBy='$username'";
-                                    $fresults = mysqli_query($con,$fsql);
-                                    while ($frow = $fresults->fetch_assoc()){
-                                        $Musername = $frow['ToPayTo'];
-                                        $nsql = "SELECT * FROM users WHERE username='$Musername'";
-                                        $nrecords = mysqli_query($con,$nsql);
-                                        while ($nrow = $nrecords->fetch_assoc()){
-                                             $Mphonenumber = $nrow['phonenumber'];
-                                         }
-                                        }
-                                echo "<tr><td>" .$row["PackageType"] ."</td><td>" . $row["Amount"]."</td><td>" . $row["InvestmentDate"]."</td><td>".$Musername. "</td><td>".  $Mphonenumber ."</td><td>". "</td><td>" . $row["Paid"]. "</td><td>". $row["ExpectedReturns"]. "</td><td>". "<button id='confirm'class='btn btn-success'><a style='color:white'href='#'data-toggle='modal' data-target='#makepaymentmmodal'>Confirm Payment made</a></button>" .   "</td></tr>";
+                                echo "<tr><td>" .$row["InvestorsUsername"] ."</td><td>".$row["PackageType"] ."</td><td>" . $row["Amount"]."</td><td>" . $row["InvestmentDate"]."</td><td>" . $row["Paid"]. "</td><td>". $row["ExpectedReturns"]. "</td><td>".$row["Merged"]. "</td><td>"  .   "</td></tr>";
 
                                 }
                             
@@ -167,37 +128,36 @@
                     </table>
                 </div>
                 <div id="investors" class="tab-pane fade">
-                    <h3>My Investors</h3>
+                    <h3>Matches</h3>
                     <p>list of your investors, their details and payment state </p>
                     <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th>Username</th>
-                                <th>Amount</th>
-                                <th>phone number</th>
-                                <th>payment state</th>
+                                <!-- <th>Amount</th> -->
+                                <th>TobePaidTO</th>
                             </tr>
                         </thead>
                         <tbody>
                         <?php  
-                            $username = $_SESSION['username'];
-                            $contactinfo = "";
-                            $ToBePaidBy = "";
-                            $sql = "SELECT * FROM investments WHERE InvestorsUsername='$username'AND Merged !=0 ";
+                           
+                            $sql = "SELECT * FROM matches ";
                             $records = mysqli_query($con,$sql);
                             while ($row = $records->fetch_assoc()){
-                                $InvestmentId = $row['InvestmentID'];
-                                $query = mysqli_query($con,"SELECT * FROM matches where InvestmentID = '$InvestmentId'");
-                                    while ($nrow = $query->fetch_assoc()){
-                                        $ToBePaidBy = $nrow['ToBePaidBy'];
-                                        $Isql = "SELECT * FROM users where username='$ToBePaidBy'";
-                                        $Iresults = mysqli_query($con,$Isql);
-                                        while ($Irow = $Iresults ->fetch_assoc()){
-                                            $contactinfo = $Irow['phonenumber'];
-                                        }
-                                    }
-                                    echo "<tr><td id='tobepaidby'>" .$ToBePaidBy . "</td><td>" . $row["Amount"]."</td><td>" . $contactinfo."</td><td>" . "<button id='confirm'class='btn btn-success'><a style='color:white' href='#'data-toggle='modal' data-target='#confirmmodal'>confirm Reception</a></button>" ."</td></tr>";
-                                }
+                                
+                                echo "<tr><td id='tobepaidby'>" .$row['ToBePaidBy']. "</td><td>" .$row['ToPayTo']. "</td><td>"."</td></tr>";
+                            }
+                            //     $InvestmentId = $row['InvestmentID'];
+                            //     $query = mysqli_query($con,"SELECT * FROM matches where InvestmentID = '$InvestmentId'");
+                            //         while ($nrow = $query->fetch_assoc()){
+                            //             $ToBePaidBy = $nrow['ToBePaidBy'];
+                            //             $Isql = "SELECT * FROM users where username='$ToBePaidBy'";
+                            //             $Iresults = mysqli_query($con,$Isql);
+                            //             while ($Irow = $Iresults ->fetch_assoc()){
+                            //                 $contactinfo = $Irow['phonenumber'];
+                                       // }
+                                   // }
+                               // }
                          ?>
                         </tbody>
                     </table>
