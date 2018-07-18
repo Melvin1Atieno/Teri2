@@ -19,6 +19,7 @@
     $query = mysqli_query($con,"SELECT * FROM investments WHERE Merged < 2 LIMIT 1");
     $Username = "";
     $id = "";
+    $musername ="";
     while ($row = $query->fetch_assoc()){
         $id = (int)$row['InvestmentID'];
         $Username = $row['InvestorsUsername'];
@@ -35,7 +36,6 @@
             
             $result = mysqli_query($con,"INSERT INTO matches(InvestmentID, ToBePaidBy,ToPayTo)
             VALUES('$id','$musername','$Username')");
-     
         }
     }
 ?>
