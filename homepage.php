@@ -1,3 +1,8 @@
+<?php require('config.php');
+    session_start();
+    if(!isset($_SESSION['username'])){
+        header('location: index.php');
+    }?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -46,7 +51,8 @@
                 <div class="collapse navbar-collapse" id="mynavbar">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="#" =>Home</a></li>
+                            <a href="homepage.php">Home</a>
+                         </li>
                         <li>
                             <a href="leaders.php">Leaderboard</a>
                         </li>
@@ -54,7 +60,7 @@
                             <a href="#">contact us</a>
                         </li>
                         <li>
-                            <a href="#" data-toggle="modal" data-target="#loginmodal" >Logout</a>
+                            <a id="logout" href="logout.php">Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -99,21 +105,39 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>Package</th>
-                                <th>package Tye</th>
+                                <th>package Type</th>
                                 <th>Amount</th>
-                                <th>state</th>
-                                <th>Expected Earnings</th>
+                                <th>Investment date</th>
+                                <th>Match Username</th>
+                                <th>Match Contcat Info<th>
+                                <th>Paid</th>
+                                <th>Expected Returns</th>
+                                <th>Make Payment</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Leve 1 </td>
-                                <td>gold</td>
-                                <td>ksh10,000</td>
-                                <td>Paid</td>
-                                <td>ksh20,000</td>
-                            </tr>
+                        <?php  
+                            $username = $_SESSION['username'];
+                            $Musername = '0000000000';
+                            $Mphonenumber = 'not_found';
+                            $sql = "SELECT * FROM investments WHERE InvestorsUsername='$username'";
+                            $records = mysqli_query($con,$sql);
+                            while ($row = $records->fetch_assoc()){
+                                    $fsql = "SELECT * FROM matches WHERE ToBePaidBy='$username'";
+                                    $fresults = mysqli_query($con,$fsql);
+                                    while ($frow = $fresults->fetch_assoc()){
+                                        $Musername = $frow['ToPayTo'];
+                                        $nsql = "SELECT * FROM users WHERE username='$Musername'";
+                                        $nrecords = mysqli_query($con,$nsql);
+                                        while ($nrow = $nrecords->fetch_assoc()){
+                                             $Mphonenumber = $nrow['phonenumber'];
+                                         }
+                                        }
+                                echo "<tr><td>" .$row["PackageType"] ."</td><td>" . $row["Amount"]."</td><td>" . $row["InvestmentDate"]."</td><td>".$Musername. "</td><td>".  $Mphonenumber ."</td><td>". "</td><td>" . $row["Paid"]. "</td><td>". $row["ExpectedReturns"]. "</td><td>". "<button id='confirm'class='btn btn-success'><a style='color:white'href='#'data-toggle='modal' data-target='#makepaymentmmodal'>Confirm Payment made</a></button>" .   "</td></tr>";
+
+                                }
+                            
+                         ?>
                         </tbody>
                     </table>
                 </div>
@@ -125,19 +149,31 @@
                             <tr>
                                 <th>Username</th>
                                 <th>Amount</th>
-                                <th>Payment Method</th>
                                 <th>phone number</th>
                                 <th>payment state</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Simba 1</td>
-                                <td>ksh10,000</td>
-                                <td>Bank</td>
-                                <td>07187651651</td>
-                                <td><button class="btn btn-danger btn-sm">Paid</td>
-                            </tr>
+                        <?php  
+                            $username = $_SESSION['username'];
+                            $contactinfo = "";
+                            $ToBePaidBy = "";
+                            $sql = "SELECT * FROM investments WHERE InvestorsUsername='$username'AND Merged !=0 ";
+                            $records = mysqli_query($con,$sql);
+                            while ($row = $records->fetch_assoc()){
+                                $InvestmentId = $row['InvestmentID'];
+                                $query = mysqli_query($con,"SELECT * FROM matches where InvestmentID = '$InvestmentId'");
+                                    while ($nrow = $query->fetch_assoc()){
+                                        $ToBePaidBy = $nrow['ToBePaidBy'];
+                                        $Isql = "SELECT * FROM users where username='$ToBePaidBy'";
+                                        $Iresults = mysqli_query($con,$Isql);
+                                        while ($Irow = $Iresults ->fetch_assoc()){
+                                            $contactinfo = $Irow['phonenumber'];
+                                        }
+                                    }
+                                    echo "<tr><td id='tobepaidby'>" .$ToBePaidBy . "</td><td>" . $row["Amount"]."</td><td>" . $contactinfo."</td><td>" . "<button id='confirm'class='btn btn-success'><a style='color:white' href='#'data-toggle='modal' data-target='#confirmmodal'>confirm Reception</a></button>" ."</td></tr>";
+                                }
+                         ?>
                         </tbody>
                     </table>
                 </div>
@@ -159,13 +195,13 @@
                     <div class="service panel-group">
                         <div class="panel panel-success">
                             <div class="panel-heading">Level 1</div>
-                            <div id="level-one" class="panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Gold<br>
+                            <div id="gone" class="level-one panel-body service"><a>Gold<br>
                                 ksh 10,000</a>
                             </div>
-                            <div id="level-two" class="panel-body service"><a>Silver<br>
+                            <div id="sone" class="level-two panel-body service"><a>Silver<br>
                                 ksh 5000</a>
                             </div>
-                            <div id="level-three" class="panel-body service"><a>Bronze<br>
+                            <div id="bone" class="level-three panel-body service"><a>Bronze<br>
                                 ksh 3000</a>
                             </div>
                             <button class="service btn btn-success"> start</button>
@@ -176,13 +212,13 @@
                     <div class="service panel-group">
                         <div class="panel panel-success">
                             <div class="panel-heading">Level 2</div>
-                            <div id="level-one"class="panel-body service"><a>Gold<br>
+                            <div id="gtwo"class="level-one panel-body service"><a>Gold<br>
                                 Ksh 50,000</a>
                             </div>
-                            <div id="level-two" class="panel-body service"><a>Silver<br>
+                            <div id="stwo" class="level-two panel-body service"><a>Silver<br>
                                 ksh 30,000</a>
                             </div>
-                            <div id="level-three"class="panel-body service"><a>Bronze<br>
+                            <div id="btwo"class="level-three panel-body service"><a>Bronze<br>
                                 ksh 20,000</a></div>
                             <button type="submit" class="service btn btn-success"> start</button>
                          </div>
@@ -192,11 +228,11 @@
                     <div class=" service panel-group">
                         <div class="panel panel-success">
                             <div class="panel-heading">Level 3</div>
-                            <div id="level-one"class="panel-body service"><a>Gold<br>
+                            <div id="gthree"class="level-one panel-body service"><a>Gold<br>
                                 150,000</a>
                             </div>
-                            <div id="level-two"class="panel-body service"><a>Silver<br>ksh 100,000</a></div>
-                            <div id="level-three"class="panel-body service"><a>Bronze<br>
+                            <div id="sthree"class="level-two panel-body service"><a>Silver<br>ksh 100,000</a></div>
+                            <div id="bthree"class="level-three panel-body service"><a>Bronze<br>
                                 ksh 70,000</a></div>
                             <button class="service btn btn-success"> start</button>
                         </div>
@@ -264,8 +300,90 @@
                 </div>
             </div>
         </footer>
+
+        <!--confirm modal-->
+        <div class="modal fade" id="confirmmodal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span>
+                            <span class="sr-only">close</span>
+                        </button>
+                        <h4 class="modal-title" id="confirmModalLabel"><span class="highlight">Confirm Payment</span></h4>
+                    </div>
+                </div>
+                <div class="modal-body">
+                <form>
+                   <p>
+                      <?php
+                        $username = $_SESSION["username"];
+                        echo "I "."$username"." CONFIRM I have received the said amount.";
+                       ?>
+                   </p>
+                <button id="confirmbutton" type="submit" class="btn btn-success">Submit</button>
+                </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!--confirm modal-->
+        <!--makepayment modal-->
+        <div class="modal fade" id="makepaymentmmodal" tabindex="-1" role="dialog" aria-labelledby="makepaymentModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span>
+                            <span class="sr-only">close</span>
+                        </button>
+                        <h4 class="modal-title" id="makepaymentModalLabel"><span class="highlight">Confirm you have made payment</span></h4>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="myFile">Upload payment evidence: </label>
+                            <input class="form-control" type="file" id="myFile"name="myFile" placeholder="Add snapshot of payment receipt" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="paymentMethod">Payment Method </label>
+                            <select  class="form-control" name="paymentMethod">
+                                <option value="bank">Bank</option>
+                                <option value="MobileTransfer">Mobile Transfer</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="amountPaid">Amout Paid</label>
+                            <input class="form-control" type="number" min="3000" step="1000" placeholder="amount paid" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dateofpayment">Payment date: </label>
+                            <input class="form-control" id="dateofpayment" name="dateofpayment" type="datetime-local" required>
+                        </div><br>
+                        <div class="form-group">
+                            <input onclick="alert('Please wait as payment reception to be confirmed')" type="submit" value="Confirm" class="btn btn-success">
+                            <input type="reset" value="Reset" class="btn btn-danger">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span style="color:white"aria-hidden="true">&times;</span>
+                        <span class="sr-only">close</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!--makepayment modal-->
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
        <script src="js/bootstrap.min.js"></script>
+       <script src="js/process.js"></script>
        <script src="form-helpers/js/bootstrap-formhelpers.min.js"></script> 
     </body>
 </html>

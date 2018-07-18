@@ -1,25 +1,28 @@
 <?php 
 require_once 'config.php';
+session_start();
 // defining variables and initialize with empty values
-    $lusername = $lpassword = "";
+    $lusername = $lpassword =$hashed_password ="";
    // processing form data when its submitted
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
-        $lusername = trim($_POST["lusername"]);
-        $lpassword = trim ($_POST["lpassword"]);
-
-        $query = "SELECT username , password FROM users where username = '$lusername' AND password= '$lpassword'";
+   if($_SERVER["REQUEST_METHOD"] == "POST"){
+       $lusername = trim($_POST["lusername"]);
+       $lpassword = trim ($_POST["lpassword"]);
+       
+        $query = "SELECT * FROM users where username = '$lusername'";
         $results = mysqli_query($con, $query);
-        
-        if (mysqli_num_rows($results) == 1){
-        
-           $_SESSION['username'] = $username;
-            $_SESSION['success'] = "You are now logged in";
-            header('location: homepage.php');
-        }
+        while ($row = $results->fetch_assoc()){
+            $hashed_password = $row['password'];
 
-
-
-
-}
-
-?>
+            if(password_verify($lpassword,$hashed_password)){
+                $_SESSION['username'] = $lusername;
+                $_SESSION['success'] = "You are now logged in";
+                header('location: homepage.php');
+            }
+            else{
+            echo "<script>alert('Invalid Username or Password combination')</script>";
+            header('location: index.php');
+            }
+            }
+    }
+    ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

@@ -46,7 +46,9 @@
                 </div>
                 <div class="collapse navbar-collapse" id="mynavbar">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="index.php" =>Home</a></li>
+                        <li>
+                            <a href="link.php">Home</a>
+                        </li>
                         <li>
                             <a href="leaders.php">Leaderboard</a>
                         </li>
@@ -54,7 +56,7 @@
                             <a href="contact.php">contact us</a>
                         </li>
                         <li>
-                            <a href="#" data-toggle="modal" data-target="#loginmodal" >Logout</a>
+                            <a href="logout.php" >Logout</a>
                         </li>
                     </ul>
                 </div>
