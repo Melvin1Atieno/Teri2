@@ -68,8 +68,8 @@
                     $results = mysqli_query($con, $add_user_query);
                     $to = $email; //send email to user
                     $subject = 'Verify your email';
-                    $message = '
-Welcome to Economy-mist!
+                    $message = "
+Welcome to Camp-Freedom!
 You have successfully taken your ultimate invenstment step. One final step, please click the link below to verify your account with the following credentials. If this is not you simply ignore.
 ----------------------------------------
 Username : '.$username.'
@@ -77,10 +77,12 @@ Password :  '.$password.'
 -----------------------------------------
 
 please follow this link to activate your account and start making investments right away:
-http://www.economy-mist.com/verify.php?email='.$email.'&hash='.$hash.'
-';
-$headers = 'From:noreply@economymist.com'. "\r\n";//set from headers
+http://www.clubfreedom.co/verify.php?email='.$email.'&hash='.$hash.'
+";
+$headers = 'From:noreply@campfreedom.co'. "\r\n";//set from headers
 mail($to,$subject,$message,$headers);
+                    $_SESSION["username"] = $username;
+                    header('location: homepage.php');
                     } else {
                         echo "Error: " . $results. "<br>" . $con->error;
                     }

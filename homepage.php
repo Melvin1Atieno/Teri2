@@ -102,20 +102,19 @@
                 $registrationtime = date_create($registrationtime);
                 $timenow = date_create();
                 $diff = date_diff( $registrationtime, $timenow );
-                if($diff->h>48 and $diff->i>59 and $diff->s){
+                if($diff->h>24 and $diff->i>59 and $diff->s){
                     $dquery = mysqli_query($con, "DELETE * FROM users WHERE username=$username ");
+                    $dmatch = mysqli_query($con, "DELETE * FROM matches WHERE ToBePaidBy= $username OR ToBePaidTo=$username");
                 }else{
 
                     $mquery = mysqli_query($con, "SELECT * FROM investemnts WHERE InvestorsUsername='$username' AND Paid='paid' ");
                     if(!$mquery){
-                        echo "<p style=' color:rgb(134, 216, 12);;font-size:160%; margin-top:0'>Make an investment and make payments in 48 hours after registration or you will be removed from list.</p>";
-                        echo "<p> You have been a user for:"."<span style='color:red'>". $diff->h."hours"." ".$diff->i." "."minitues and ".$diff->s."seconds"."</span>"."</p>"."<br>"; 
-                        echo "<p style ='color:red; font-size:180%;'>You have  ".(48-$diff->h)."hours ".(60-$diff->i)."minitues and ".(60-$diff->s)."seconds Left!!!!"."</p>";
+                        echo "<p style=' color:rgb(134, 216, 12);;font-size:160%; margin-top:0'>Make an investment and make payments in 24 hours after registration or you will be removed from list.</p>";
+                        echo "<p> You have been a user for:"."<span style='color:red'>". $diff->h."hours"." ".(60-($diff->i))." "."minitues and ".$diff->s."seconds"."</span>"."</p>"."<br>"; 
+                        echo "<p style ='color:red; font-size:180%;'>You have  ".(24-$diff->h)."hours ".($diff->i)."minitues and ".(60-$diff->s)."seconds Left!!!!"."</p>";
                     }
                 }
 
-                // $timeLapse = date_sub($registrationtime,$timenow);
-                // echo $registrationtime;               // if($timelapse >=  )
             }
             ?>
             <ul class="nav nav-pills">
@@ -138,16 +137,20 @@
                                 <th>Paid</th>
                                 <th>Expected Returns</th>
                                 <th>Make Payment</th>
+                                <th>Cancel Investment</th>
                             </tr>
                         </thead>
                         <tbody>
                         <?php  
+                            $NoOfMatchesFound = $InvestmentId='';
                             $username = $_SESSION['username'];
-                            $Musername = '0000000000';
-                            $Mphonenumber = 'not_found';
+                            $Musername = 'not_found';
+                            $Mphonenumber = '00000000';
                             $sql = "SELECT * FROM investments WHERE InvestorsUsername='$username'";
                             $records = mysqli_query($con,$sql);
                             while ($row = $records->fetch_assoc()){
+                                    $InvestmentId = $row['InvestmentID'];
+                                    $NoOfMatchesFound = $row['NoOfMatchesFound'];
                                     $fsql = "SELECT * FROM matches WHERE ToBePaidBy='$username'";
                                     $fresults = mysqli_query($con,$fsql);
                                     while ($frow = $fresults->fetch_assoc()){
@@ -156,13 +159,37 @@
                                         $nrecords = mysqli_query($con,$nsql);
                                         while ($nrow = $nrecords->fetch_assoc()){
                                              $Mphonenumber = $nrow['phonenumber'];
+                                             if($NoOfMatchesFound == 1){
+                                                 $Musername = 'not_found';
+                                                 $Mphonenumber = 'no contact info';
+                                             }else{
+                                                $Musername = $frow['ToPayTo']; 
+                                                $Mphonenumber = $nrow['phonenumber'];
+                                             }
                                          }
                                         }
-                                echo "<tr><td>" .$row["PackageType"] ."</td><td>" . $row["Amount"]."</td><td>" . $row["InvestmentDate"]."</td><td>".$Musername. "</td><td>".  $Mphonenumber ."</td><td>". "</td><td>" . $row["Paid"]. "</td><td>". $row["ExpectedReturns"]. "</td><td>". "<button id='confirm'class='btn btn-success'><a style='color:white'href='#'data-toggle='modal' data-target='#makepaymentmmodal'>Confirm Payment made</a></button>" .   "</td></tr>";
-
-                                }
-                            
-                         ?>
+                                    
+                                            echo "<tr>
+                                                    <td>" . $row["PackageType"] ."</td>
+                                                    <td>" . $row["Amount"]."</td>
+                                                    <td>" . $row["InvestmentDate"]."</td>
+                                                    <td>" . $Musername. "</td>
+                                                    <td>" . $Mphonenumber ."</td>
+                                                    <td>" . "</td>
+                                                    <td>" . $row["Paid"]. "</td>
+                                                    <td>" . $row["ExpectedReturns"]. "</td>
+                                                    <td>" . "<button id='confirm'class='btn btn-success'><a style='color:white'href='#'data-toggle='modal' data-target='#makepaymentmmodal'>Confirm Payment made</a></button>" . "</td>
+                                                    <td>" . "<button  class='btn btn-danger'><a onclick='deleteqry(<?php echo $InvestmentId ;?>)' style='color:white'href='#'>Cancel Investment</a></button>" .   "</td>
+                                                </tr>";
+                                                }
+                        ?>
+                                                <script language='javascript'>
+                                                            function deleteqry(InvestmentId) {
+                                                                if (confirm("Are you sure you want to delete this Investment?") == true)
+                                                                    window.location.href = 'delete.php?rem='+InvestmentId;
+                                                         return true;
+                                                             }
+                                                </script> ;
                         </tbody>
                     </table>
                 </div>
@@ -176,6 +203,7 @@
                                 <th>Amount</th>
                                 <th>phone number</th>
                                 <th>payment state</th>
+                                <th>Remove Investor</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -195,9 +223,17 @@
                                         while ($Irow = $Iresults ->fetch_assoc()){
                                             $contactinfo = $Irow['phonenumber'];
                                         }
+                                        echo 
+                                            "<tr>
+                                                <td id='tobepaidby'>" .$ToBePaidBy . "</td>
+                                                <td>" . $row["Amount"]."</td>
+                                                <td>" . $contactinfo."</td>
+                                                <td>" . "<button id='confirm'class='btn btn-success'><a style='color:white' href='#'data-toggle='modal' data-target='#confirmmodal'>confirm Reception</a></button>". "</td>
+                                                <td>". "<button class='btn btn-danger'><a style='color:white'href='#'>Remove Investor</a></button>"  ."</td>
+                                            </tr>";
                                     }
-                                    echo "<tr><td id='tobepaidby'>" .$ToBePaidBy . "</td><td>" . $row["Amount"]."</td><td>" . $contactinfo."</td><td>" . "<button id='confirm'class='btn btn-success'><a style='color:white' href='#'data-toggle='modal' data-target='#confirmmodal'>confirm Reception</a></button>" ."</td></tr>";
                                 }
+                        
                          ?>
                         </tbody>
                     </table>
@@ -407,8 +443,10 @@
         </div>
         <!--makepayment modal-->
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      
        <script src="js/bootstrap.min.js"></script>
        <script src="js/process.js"></script>
-       <script src="form-helpers/js/bootstrap-formhelpers.min.js"></script> 
+       <script src="form-helpers/js/bootstrap-formhelpers.min.js"></script>
+      
     </body>
 </html>

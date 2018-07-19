@@ -19,10 +19,11 @@
     $query = mysqli_query($con,"SELECT * FROM investments WHERE Merged < 2 LIMIT 1");
     $Username = "";
     $id = "";
+    $musername ="";
     while ($row = $query->fetch_assoc()){
         $id = (int)$row['InvestmentID'];
-        $Username = $row['InvestorsUsername'];
-        $Amount = $row['Amount'];
+        $Username = $row['InvestorsUsername'];//user who is next on list for merging
+        $Amount = $row['Amount'];//amount they have invested
         //select the user to merge I.e to be a match
         $nquery = mysqli_query($con, "SELECT * FROM investments WHERE InvestorsUsername != '$Username' AND NoOfMatchesFound < 1 AND Amount='$Amount' ");
         while ($nrow = $nquery->fetch_assoc()){
@@ -31,11 +32,11 @@
             $update = mysqli_query($con,"UPDATE investments SET Merged = 1 + Merged  WHERE InvestorsUsername='$Username' AND InvestmentID='$id'");
             //update details for user who is a match
             $mupdate = mysqli_query($con, "UPDATE investments SET NoOfMatchesFound = 1 WHERE InvestorsUsername='$musername'");
-            //insert details to matches table
-            
+            //insert details to matches table for merged
             $result = mysqli_query($con,"INSERT INTO matches(InvestmentID, ToBePaidBy,ToPayTo)
             VALUES('$id','$musername','$Username')");
-     
+            
         }
     }
+    
 ?>
