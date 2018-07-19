@@ -20,6 +20,9 @@ nav{
 .highlight {
     color:rgb(134, 216, 12) ;
 }
+#started{
+    font-size:200%;
+}
 .navbar-brand{
     font-size:20px;
 }
@@ -160,6 +163,14 @@ img#preloader {
     margin:auto;
     display:block;
     
+}
+.step{
+    font-size: 200%;
+    letter-spacing: 5%;
+    text-align: right;
+    margin:8% 65% 0 0;
+    font-family: Open Sans;
+    font-weight:900;
 }
 .error {
     color: rgb(233, 22, 92);

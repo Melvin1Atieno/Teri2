@@ -11,8 +11,10 @@
         
         <!-- site Meta -->
         <title>Investors solutions</title>
-        <meta name="keyword" content="">
-        <meta name="descriptiom" content="">
+        <meta name="keyword" content="Investments">
+        <meta name="keyword" content="QuickMoney">
+        <meta name="keyword" content="Freedom">
+        <meta name="descriptiom" content="Club Freedom, Quick Money, Investment opportunities">
         <meta name="author" content="">
         
         <!-- Site Icons -->
@@ -27,6 +29,7 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"rel="stylesheet">
         <link href="form-helpers/css/bootstrap-formhelpers.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://csshake.surge.sh/csshake.min.css">
         <link href="static/css/mycss.css" rel="stylesheet">
         
     </head>
@@ -42,7 +45,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#"><span class="highlight">ECONOMY-</span>MIST</a>
+                    <a class="navbar-brand" href="#"><span class="highlight">CLUB-</span>FREEDOM</a>
                 </div>
                 <div class="collapse navbar-collapse" id="mynavbar">
                     <ul class="nav navbar-nav navbar-right">
@@ -65,7 +68,8 @@
         </nav>
         <div id="section" class="container">
             <div class="text">
-                <p>Creating <span class="highlight">lasting value</span> <br>
+                <p>CREATING <span class="highlight">LASTING VALUE</span> <br>
+                <p>CHOOSE <span class="highlight">FREEDOM</span> <br>
                     <br><hr style="margin-top:0">
                 </p>
                 <button data-toggle="modal" data-target="#registermodal"  class="btn btn-success">SignUp</button>
@@ -83,28 +87,28 @@
                     <div class="carousel-inner">
                         <div class="item active">
                             <div>
-                                <p>Creating a lasting value<br>
-                                    through experience<br>
-                                    and engagement.<br>
-                                    <p>Read More...</p><br><hr>
+                                <p>Club Freedom is an online pyramid network.<br>
+                                  A platform where you get to connect to positive and great minds.<br>
+                                  To selflessly invest in each others dream and vision.<br>
+                                    <p class="highlight">THINK BIG!!!</p><br><hr>
                                 </p>
                             </div>
                         </div>
                         <div class="item">
                             <div>
-                                <p>Creating a lasting value<br>
-                                    through experience<br>
-                                    and engagement.<br>
-                                    <p>Read More...</p><br><hr>
+                                <p> At club freedom we are aimed to break every shackles of poverty.<br>
+                                    To overhaul and empower  individual standards of living. <br> 
+                                    Everything is simplified and straightforward. <br>  
+                                    <p class="highlight">THINK FREEDOM!!!!</p><br><hr>
                                 </p>
                             </div>
                         </div>
                         <div class="item">
                             <div>
-                                <p>Creating a lasting value<br>
-                                    through experience<br>
-                                    and engagement.<br>
-                                    <p>Read More...</p><br><hr>
+                                <p>Club freedom grants high fliers<br>
+                                    the pedestal to super soar<br>
+                                    The sky is just the starting point.<br>
+                                    <p class="highlight" >THINK RICH...get RICHER!!.</p><br><hr>
                                 </p>
                             </div>
                         </div>
@@ -126,50 +130,77 @@
         
         <!-- our services section -->
         <div class="container-fluid">
-            <h2 class="section-title"><strong>Available Packages</strong></h2>
+            <h2 class="section-title"><strong>HOW IT WORKS</strong></h2>
             <div class="row">
                 <div class="col-md-4">
+                    <div class="row">
+                        <div class="service panel-group">
+                            <div class="panel panel-success">
+                                <div class="panel-heading">The catch?</div>
+                                <div style="color:red; margin:5%">
+                                   1. Make 200% return on investment within 72 hours time line from the hour you invested.<br><br>
+                                   2. You secure 5% of your downliners per head for life, as referral bonus.
+                                        Automatically become a country representative with 100 downliners and get paid monthly bonuses for life!<br><br>
+                                   3. Simply recommit after 24 hours or your user account will be permanently deleted.<br><br>
+                                   4. Defaulters and participants who upload Fake POP will be permanently deleted after proper investigation by support team!<br><br>
+                                </div>
+                                <button class="service btn btn-success"><a href="#" data-toggle="modal" data-target="#registermodal" >start</a></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div style="margin:10% 10% 10% 16%">
+                            <p id='started' class='highlight'>
+                            Watch your money grow, Fast!!! <br>
+                            We value your time <br>
+                            We know you do too<br>
+                            Get started with three Easy steps!!</p>
+                            <i  class="fa fa-hand-o-down shake-constant shake-vertical" style="font-size:56px;color:green;padding:5%; "></i>
+                        </div>  
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <img src="static/images/moneytime.jpg" style="width:100%;height:20%; margin-right:0px;">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
                     <div class="service panel-group">
                         <div class="panel panel-success">
-                            <div class="panel-heading">Level 1</div>
-                            <div id="gone" class="level-one panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Gold<br>
-                                ksh 10,000</a>
-                            </div>
-                            <div  id="sone" class="level-two panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Silver<br>
-                                ksh 5000</a>
-                            </div>
-                            <div id="bone" class="level-three panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Bronze<br>
-                                ksh 3000</a>
+                            <div class="panel-heading">STEP 1</div>
+                            <div>
+                                <p class="highlight step">Sign Up</p>
+                                <i class="fa fa-sign-in-alt"></i>
                             </div>
                             <button class="service btn btn-success"><a href="#" data-toggle="modal" data-target="#registermodal" >start</a></button>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-1"style = "padding:5%;">
+                    <i  class="fa fa-hand-o-right shake-horizontal shake-constant shake-constant--hover" style="font-size:56px;color:green"></i>
+                </div>
+                <div class="col-md-3">
                     <div class="service panel-group">
                         <div class="panel panel-success">
-                            <div class="panel-heading">Level 2</div>
-                            <div id="gtwo" class="level-one panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Gold<br>
-                            Ksh 50,000</a>
-                        </div>
-                        <div id="stwo" class="level-two panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Silver<br>
-                        ksh 30,000</a></div>
-                        <div id="btwo" class="level-three panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Bronze<br>
-                        ksh 20,000</a></div>
+                            <div class="panel-heading">STEP 2</div>
+                            <div>
+                                <p class="highlight step" >Verify Your Account</p>
+                            </div>
                         <button class="service btn btn-success"><a href="#"data-toggle="modal" data-target="#registermodal" >start</a></button>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-1"style = "padding:5%;" >
+                <i class="fa fa-hand-o-right shake-slow shake-constant shake-horizontal shake-constant--hover " style="font-size:56px;color:green "></i>
+            </div>
+            <div class="col-md-3">
                 <div class=" service panel-group">
                     <div class="panel panel-success">
-                        <div class="panel-heading">Level 3</div>
-                        <div id="gthree"class="level-one panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Gold<br>
-                        150,000</a><br>
-                    </a></div>
-                    <div id="sthree"class="level-two panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal" >Silver<br>ksh 100,000</a></div>
-                    <div id="bthree"class="level-three panel-body service"><a href="#"data-toggle="modal" data-target="#infomodal">Bronze<br>
-                    ksh 70,000</a></div>
+                        <div class="panel-heading">STEP 3</div>
+                        <div>
+                            <p class="highlight step"> Choose an Investment Package</p>
+                            <!-- <p class="highlight step"> Wait for returns</p> -->
+                        </div>
                     <button class="service btn btn-success"><a href="#"data-toggle="modal" data-target="#registermodal">start</a></button>
                 </div>
             </div>
