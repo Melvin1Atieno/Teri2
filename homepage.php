@@ -185,7 +185,7 @@
                                                     <td>" . $row["Paid"]. "</td>
                                                     <td>" . $row["ExpectedReturns"]. "</td>
                                                     <td>" . "<button id='confirm'class='btn btn-success'><a style='color:white'href='#'data-toggle='modal' data-target='#makepaymentmmodal'>Confirm Payment made</a></button>" . "</td>
-                                                    <td>" . "<button  onclick='deleteqry($InvestmentId)' class='btn btn-danger'><a  style='color:white'href='#'>Cancel Investment</a></button>" .   "</td>
+                                                    <td>" . "<button  onclick='deleteqry($InvestmentId)' class='btn btn-danger'>Cancel Investment</button>" .   "</td>
                                                 </tr>";
                                                 }
                         ?>

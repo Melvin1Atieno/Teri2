@@ -116,10 +116,23 @@
                         </thead>
                         <tbody>
                         <?php  
+                            $InvestmentId = "";
                             $sql = "SELECT * FROM investments";
                             $records = mysqli_query($con,$sql);
                             while ($row = $records->fetch_assoc()){
-                                echo "<tr><td>" .$row["InvestorsUsername"] ."</td><td>".$row["PackageType"] ."</td><td>" . $row["Amount"]."</td><td>" . $row["InvestmentDate"]."</td><td>" . $row["Paid"]. "</td><td>". $row["ExpectedReturns"]. "</td><td>".$row["Merged"]. "</td><td>"  .   "</td></tr>";
+                                $InvestmentId = $row["InvestmentID"];
+                                echo "<tr>
+                                        <td>" .$row["InvestorsUsername"] ."</td>
+                                        <td>" .$row["PackageType"] ."</td>
+                                        <td>" . $row["Amount"]."</td>
+                                        <td>" . $row["InvestmentDate"]."</td>
+                                        <td>" . $row["Paid"]. "</td>
+                                        <td>". $row["ExpectedReturns"]. "</td>
+                                        <td>".$row["Merged"]. "</td>
+                                        <td>"  .   "</td>
+                                        <td>" . "<button  onclick='deleteqry($InvestmentId)' class='btn btn-danger'><a  style='color:white'href='#'>Remove Investment</a></button>" .   "</td>
+                                        </tr>";
+                                        
 
                                 }
                             
