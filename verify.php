@@ -17,6 +17,6 @@ if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash'])){
     }
 }else{
     //Invalid approach
-    echo "<div class='statusmsg'>Invalid approach pleas euse the link that has been sent to your email</div>";
+    echo "<div class='statusmsg'>Please use the link that has been sent to your email to verify your account before you proceed</div>";
 }
 ?>

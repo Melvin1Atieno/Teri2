@@ -213,7 +213,7 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div>
-                        <h3><strong>ECONOMY-MIST</strong></h3>
+                        <h3><strong>CLUB-FREEDOM</strong></h3>
                         
                         <ul class="footer-items">
                             <li><a href="#">About Us</a></li>

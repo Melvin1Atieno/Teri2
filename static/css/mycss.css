@@ -192,3 +192,8 @@ img#preloader {
     height: 600%;
     margin-left:10%;
 }
+.statusmsg{
+    margin:auto;
+    font-size: 150%;
+    color:green;
+}
