@@ -82,9 +82,9 @@ http://www.clubfreedom.co/verify.php?email='.$email.'&hash='.$hash.'
 $headers = 'From:noreply@campfreedom.co'. "\r\n";//set from headers
 mail($to,$subject,$message,$headers);
                     $_SESSION["username"] = $username;
-                    header('location: homepage.php');
-                    } else {
-                        echo "Error: " . $results. "<br>" . $con->error;
+                } else {
+                        header('location: index.php');
+                        // echo "Error: " . $results. "<br>" . $con->error;
                     }
                     
                     $con->close();

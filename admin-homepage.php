@@ -281,7 +281,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row" style="text-align:center;"> All Rights Reserved Â©. MelvinAtieno 2018.
+                <div class="row" style="text-align:center;">All Rights Reserved Â©. CLUB FREEDON 2018.
                 </div>
             </div>
         </footer>

@@ -108,7 +108,7 @@
                                 <p>Club freedom grants high fliers<br>
                                     the pedestal to super soar<br>
                                     The sky is just the starting point.<br>
-                                    <p class="highlight" >THINK RICH...get RICHER!!.</p><br><hr>
+                                    <p class="highlight" >THINK RICH....GET RICHER!!.</p><br><hr>
                                 </p>
                             </div>
                         </div>
@@ -264,7 +264,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row" style="text-align:center;"> All Rights Reserved Â©. MelvinAtieno 2018.
+                <div class="row" style="text-align:center;"> All Rights Reserved Â©. CLUB FREEDON 2018.
                     </div>
                 </div>
             </footer>
