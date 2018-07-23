@@ -1,10 +1,13 @@
 <?php
 require('config.php');
 session_start();
-// if($_GET['rem']){
-//     cancelinvestment($InvestmentId);
-//     }
+if(isset($_GET['rem'])){
+    $id = (int)$_GET['rem'];
+    // $id = mysqli_escape_string($_GET['rem']);
+    $username = $_SESSION['username'];
+    // cancelinvestment($InvestmentId);
+    $dquery = mysqli_query($con, "DELETE  FROM investments WHERE InvestorsUsername = '$username' AND InvestmentID=$id ");
     $username = $_SESSION['username']; 
-    $dquery = mysqli_query($con, "DELETE * FROM investments WHERE InvestorsUsername = $username AND InvestmentID='".$_GET['rem']."'");
     header ("location: homepage.php");
+    }
 ?>

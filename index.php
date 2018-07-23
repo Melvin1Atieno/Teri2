@@ -253,7 +253,7 @@
                     <div class="col-sm-4">
                         <div>
                             <h3>
-                                <strong>Contact US</strong>
+                                <strong>SUPPORT US</strong>
                             </h3>
                             <form class="form-inline">
                                 <div class="form-group">
@@ -310,7 +310,7 @@
                             <span aria-hidden="true">&times;</span>
                             <span class="sr-only">close</span>
                         </button>
-                        <h4 class="modal-title" id="LoginModalLabel"><span class="highlight">Economy-</span>mist</h4>
+                        <h4 class="modal-title" id="LoginModalLabel"><span class="highlight">CLUB-</span>FREEDOM</h4>
                     </div>
                 </div>
                 <div class="modal-body">

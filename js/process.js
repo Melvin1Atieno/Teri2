@@ -197,5 +197,28 @@ $(document).ready(function () {
 
 
     });
+  $("#confirmbutton button").click(function () { //10000
+    var to_be_paid_by = $("id='tobepaidby").text();
+    var data = {
+      confirm: 'true',
+      To_Be_Paid_By: json.dumps(to_be_paid_by)
+    }
+
+    alert("Confirmation received")
+
+    $.ajax({
+      type: "POST",
+      url: "confirm.php",
+      data: data,
+      success: function (data) {
+        alert("success ");
+      },
+      error: function (error) {
+        alert("error in ajax form submission" + error);
+      }
+    });
+
+
+  });
 
 });

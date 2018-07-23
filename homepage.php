@@ -1,7 +1,9 @@
 <?php require('config.php');
     session_start();
+    // header("Refresh:3; url=homepage.php");
     if(!isset($_SESSION['username'])){
         header('location: index.php');
+        
     }?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,7 +59,7 @@
                             <a href="leaders.php">Leaderboard</a>
                         </li>
                         <li>
-                            <a href="#">contact us</a>
+                            <a href="contact.php">contact us</a>
                         </li>
                         <li>
                             <a id="logout" href="logout.php">Logout</a>
@@ -73,7 +75,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <ul class=" header-items">
                         <li>
                             <button class="btn btn-primary btn-sm" href="#"><i class="fa fa-facebook"></i>FaceBook</button>
@@ -89,12 +91,16 @@
                         </li><br>
                     </ul>
                 </div>
+                <div class="col-md-6">
+                    <button class="btn btn-primary bt-lg">Edit your profile</button>
+                </div>
             </div>
         </div>
         <div class="investments container-fluid ">
             <h2>MY INVESTMENT PLANS</h2><br><br>
             <!-- timer function -->
             <?php $username = $_SESSION['username'];
+            // header("Refresh:0; url=homepage.php");
             $query = mysqli_query($con,"SELECT * FROM users WHERE username = '$username'");
             while ($row = $query ->fetch_assoc()){
                 $registrationtime  = $row['Registration_date'];
@@ -179,17 +185,16 @@
                                                     <td>" . $row["Paid"]. "</td>
                                                     <td>" . $row["ExpectedReturns"]. "</td>
                                                     <td>" . "<button id='confirm'class='btn btn-success'><a style='color:white'href='#'data-toggle='modal' data-target='#makepaymentmmodal'>Confirm Payment made</a></button>" . "</td>
-                                                    <td>" . "<button  class='btn btn-danger'><a onclick='deleteqry(<?php echo $InvestmentId ;?>)' style='color:white'href='#'>Cancel Investment</a></button>" .   "</td>
+                                                    <td>" . "<button  onclick='deleteqry($InvestmentId)' class='btn btn-danger'><a  style='color:white'href='#'>Cancel Investment</a></button>" .   "</td>
                                                 </tr>";
                                                 }
                         ?>
-                                                <script language='javascript'>
+                                                <script type="text/javascript">
                                                             function deleteqry(InvestmentId) {
-                                                                if (confirm("Are you sure you want to delete this Investment?") == true)
-                                                                    window.location.href = 'delete.php?rem='+InvestmentId;
-                                                         return true;
+                                                                alert('okay this point works')
+                                                                window.location.replace('delete.php?rem=' + InvestmentId);
                                                              }
-                                                </script> ;
+                                                </script> 
                         </tbody>
                     </table>
                 </div>
@@ -256,7 +261,7 @@
                     <div class="service panel-group">
                         <div class="panel panel-success">
                             <div class="panel-heading">Level 1</div>
-                            <div id="gone" class="level-one panel-body service"><a>Gold<br>
+                            <div id="gone" class="level-one panel-body service"><a href="#">Gold<br>
                                 ksh 10,000</a>
                             </div>
                             <div id="sone" class="level-two panel-body service"><a>Silver<br>
@@ -306,7 +311,7 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div>
-                            <h3><strong>ECONOMY-MIST</strong></h3>
+                            <h3><strong>CLUB-FREEDOM</strong></h3>
                             
                             <ul class="footer-items">
                                 <li><a href="#">About Us</a></li>
@@ -346,18 +351,18 @@
                     <div class="col-sm-4">
                         <div>
                             <h3>
-                                <strong>Contact US</strong>
+                                <strong>SUPPORT US</strong>
                             </h3>
                             <form class="form-inline">
                                 <div class="form-group">
-                                    <label for="email-us">Email Us</label>
+                                    <label for="email-us">Support Us</label>
                                     <textarea type="text" class="form-control" id="email-us" placeholder="Enter text here"></textarea>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
-                <div class="row" style="text-align:center;"> All Rights Reserved Â©. CLUB FREEDON 2018.
+                <div class="row" style="text-align:center;"> All Rights Reserved Â©. CLUB FREEDOM 2018.
                 </div>
             </div>
         </footer>

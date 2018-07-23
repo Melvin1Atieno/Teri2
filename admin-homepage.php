@@ -57,7 +57,7 @@
                             <a href="leaders.php">Leaderboard</a>
                         </li>
                         <li>
-                            <a href="#">contact us</a>
+                            <a href="contact.php">contact us</a>
                         </li>
                         <li>
                             <a id="logout" href="logout.php">Logout</a>

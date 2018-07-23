@@ -192,7 +192,7 @@
                     <div class="col-sm-4">
                         <div>
                             <h3>
-                                <strong>Contact US</strong>
+                                <strong>SUPPORT US</strong>
                             </h3>
                             <form class="form-inline">
                                 <div class="form-group">
@@ -203,7 +203,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row" style="text-align:center;"> All Rights Reserved Â©. CLUB FREEDON 2018.
+                <div class="row" style="text-align:center;"> All Rights Reserved Â©. CLUB FREEDOM 2018.
                 </div>
             </div>
         </footer>
