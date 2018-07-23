@@ -92,7 +92,7 @@
                     </ul>
                 </div>
                 <div class="col-md-6">
-                    <button class="btn btn-primary bt-lg">Edit your profile</button>
+                    <button class="btn btn-primary bt-lg"><a style="color:white" href="Edit.php">Edit your profile</a></button>
                 </div>
             </div>
         </div>
