@@ -1,6 +1,6 @@
 <?php require('config.php');
     session_start();
-    // header("Refresh:3; url=homepage.php");
+    header("Refresh:10; url=homepage.php");
     if(!isset($_SESSION['username'])){
         header('location: index.php');
         
