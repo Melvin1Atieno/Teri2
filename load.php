@@ -41,11 +41,11 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#"><span class="highlight">ECONOMY-</span>MIST</a>
+                    <a class="navbar-brand" href="#"><span class="highlight">CLUB-</span>FREEDOM</a>
                 </div>
                 <div class="collapse navbar-collapse" id="mynavbar">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#" =>Home</a></li>
+                        <li><a href="#">Home</a></li>
                         <li>
                             <a href="#"data-toggle="modal" data-target="#registermodal">SignUp</a>
                         </li>

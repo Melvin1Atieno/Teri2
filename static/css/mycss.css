@@ -20,6 +20,9 @@ nav{
 .highlight {
     color:rgb(134, 216, 12) ;
 }
+#started{
+    font-size:200%;
+}
 .navbar-brand{
     font-size:20px;
 }
@@ -161,6 +164,14 @@ img#preloader {
     display:block;
     
 }
+.step{
+    font-size: 200%;
+    letter-spacing: 5%;
+    text-align: right;
+    margin:8% 65% 0 0;
+    font-family: Open Sans;
+    font-weight:900;
+}
 .error {
     color: rgb(233, 22, 92);
 }
@@ -168,7 +179,7 @@ img#preloader {
     background-color: rgba(255, 255, 255, 0.76);
     height: 500px;
     margin-left:0;
-    background-image: url("../images/people.jpg");
+    /* background-image: url("../images/people.jpg"); */
     background-size: cover;
 }
 /* let the games begin */
@@ -180,4 +191,9 @@ img#preloader {
 .investments{
     height: 600%;
     margin-left:10%;
+}
+.statusmsg{
+    margin:auto;
+    font-size: 150%;
+    color:green;
 }

@@ -3,7 +3,7 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div>
-                            <h3><strong>ECONOMY-MIST</strong></h3>
+                            <h3><strong>CLUB-FREEDOM</strong></h3>
                             
                             <ul class="footer-items">
                                 <li><a href="#">About Us</a></li>
@@ -43,18 +43,18 @@
                     <div class="col-sm-4">
                         <div>
                             <h3>
-                                <strong>Contact US</strong>
+                                <strong>SUPPORT US</strong>
                             </h3>
                             <form class="form-inline">
                                 <div class="form-group">
-                                    <label for="email-us">Email Us</label>
+                                    <label for="email-us">Support Us</label>
                                     <textarea type="text" class="form-control" id="email-us" placeholder="Enter text here"></textarea>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
-                <div class="row" style="text-align:center;"> All Rights Reserved Â©. MelvinAtieno 2018.
+                <div class="row" style="text-align:center;"> All Rights Reserved Â©. CLUB FREEDOM 2018.
                 </div>
             </div>
         </footer>

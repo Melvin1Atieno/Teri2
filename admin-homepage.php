@@ -46,7 +46,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#"><span class="highlight">ECONOMY-</span>MIST</a>
+                    <a class="navbar-brand" href="#"><span class="highlight">CLUB-</span>FREEDOM</a>
                 </div>
                 <div class="collapse navbar-collapse" id="mynavbar">
                     <ul class="nav navbar-nav navbar-right">
@@ -57,7 +57,7 @@
                             <a href="leaders.php">Leaderboard</a>
                         </li>
                         <li>
-                            <a href="#">contact us</a>
+                            <a href="contact.php">contact us</a>
                         </li>
                         <li>
                             <a id="logout" href="logout.php">Logout</a>
@@ -116,14 +116,31 @@
                         </thead>
                         <tbody>
                         <?php  
+                            $InvestmentId = "";
                             $sql = "SELECT * FROM investments";
                             $records = mysqli_query($con,$sql);
                             while ($row = $records->fetch_assoc()){
-                                echo "<tr><td>" .$row["InvestorsUsername"] ."</td><td>".$row["PackageType"] ."</td><td>" . $row["Amount"]."</td><td>" . $row["InvestmentDate"]."</td><td>" . $row["Paid"]. "</td><td>". $row["ExpectedReturns"]. "</td><td>".$row["Merged"]. "</td><td>"  .   "</td></tr>";
+                                $InvestmentId = $row["InvestmentID"];
+                                echo "<tr>
+                                        <td>" .$row["InvestorsUsername"] ."</td>
+                                        <td>" .$row["PackageType"] ."</td>
+                                        <td>" . $row["Amount"]."</td>
+                                        <td>" . $row["InvestmentDate"]."</td>
+                                        <td>" . $row["Paid"]. "</td>
+                                        <td>". $row["ExpectedReturns"]. "</td>
+                                        <td>".$row["Merged"]. "</td>
+                                        <td>"  .   "</td>
+                                        <td>" . "<button  onclick='deleteqry($InvestmentId)' class='btn btn-danger'><a  style='color:white'href='#'>Remove Investment</a></button>" .   "</td>
+                                        </tr>";
+                                        
 
-                                }
-                            
+                                }     
                          ?>
+                        <script type="text/javascript">
+                            function deleteqry(InvestmentId) {
+                                window.location.replace('delete.php?rem=' + InvestmentId);
+                                }
+                        </script> 
                         </tbody>
                     </table>
                 </div>
@@ -172,65 +189,12 @@
                 </div>
             </div>
         </div>
-
-        <div class="container-fluid">
-            <h2 class="section-title"><strong>Available Packages</strong></h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="service panel-group">
-                        <div class="panel panel-success">
-                            <div class="panel-heading">Level 1</div>
-                            <div id="gone" class="level-one panel-body service"><a>Gold<br>
-                                ksh 10,000</a>
-                            </div>
-                            <div id="sone" class="level-two panel-body service"><a>Silver<br>
-                                ksh 5000</a>
-                            </div>
-                            <div id="bone" class="level-three panel-body service"><a>Bronze<br>
-                                ksh 3000</a>
-                            </div>
-                            <button class="service btn btn-success"> start</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service panel-group">
-                        <div class="panel panel-success">
-                            <div class="panel-heading">Level 2</div>
-                            <div id="gtwo"class="level-one panel-body service"><a>Gold<br>
-                                Ksh 50,000</a>
-                            </div>
-                            <div id="stwo" class="level-two panel-body service"><a>Silver<br>
-                                ksh 30,000</a>
-                            </div>
-                            <div id="btwo"class="level-three panel-body service"><a>Bronze<br>
-                                ksh 20,000</a></div>
-                            <button type="submit" class="service btn btn-success"> start</button>
-                         </div>
-                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class=" service panel-group">
-                        <div class="panel panel-success">
-                            <div class="panel-heading">Level 3</div>
-                            <div id="gthree"class="level-one panel-body service"><a>Gold<br>
-                                150,000</a>
-                            </div>
-                            <div id="sthree"class="level-two panel-body service"><a>Silver<br>ksh 100,000</a></div>
-                            <div id="bthree"class="level-three panel-body service"><a>Bronze<br>
-                                ksh 70,000</a></div>
-                            <button class="service btn btn-success"> start</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <footer class-"footer" style="margin:0">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-4">
                         <div>
-                            <h3><strong>ECONOMY-MIST</strong></h3>
+                            <h3><strong>CLUB-FREEDOM</strong></h3>
                             
                             <ul class="footer-items">
                                 <li><a href="#">About Us</a></li>
@@ -281,7 +245,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row" style="text-align:center;"> All Rights Reserved Â©. MelvinAtieno 2018.
+                <div class="row" style="text-align:center;">All Rights Reserved Â©. CLUB FREEDON 2018.
                 </div>
             </div>
         </footer>
@@ -302,7 +266,7 @@
                 <form>
                    <p>
                       <?php
-                        $username = $_SESSION["username"];
+                        $username = $_SESSION['username'];
                         echo "I "."$username"." CONFIRM I have received the said amount.";
                        ?>
                    </p>
