@@ -45,7 +45,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="mynavbar">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#" =>Home</a></li>
+                        <li><a href="#">Home</a></li>
                         <li>
                             <a href="#"data-toggle="modal" data-target="#registermodal">SignUp</a>
                         </li>

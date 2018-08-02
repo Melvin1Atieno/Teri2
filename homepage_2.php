@@ -1,15 +1,13 @@
-<?php
+<?php require('config.php');
+    require_once('geoplugin.class.php');
     session_start();
-    require('config.php');
-    require('geoplugin.class.php');
+    header("Refresh:10; url=homepage.php");
     $geoplugin = new geoPlugin();
     $geoplugin->locate();
-    $username = $_SESSION['username'];
     if(!isset($_SESSION['username'])){
         header('location: index.php');
+    }?>
         
-    }
-    ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -73,7 +71,7 @@
                 </div>
              </div>
         </nav>
-        <div class="header container-fluid">
+        <div class="header container-fluid" >
             <div class="row">
                 <div class="col-md-3">
                     <h4>your ultimate <span class="highlight">Investment</span> company</h4><br><br>
@@ -100,72 +98,35 @@
                     <button class="btn btn-primary bt-lg"><a style="color:white" href="Edit.php">Edit your profile</a></button>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-10">
-                    <?php
-                        $username = $_SESSION['username'];
-                        $query = mysqli_query($con,"SELECT * FROM users WHERE username='$username'");
-                            while ($row = $query->fetch_assoc()){
-                                if($row['image'] == NULL){
-                                    echo "<img style='border-radius:50%;width:40%;height:40%'src='static/images/profile.png' alt='default profile pic'>";
-                                        }
-                                        else{
-                                            echo "<img style='border-radius:50%;width:40%;height:40%'src='static/images/".$row["image"]."' alt='default profile pic'>";
-                                        }
-                                    }
-                    ?>
-                </div>
-                <?php 
-                    if(isset($_POST['submit'])){
-                        $targetfolder = "static/images/";
-                        $targetfolder = $targetfolder . basename($_FILES['file']['name']);
-                        move_uploaded_file($_FILES["file"]["tmp_name"],$targetfolder);
-                        // move_uploaded_file($_FILES["file"]["tmp_name"],"static/images/".$_FILES["file"]["name"]);
-                        $file = $_FILES["file"]["name"];
-                        $username = $_SESSION["username"];
-                        $query = mysqli_query($con,"UPDATE users SET image='$file' WHERE username = '$username'");
-                    }
-                ?>
-                <div class="col-md-2">
-                    <form enctype="multipart/form-data"  method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-                        <div class="form-group row">
-                            <input class="form-control col-md-4" type="file" id="profilepic"name="file">
-                            <input  type="submit" class="btn btn-success col-md-4" value="upload" name="submit">
-                        </div>
-                    </form>
-                </div>
-            </div>
         </div>
         <div class="investments container-fluid ">
-            <div class="row">
-                <div class="col-md-10" style="margin-bottom:5%;">
-                    <h2>MY INVESTMENT PLANS</h2><br><br>
-                    <!-- timer function -->
-                    <?php $username = $_SESSION['username'];
-                    $query = mysqli_query($con,"SELECT * FROM users WHERE username = '$username'");
-                    while ($row = $query ->fetch_assoc()){
-                        $registrationtime  = $row['Registration_date'];
-                        // $timenow = date("Y-m-d H:i:s");
-                        $registrationtime = date_create($registrationtime);
-                        $timenow = date_create();
-                        $diff = date_diff( $registrationtime, $timenow );
-                        if($diff->h>24 and $diff->i>59 and $diff->s){
-                            $dquery = mysqli_query($con, "DELETE * FROM users WHERE username=$username ");
-                            $dmatch = mysqli_query($con, "DELETE * FROM matches WHERE ToBePaidBy= $username OR ToBePaidTo=$username");
-                        }else{
+            <h2>MY INVESTMENT PLANS</h2><br><br>
+            <!-- timer function -->
+            <?php $username = $_SESSION['username'];
+            echo "$geoplugin->city";
+            // header("Refresh:0; url=homepage.php");
+            $query = mysqli_query($con,"SELECT * FROM users WHERE username = '$username'");
+            while ($row = $query ->fetch_assoc()){
+                $registrationtime  = $row['Registration_date'];
+                // $timenow = date("Y-m-d H:i:s");
+                $registrationtime = date_create($registrationtime);
+                $timenow = date_create();
+                $diff = date_diff( $registrationtime, $timenow );
+                if($diff->h>24 and $diff->i>59 and $diff->s){
+                    $dquery = mysqli_query($con, "DELETE * FROM users WHERE username=$username ");
+                    $dmatch = mysqli_query($con, "DELETE * FROM matches WHERE ToBePaidBy= $username OR ToBePaidTo=$username");
+                }else{
 
-                            $mquery = mysqli_query($con, "SELECT * FROM investemnts WHERE InvestorsUsername='$username' AND Paid='paid' ");
-                            if(!$mquery){
-                                echo "<p style=' color:rgb(134, 216, 12);;font-size:160%; margin-top:0'>Make an investment and make payments in 24 hours after registration or you will be removed from list.</p>";
-                                echo "<p> You have been a user for:</p>"."<button>".($diff->h)."</button>"."hours"."<button>".($diff->i)."</button>"."minutes"."<button>".($diff->s)."</button>"."seconds"."<br>"; 
-                                echo "<p>You have: </p>"."<button>".(24-$diff->h)."</button>"."hours"."<button>".(60-$diff->i)."</button>"."minutes"."<button>".(60-$diff->s)."</button>"."seconds";
-                            }
-                        }
-
+                    $mquery = mysqli_query($con, "SELECT * FROM investemnts WHERE InvestorsUsername='$username' AND Paid='paid' ");
+                    if(!$mquery){
+                        echo "<p style=' color:rgb(134, 216, 12);;font-size:160%; margin-top:0'>Make an investment and make payments in 24 hours after registration or you will be removed from list.</p>";
+                        echo "<p> You have been a user for:"."<span style='color:red'>". $diff->h."hours"." ".(60-($diff->i))." "."minitues and ".$diff->s."seconds"."</span>"."</p>"."<br>"; 
+                        echo "<p style ='color:red; font-size:180%;'>You have  ".(24-$diff->h)."hours ".($diff->i)."minitues and ".(60-$diff->s)."seconds Left!!!!"."</p>";
                     }
-                    ?>
-                </div>
-            </div>
+                }
+
+            }
+            ?>
             <ul class="nav nav-pills">
                 <li class="active"><a data-toggle="pill" href="#cinvestments">current investments</a></li>
                 <li><a data-toggle="pill" href="#investors">My Investors</a></li>
@@ -191,7 +152,7 @@
                         </thead>
                         <tbody>
                         <?php  
-                            $NoOfMatchesFound = $InvestmentId=0;
+                            $NoOfMatchesFound = $InvestmentId='';
                             $username = $_SESSION['username'];
                             $Musername = 'not_found';
                             $Mphonenumber = '00000000';
@@ -208,15 +169,16 @@
                                         $nrecords = mysqli_query($con,$nsql);
                                         while ($nrow = $nrecords->fetch_assoc()){
                                              $Mphonenumber = $nrow['phonenumber'];
-                                            }
-                                            if($NoOfMatchesFound == 1){
+                                             if($NoOfMatchesFound == 1){
+                                                 $Musername = 'not_found';
+                                                 $Mphonenumber = 'no contact info';
+                                             }else{
                                                 $Musername = $frow['ToPayTo']; 
                                                 $Mphonenumber = $nrow['phonenumber'];
-                                            }else{
-                                                $Musername = 'not_found';
-                                                $Mphonenumber = 'no contact info';
-                                                }
+                                             }
+                                         }
                                         }
+                                    
                                             echo "<tr>
                                                     <td>" . $row["PackageType"] ."</td>
                                                     <td>" . $row["Amount"]."</td>
@@ -233,6 +195,7 @@
                         ?>
                                                 <script type="text/javascript">
                                                             function deleteqry(InvestmentId) {
+                                                                alert('okay this point works')
                                                                 window.location.replace('delete.php?rem=' + InvestmentId);
                                                              }
                                                 </script> 
@@ -303,14 +266,15 @@
                         <div class="panel panel-success">
                             <div class="panel-heading">Level 1</div>
                             <div id="gone" class="level-one panel-body service"><a href="#">Gold<br>
-                            <?php echo $geoplugin->convert(100,$float=0) ?></a>
+                                ksh 10,000</a>
                             </div>
                             <div id="sone" class="level-two panel-body service"><a>Silver<br>
-                            <?php echo  $geoplugin->convert(50,0) ?></a>
+                                ksh 5000</a>
                             </div>
                             <div id="bone" class="level-three panel-body service"><a>Bronze<br>
-                            <?php echo  $geoplugin->convert(30) ?></a>
+                                ksh 3000</a>
                             </div>
+                            <button class="service btn btn-success"> start</button>
                         </div>
                     </div>
                 </div>
@@ -319,13 +283,14 @@
                         <div class="panel panel-success">
                             <div class="panel-heading">Level 2</div>
                             <div id="gtwo"class="level-one panel-body service"><a>Gold<br>
-                            <?php echo$geoplugin->convert(500) ?></a>
+                                Ksh 50,000</a>
                             </div>
                             <div id="stwo" class="level-two panel-body service"><a>Silver<br>
-                            <?php echo  $geoplugin->convert(300) ?></a>
+                                ksh 30,000</a>
                             </div>
                             <div id="btwo"class="level-three panel-body service"><a>Bronze<br>
-                            <?php echo  $geoplugin->convert(200) ?></a></div>
+                                ksh 20,000</a></div>
+                            <button type="submit" class="service btn btn-success"> start</button>
                          </div>
                      </div>
                 </div>
@@ -334,12 +299,12 @@
                         <div class="panel panel-success">
                             <div class="panel-heading">Level 3</div>
                             <div id="gthree"class="level-one panel-body service"><a>Gold<br>
-                            <?php echo  $geoplugin->convert(1500) ?></a>
+                                150,000</a>
                             </div>
-                            <div id="sthree"class="level-two panel-body service"><a>Silver<br>
-                            <?php echo  $geoplugin->convert(1000) ?></a></div>
+                            <div id="sthree"class="level-two panel-body service"><a>Silver<br>ksh 100,000</a></div>
                             <div id="bthree"class="level-three panel-body service"><a>Bronze<br>
-                            <?php echo  $geoplugin->convert(700) ?></a></div>
+                                ksh 70,000</a></div>
+                            <button class="service btn btn-success"> start</button>
                         </div>
                     </div>
                 </div>

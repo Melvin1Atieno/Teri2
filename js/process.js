@@ -7,7 +7,7 @@ $(document).ready(function () {
        $.ajax({
                     type: "POST",
                     url: "process.php",
-                    data: "amount=10000&package_type=Gold",
+                    data: "amount=100&package_type=Gold",
                     success: function(data) {
                        alert("success ");
                     },
@@ -28,7 +28,7 @@ $(document).ready(function () {
     $.ajax({
       type: "POST",
       url: "process.php",
-      data: "amount=5000&package_type=silver",
+      data: "amount=50&package_type=silver",
       success: function (data) {
         alert("success ");
       },
@@ -49,7 +49,7 @@ $(document).ready(function () {
     $.ajax({
       type: "POST",
       url: "process.php",
-      data: "amount=3000&package_type=Bronze",
+      data: "amount=30&package_type=Bronze",
       success: function (data) {
         alert("success ");
       },
@@ -68,7 +68,7 @@ $(document).ready(function () {
     $.ajax({
       type: "POST",
       url: "process.php",
-      data: "amount=50000&package_type=Gold",
+      data: "amount=500&package_type=Gold",
       success: function (data) {
         alert("success ");
       },
@@ -87,7 +87,7 @@ $(document).ready(function () {
     $.ajax({
       type: "POST",
       url: "process.php",
-      data: "amount=30000&package_type=silver",
+      data: "amount=300&package_type=silver",
       success: function (data) {
         alert("success ");
       },
@@ -107,7 +107,7 @@ $(document).ready(function () {
     $.ajax({
       type: "POST",
       url: "process.php",
-      data: "amount=20000&package_type=Bronze",
+      data: "amount=200&package_type=Bronze",
       success: function(data) {
         alert("success ");
       },
@@ -125,7 +125,7 @@ $(document).ready(function () {
     $.ajax({
       type: "POST",
       url: "process.php",
-      data: "amount=150000&package_type=Gold",
+      data: "amount=1500&package_type=Gold",
       success: function (data) {
         alert("success ");
       },
@@ -144,7 +144,7 @@ $(document).ready(function () {
     $.ajax({
       type: "POST",
       url: "process.php",
-      data: "amount=100000&package_type=Silver",
+      data: "amount=1000&package_type=Silver",
       success: function(data) {
         alert("success ");
       },
@@ -163,7 +163,7 @@ $(document).ready(function () {
     $.ajax({
       type: "POST",
       url: "process.php",
-      data: "amount=70000&package_type=Bronze",
+      data: "amount=700&package_type=Bronze",
       success: function(data) {
         alert("success ");
       },

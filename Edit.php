@@ -1,6 +1,7 @@
-<?php require('config.php');
-      require('menu.php');
+<?php
     session_start();
+    require('config.php');
+    require('menu.php');
     $firstname = $lastname = $othername= $email = $country = $username = $phonenumber = "";
     // header("Refresh:10; url=homepage.php");
     if(!isset($_SESSION['username'])){
@@ -48,8 +49,9 @@
                 $update =  mysqli_query($con, "UPDATE users SET firstname ='$firstname', lastname ='$lastname',othername='$othername', email ='$email',country = '$country',
                  phonenumber='$phonenumber', username ='$username', password='$hashed_password' WHERE username = '$username'");
     }
-}?>
-<form style = "width:60%; margin:auto;"class="form-horizontal" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" autocomplete="on">
+}
+?>
+<form style = "width:60%; margin:auto;"class="form-horizontal"  enctype="multipart/form-data"  method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" autocomplete="on">
     <div>
        <div class="row">
            <div class="col-md-8">
