@@ -10,9 +10,9 @@ if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !
     //$match = mysqli_num_rows($search);
     while ($row = $search->fetch_assoc()){
         $username = $row['username'];
+        $_SESSION["username"] = $username;  
         $update = mysqli_query($con,"UPDATE users SET verified=1  WHERE email='$email' AND randhash='$hash' AND verified=0");
         }
-        $username  =  $_SESSION["username"];
         header('location: homepage.php');
     }
 ?>
