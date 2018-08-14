@@ -1,4 +1,3 @@
-
 <?php 
     require('config.php');
     session_start();
@@ -13,9 +12,7 @@
         $goldone = $_POST["package_type"];
         $amount = (int)$_POST["amount"];
         $ramount = (int)($geoplugin->convert($amount,$float=1,$symbol=false));
-        $test = (int)($geoplugin->convert(100));
         $expected_amount = $ramount*2;
-        echo $test;
                 
         $result = "INSERT INTO investments (PackageType, Amount,ExpectedReturns,InvestorsUsername,Paid,InvestmentDate,NoOfMatchesFound,Merged)
             VALUES('$goldone','$ramount','$expected_amount','$username','not_paid', NOW(),0,0)";
@@ -31,11 +28,15 @@
     while ($row = $query->fetch_assoc()){
         $id = (int)$row['InvestmentID'];
         $Username = $row['InvestorsUsername'];//user who is next on list for merging
-        $Amount = $row['Amount'];//amount they have invested
-        //$country = $row['country'];
-        //select the user to merge I.e to be a match
+        $Amount = $row['Amount'];// invested amount
+        // get country for user to be merged
+        $getcountry = mysqli_query($con, "SELECT * FROM users WHERE username='$Username'");
+        while ($countryrow = $getcountry->fetch_assoc()){
+            $usercountry = $countryrow['country'];
+        }
     }
-        $nquery = mysqli_query($con, "SELECT * FROM investments WHERE InvestorsUsername!='$Username' AND NoOfMatchesFound !=1 AND Amount='$Amount'");
+        // get match from same country
+        $nquery = mysqli_query($con, "SELECT * FROM investments WHERE InvestorsUsername IN(SELECT * FROM users WHERE country=$usercountry) AND InvestorsUsername!='$Username' AND NoOfMatchesFound !=1 AND Amount='$Amount' LIMIT 1");
         while ($nrow = $nquery->fetch_assoc()){
             $musername = $nrow['InvestorsUsername'];
             //update user who's been merged
