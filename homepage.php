@@ -1,14 +1,13 @@
 <?php
-    session_start();
-    require('config.php');
-    require('geoplugin.class.php');
-    $geoplugin = new geoPlugin();
-    $geoplugin->locate();
-    $username = $_SESSION['username'];
-    if(!isset($_SESSION['username'])){
-        header('location: index.php');
-        
-    }
+session_start();
+require('config.php');
+include('geoplugin.class.php');
+$geoplugin = new geoPlugin();
+$geoplugin->locate();
+$username = $_SESSION['username'];
+if(!isset($_SESSION['username'])){
+    header('location: index.php');
+}
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -120,7 +119,6 @@
                         $targetfolder = "static/images/";
                         $targetfolder = $targetfolder . basename($_FILES['file']['name']);
                         move_uploaded_file($_FILES["file"]["tmp_name"],$targetfolder);
-                        // move_uploaded_file($_FILES["file"]["tmp_name"],"static/images/".$_FILES["file"]["name"]);
                         $file = $_FILES["file"]["name"];
                         $username = $_SESSION["username"];
                         $query = mysqli_query($con,"UPDATE users SET image='$file' WHERE username = '$username'");
@@ -138,33 +136,49 @@
         </div>
         <div class="investments container-fluid ">
             <div class="row">
+                <?php 
+                $username = $_SESSION['username'];
+                $query = mysqli_query($con,"SELECT * FROM users WHERE username = '$username'");
+                while ($row = $query ->fetch_assoc()){
+                        $registrationtime  = $row['Registration_date'];
+                        $registrationtime = date_create($registrationtime);
+                        $registrationtime->add(new DateInterval("PT24H"));
+                        $registrationtime = date_format($registrationtime, 'M d,Y H:i:s');
+                        echo "<p style='color:rgb(134, 216, 12);font-size:160%;margin-top:0'>REGISTARTION DATE</p>".$registrationtime;
+                    }
+                ?>
                 <div class="col-md-10" style="margin-bottom:5%;">
                     <h2>MY INVESTMENT PLANS</h2><br><br>
                     <!-- timer function -->
-                    <?php $username = $_SESSION['username'];
-                    $query = mysqli_query($con,"SELECT * FROM users WHERE username = '$username'");
-                    while ($row = $query ->fetch_assoc()){
-                        $registrationtime  = $row['Registration_date'];
-                        // $timenow = date("Y-m-d H:i:s");
-                        $registrationtime = date_create($registrationtime);
-                        $timenow = date_create();
-                        $diff = date_diff( $registrationtime, $timenow );
-                        if($diff->h>24 and $diff->i>59 and $diff->s){
-                            $dquery = mysqli_query($con, "DELETE * FROM users WHERE username=$username ");
-                            $dmatch = mysqli_query($con, "DELETE * FROM matches WHERE ToBePaidBy= $username OR ToBePaidTo=$username");
-                        }else{
-
-                            $mquery = mysqli_query($con, "SELECT * FROM investemnts WHERE InvestorsUsername='$username' AND Paid='paid' ");
-                            if(!$mquery){
-                                echo "<p style=' color:rgb(134, 216, 12);;font-size:160%; margin-top:0'>Make an investment and make payments in 24 hours after registration or you will be removed from list.</p>";
-                                echo "<p> You have been a user for:</p>"."<button>".($diff->h)."</button>"."hours"."<button>".($diff->i)."</button>"."minutes"."<button>".($diff->s)."</button>"."seconds"."<br>"; 
-                                echo "<p>You have: </p>"."<button>".(24-$diff->h)."</button>"."hours"."<button>".(60-$diff->i)."</button>"."minutes"."<button>".(60-$diff->s)."</button>"."seconds";
-                            }
-                        }
-
-                    }
-                    ?>
+                    <p style="color:rgb(134, 216, 12);font-size:160%;margin-top:0">Make an investment and make payments in 24 hours after registration or you will be removed from list.</p>
+                    <p style="font-size:150%"id="timer"></p>
                 </div>
+                <script>
+                        //set the date counting to
+                        // var countDownDate = new Date("aug 17,2018 15:37:25").getTime();
+                        var countDownDate = new Date(<?php echo json_encode($registrationtime);?>).getTime();
+                        //update the countdown every 1 second
+                        var x = setInterval(function(){
+                            //Get todays date and time
+                            var now = new Date().getTime();
+                            // find distance between now and count down date
+                            var distance = countDownDate - now;
+                            // time calculations for days, hours, minutes and seconds
+                            var days = Math.floor(distance/(1000*60*60*24));
+                            var hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+                            var minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+                            var seconds = Math.floor((distance%(1000*60))/1000);
+
+                            //Output the results
+                            document.getElementById('timer').innerHTML =hours + "hours "+ minutes + "minutes  " + seconds + "seconds  ";
+
+                            //If the countdown is over, write some text
+                            if(distance < 0){
+                                clearInterval(x);
+                                document.getElementById("timer").innerHTML = "EXPIRED";
+                            }
+                        },1000) ;              
+                </script>
             </div>
             <ul class="nav nav-pills">
                 <li class="active"><a data-toggle="pill" href="#cinvestments">current investments</a></li>
@@ -303,13 +317,13 @@
                         <div class="panel panel-success">
                             <div class="panel-heading">Level 1</div>
                             <div id="gone" class="level-one panel-body service"><a href="#">Gold<br>
-                            <?php echo $geoplugin->convert(100,$float=0) ?></a>
+                            <?php echo  $geoplugin->convert(100,$float=0) ?></a>
                             </div>
                             <div id="sone" class="level-two panel-body service"><a>Silver<br>
-                            <?php echo  $geoplugin->convert(50,0) ?></a>
+                            <?php echo  $geoplugin->convert(50, $float=0) ?></a>
                             </div>
                             <div id="bone" class="level-three panel-body service"><a>Bronze<br>
-                            <?php echo  $geoplugin->convert(30) ?></a>
+                            <?php echo  $geoplugin->convert(30, $float=0) ?></a>
                             </div>
                         </div>
                     </div>
@@ -319,13 +333,13 @@
                         <div class="panel panel-success">
                             <div class="panel-heading">Level 2</div>
                             <div id="gtwo"class="level-one panel-body service"><a>Gold<br>
-                            <?php echo$geoplugin->convert(500) ?></a>
+                            <?php echo$geoplugin->convert(500,$float=0) ?></a>
                             </div>
                             <div id="stwo" class="level-two panel-body service"><a>Silver<br>
-                            <?php echo  $geoplugin->convert(300) ?></a>
+                            <?php echo  $geoplugin->convert(300,$float=0) ?></a>
                             </div>
                             <div id="btwo"class="level-three panel-body service"><a>Bronze<br>
-                            <?php echo  $geoplugin->convert(200) ?></a></div>
+                            <?php echo  $geoplugin->convert(200,$float=0) ?></a></div>
                          </div>
                      </div>
                 </div>
@@ -334,12 +348,12 @@
                         <div class="panel panel-success">
                             <div class="panel-heading">Level 3</div>
                             <div id="gthree"class="level-one panel-body service"><a>Gold<br>
-                            <?php echo  $geoplugin->convert(1500) ?></a>
+                            <?php echo  $geoplugin->convert(1500,$float=0) ?></a>
                             </div>
                             <div id="sthree"class="level-two panel-body service"><a>Silver<br>
-                            <?php echo  $geoplugin->convert(1000) ?></a></div>
+                            <?php echo  $geoplugin->convert(1000,$float=0) ?></a></div>
                             <div id="bthree"class="level-three panel-body service"><a>Bronze<br>
-                            <?php echo  $geoplugin->convert(700) ?></a></div>
+                            <?php echo  $geoplugin->convert(700,$float=0) ?></a></div>
                         </div>
                     </div>
                 </div>
@@ -486,10 +500,11 @@
             </div>
         </div>
         <!--makepayment modal-->
-       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-      
-       <script src="js/bootstrap.min.js"></script>
-       <script src="js/process.js"></script>
+       <a href="http://www.geoplugin.com/geolocation/" target="_new">IP Geolocation</a> by <a href="http://www.geoplugin.com/" target="_new">geoPlugin</a>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+      <script src="./js/jquery-3.3.1.min.js"></script>
+       <script src="./js/bootstrap.min.js"></script>
+       <script src="./js/process.js"></script>
        <script src="form-helpers/js/bootstrap-formhelpers.min.js"></script>
       
     </body>
