@@ -73,7 +73,7 @@ zh-CN
 
 	}
 	
-	function locate($ip = null) {
+	function locate($ip = '41.60.239.147') {
 		
 		global $_SERVER;
 		
@@ -101,7 +101,7 @@ zh-CN
 		$this->countryCode = $data['geoplugin_countryCode'];
 		$this->countryName = $data['geoplugin_countryName'];
 		$this->inEU = $data['geoplugin_inEU'];
-		$this->euVATrate = $data['euVATrate'];
+		// $this->euVATrate = $data['euVATrate'];
 		$this->continentCode = $data['geoplugin_continentCode'];
 		$this->continentName = $data['geoplugin_continentName'];
 		$this->latitude = $data['geoplugin_latitude'];

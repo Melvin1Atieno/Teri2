@@ -84,7 +84,8 @@ $symbol - whether to display the geolocated currency symbol in the output (defau
 */
 if ( $geoplugin->currency != $geoplugin->currencyCode ) {
 	//our visitor is not using the same currency as the base currency
-	echo "<p>At todays rate, US$100 will cost you " . $geoplugin->convert(100) ." </p>\n";
+	echo "<p>At todays rate, US$100 will cost you " . $geoplugin->convert(1) ." </p>\n";
+	
 }
 
 /* Finding places nearby 
