@@ -7,6 +7,7 @@ $geoplugin->locate();
 $username = $_SESSION['username'];
 if(!isset($_SESSION['username'])){
     header('location: index.php');
+    session_destroy();
 }
     ?>
 <!DOCTYPE html>
