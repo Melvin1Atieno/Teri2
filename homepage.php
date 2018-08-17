@@ -138,13 +138,16 @@ if(!isset($_SESSION['username'])){
             <div class="row">
                 <?php 
                 $username = $_SESSION['username'];
+                //set default time zone
+                date_default_timezone_set('UTC');
                 $query = mysqli_query($con,"SELECT * FROM users WHERE username = '$username'");
                 while ($row = $query ->fetch_assoc()){
-                        $registrationtime  = $row['Registration_date'];
-                        $registrationtime = date_create($registrationtime);
+
+                        $registrationdate  = $row['Registration_date'];
+                        $registrationtime = date_create($registrationdate);
                         $registrationtime->add(new DateInterval("PT24H"));
                         $registrationtime = date_format($registrationtime, 'M d,Y H:i:s');
-                        echo "<p style='color:rgb(134, 216, 12);font-size:160%;margin-top:0'>REGISTARTION DATE</p>".$registrationtime;
+                        echo "<p style='color:rgb(134, 216, 12);font-size:160%;margin-top:0'>REGISTARTION DATE</p>".$registrationdate;
                     }
                 ?>
                 <div class="col-md-10" style="margin-bottom:5%;">
