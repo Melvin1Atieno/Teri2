@@ -15,11 +15,12 @@ if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !
             $_SESSION["username"] = $username;  
             $update = mysqli_query($con,"UPDATE users SET verified=1  WHERE email='$email' AND randhash='$hash' AND verified=0");
             header('location: homepage.php');
-           }else if($admin == 'true'){
+           } 
+           else if($admin == 'true'){
                 $update = mysqli_query($con,"UPDATE users SET verified=1  WHERE email='$email' AND randhash='$hash' AND verified=0");
                 $_SESSION["admin"] = 'true';
                 $_SESSION["adminEmail"] = $email;
-                header('location: homepage.php');
+                header('location: admin-homepage.php');
            }
         }
     }
