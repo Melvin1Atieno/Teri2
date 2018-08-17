@@ -156,7 +156,7 @@ if(!isset($_SESSION['username'])){
                     <p style="color:rgb(134, 216, 12);font-size:160%;margin-top:0">Make an investment and make payments in 24 hours after registration or you will be removed from list.</p>
                     <p style="font-size:150%"id="timer"></p>
                 </div>
-                <script>
+                <script type='text/javascript'>
                         //set the date counting to
                         // var countDownDate = new Date("aug 17,2018 15:37:25").getTime();
                         var countDownDate = new Date(<?php echo json_encode($registrationtime);?>).getTime();
@@ -179,6 +179,9 @@ if(!isset($_SESSION['username'])){
                             if(distance < 0){
                                 clearInterval(x);
                                 document.getElementById("timer").innerHTML = "EXPIRED";
+                                function remove() {
+                                        window.location.replace('remove.php?rem=expired');
+                                        }
                             }
                         },1000) ;              
                 </script>
