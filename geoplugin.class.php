@@ -72,13 +72,26 @@ zh-CN
 	function __construct() {
 
 	}
-	
-	function locate($ip = '41.60.239.147') {
+
+function locate($ip= null) {
 		
 		global $_SERVER;
 		
 		if ( is_null( $ip ) ) {
-			$ip = $_SERVER['REMOTE_ADDR'];
+			if (getenv('HTTP_CLIENT_IP'))
+				$ip = getenv('HTTP_CLIENT_IP');
+			else if(getenv('HTTP_X_FORWARDED_FOR'))
+			     $ip = getenv('HTTP_X_FORWARDED_FOR');
+			else if(getenv('HTTP_X_FORWARDED'))
+				$ip = getenv('HTTP_X_FORWARDED');
+			else if(getenv('HTTP_FORWARDED_FOR'))
+				$ip = getenv('HTTP_FORWARDED_FOR');
+			else if(getenv('HTTP_FORWARDED'))
+				$ip = getenv('HTTP_FORWARDED');
+			else if(getenv('REMOTE_ADDR'))
+				$ip = getenv('REMOTE_ADDR');
+			else
+			    $ip = $_SERVER['REMOTE_ADDR'];
 		}
 		
 		$host = str_replace( '{IP}', $ip, $this->host );
