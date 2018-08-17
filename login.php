@@ -31,6 +31,7 @@ session_start();
                 else{
                     echo "<script>alert('Invalid Username or Password combination')</script>";
                     header('location: index.php');
+                    session_destroy();
                     }
             }
     }
