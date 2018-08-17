@@ -53,7 +53,7 @@
                 <div class="collapse navbar-collapse" id="mynavbar">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="homepage.php">Home</a>
+                            <a href="admin-homepage.php">Home</a>
                          </li>
                         <li>
                             <a href="leaders.php">Leaderboard</a>
