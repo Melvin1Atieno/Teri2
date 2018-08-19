@@ -12,16 +12,27 @@ session_start();
         $results = mysqli_query($con, $query);
         while ($row = $results->fetch_assoc()){
             $hashed_password = $row['password'];
+            $admin = $row['admin'];
+            $email = $row['email'];
 
-            if(password_verify($lpassword,$hashed_password)){
-                $_SESSION['username'] = $lusername;
-                $_SESSION['success'] = "You are now logged in";
-                header('location: homepage.php');
-            }
-            else{
-            echo "<script>alert('Invalid Username or Password combination')</script>";
-            header('location: index.php');
-            }
+            if(password_verify($lpassword,$hashed_password))
+               {
+                    if($admin=='false'){
+                        $_SESSION['username'] = $lusername;
+                        $_SESSION['success'] = "You are now logged in";
+                        header('location: homepage.php');
+                    }
+                    if($admin =='true'){
+                        $_SESSION['admin'] = 'true';
+                        $_SESSION['adminEmail'] = $email;
+                        header('location:admin-homepage.php');
+                    }
+                }
+                else{
+                    echo "<script>alert('Invalid Username or Password combination')</script>";
+                    session_destroy();
+                    header('location: index.php');
+                    }
             }
     }
     ?>

@@ -1,7 +1,9 @@
 <?php require('config.php');
     session_start();
-    if(!isset($_SESSION['username'])){
+    $admin = $_SESSION['admin'];
+    if(!isset($_SESSION['adminEmail']) || $admin != 'true'){
         header('location: index.php');
+        session_destroy();
     }?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +53,7 @@
                 <div class="collapse navbar-collapse" id="mynavbar">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="homepage.php">Home</a>
+                            <a href="admin-homepage.php">Home</a>
                          </li>
                         <li>
                             <a href="leaders.php">Leaderboard</a>
@@ -92,7 +94,6 @@
             </div>
         </div>
         <div class="investments container-fluid ">
-                <!-- timer function -->
             <ul class="nav nav-pills">
                 <li class="active"><a data-toggle="pill" href="#cinvestments">List of  Investments</a></li>
                 <li><a data-toggle="pill" href="#investors">Matches</a></li>
@@ -130,15 +131,13 @@
                                         <td>". $row["ExpectedReturns"]. "</td>
                                         <td>".$row["Merged"]. "</td>
                                         <td>"  .   "</td>
-                                        <td>" . "<button  onclick='deleteqry($InvestmentId)' class='btn btn-danger'><a  style='color:white'href='#'>Remove Investment</a></button>" .   "</td>
+                                        <td>" . "<button  onclick='deleteqry($InvestmentId)' class='btn btn-danger'>Remove Investment</a></button>"."</td>
                                         </tr>";
-                                        
-
                                 }     
                          ?>
                         <script type="text/javascript">
                             function deleteqry(InvestmentId) {
-                                window.location.replace('delete.php?rem=' + InvestmentId);
+                                window.location.replace('deleteadmin.php?rem=' + InvestmentId);
                                 }
                         </script> 
                         </tbody>
@@ -249,87 +248,6 @@
                 </div>
             </div>
         </footer>
-
-        <!--confirm modal-->
-        <div class="modal fade" id="confirmmodal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">
-                            <span aria-hidden="true">&times;</span>
-                            <span class="sr-only">close</span>
-                        </button>
-                        <h4 class="modal-title" id="confirmModalLabel"><span class="highlight">Confirm Payment</span></h4>
-                    </div>
-                </div>
-                <div class="modal-body">
-                <form>
-                   <p>
-                      <?php
-                        $username = $_SESSION['username'];
-                        echo "I "."$username"." CONFIRM I have received the said amount.";
-                       ?>
-                   </p>
-                <button id="confirmbutton" type="submit" class="btn btn-success">Submit</button>
-                </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span aria-hidden="true">&times;</span>
-                        <span class="sr-only">Close</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!--confirm modal-->
-        <!--makepayment modal-->
-        <div class="modal fade" id="makepaymentmmodal" tabindex="-1" role="dialog" aria-labelledby="makepaymentModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">
-                            <span aria-hidden="true">&times;</span>
-                            <span class="sr-only">close</span>
-                        </button>
-                        <h4 class="modal-title" id="makepaymentModalLabel"><span class="highlight">Confirm you have made payment</span></h4>
-                    </div>
-                </div>
-                <div class="modal-body">
-                    <form class="form-horizontal">
-                        <div class="form-group">
-                            <label for="myFile">Upload payment evidence: </label>
-                            <input class="form-control" type="file" id="myFile"name="myFile" placeholder="Add snapshot of payment receipt" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="paymentMethod">Payment Method </label>
-                            <select  class="form-control" name="paymentMethod">
-                                <option value="bank">Bank</option>
-                                <option value="MobileTransfer">Mobile Transfer</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="amountPaid">Amout Paid</label>
-                            <input class="form-control" type="number" min="3000" step="1000" placeholder="amount paid" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="dateofpayment">Payment date: </label>
-                            <input class="form-control" id="dateofpayment" name="dateofpayment" type="datetime-local" required>
-                        </div><br>
-                        <div class="form-group">
-                            <input onclick="alert('Please wait as payment reception to be confirmed')" type="submit" value="Confirm" class="btn btn-success">
-                            <input type="reset" value="Reset" class="btn btn-danger">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span style="color:white"aria-hidden="true">&times;</span>
-                        <span class="sr-only">close</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!--makepayment modal-->
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
        <script src="js/bootstrap.min.js"></script>
        <script src="js/process.js"></script>

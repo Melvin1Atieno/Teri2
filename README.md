@@ -1,4 +1,4 @@
-# ECONOMY-MIST
+# CLUB-FREEDOM
 
-An application that brings investment opportunities to you,
-To view demo[click here](https://melvin1atieno.github.io/Teri2/)
+Website that brings investment opportunities to you,
+To view actual website [click here](https://www.clubfreedom.co)

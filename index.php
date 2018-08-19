@@ -1,4 +1,7 @@
-<?php require('registration.php') ?>
+<?php 
+require('registration.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -150,12 +153,12 @@
                     </div>
                     <div class="row">
                         <div style="margin:10% 10% 10% 16%">
-                            <p id='started' class='highlight'>
+                            <p id='started' style="color:black">
                             Watch your money grow, Fast!!! <br>
                             We value your time <br>
                             We know you do too<br>
                             Get started with three Easy steps!!</p>
-                            <i  class="fa fa-hand-o-down shake-constant shake-vertical" style="font-size:56px;color:green;padding:5%; "></i>
+                            <i  class="fa fa-hand-o-down shake-constant shake-vertical" style="font-size:56px;color:black;padding:5%; "></i>
                         </div>  
                     </div>
                 </div>
@@ -169,7 +172,7 @@
                         <div class="panel panel-success">
                             <div class="panel-heading">STEP 1</div>
                             <div>
-                                <p class="highlight step">Sign Up</p>
+                                <p class="step">Sign Up</p>
                                 <i class="fa fa-sign-in-alt"></i>
                             </div>
                             <button class="service btn btn-success"><a href="#" data-toggle="modal" data-target="#registermodal" >start</a></button>
@@ -177,28 +180,28 @@
                     </div>
                 </div>
                 <div class="col-md-1"style = "padding:5%;">
-                    <i  class="fa fa-hand-o-right shake-horizontal shake-constant shake-constant--hover" style="font-size:56px;color:green"></i>
+                    <i  class="fa fa-hand-o-right shake-horizontal shake-constant shake-constant--hover" style="font-size:56px;color:black"></i>
                 </div>
                 <div class="col-md-3">
                     <div class="service panel-group">
                         <div class="panel panel-success">
                             <div class="panel-heading">STEP 2</div>
                             <div>
-                                <p class="highlight step" >Verify Your Account</p>
+                                <p class="step" >Verify Your Account</p>
                             </div>
                         <button class="service btn btn-success"><a href="#"data-toggle="modal" data-target="#registermodal" >start</a></button>
                     </div>
                 </div>
             </div>
             <div class="col-md-1"style = "padding:5%;" >
-                <i class="fa fa-hand-o-right shake-slow shake-constant shake-horizontal shake-constant--hover " style="font-size:56px;color:green "></i>
+                <i class="fa fa-hand-o-right shake-slow shake-constant shake-horizontal shake-constant--hover " style="font-size:56px;color:black "></i>
             </div>
             <div class="col-md-3">
                 <div class=" service panel-group">
                     <div class="panel panel-success">
                         <div class="panel-heading">STEP 3</div>
                         <div>
-                            <p class="highlight step"> Choose an Investment Package</p>
+                            <p class="step"> Choose an Investment Package</p>
                             <!-- <p class="highlight step"> Wait for returns</p> -->
                         </div>
                     <button class="service btn btn-success"><a href="#"data-toggle="modal" data-target="#registermodal">start</a></button>
