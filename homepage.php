@@ -178,11 +178,11 @@ if(!isset($_SESSION['username'])){
 
                             //If the countdown is over, write some text
                             if(distance < 0){
-                                clearInterval(x);
-                                document.getElementById("timer").innerHTML = "EXPIRED";
                                 function remove() {
                                         window.location.replace('remove.php?rem=expired');
                                         }
+                                clearInterval(x);
+                                document.getElementById("timer").innerHTML = "EXPIRED";
                             }
                         },1000) ;              
                 </script>
