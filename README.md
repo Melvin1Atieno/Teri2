@@ -1,4 +1,4 @@
 # CLUB-FREEDOM
 
-An application that brings investment opportunities to you,
-To view demo[click here](https://www.clubfreedom.co)
+Website that brings investment opportunities to you,
+To view actual website [click here](https://www.clubfreedom.co)
