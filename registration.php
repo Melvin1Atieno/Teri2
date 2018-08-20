@@ -70,7 +70,7 @@
                 if($bool AND $admin=='false') //checks if bool is true
                 {
                     date_default_timezone_set('UTC');
-                    $date = date();
+                    $date = date('M d,Y H:i:s');
                     $hash = md5( rand(0,1000) );
                     $add_user_query = "INSERT INTO users (firstname, lastname, othername, email, verified, country, phonenumber, username, password, Registration_date,randhash,admin) 
                     VALUES('$firstname', '$lastname', '$othername', '$email',0 ,'$country','$phonenumber','$username','$hashed_password','$date','$hash','$admin')";
@@ -100,7 +100,7 @@ http://www.clubfreedom.co/verify.php?email='.$email.'&hash='.$hash.'
                 ($bool AND $admin=='true') {
 
                     date_default_timezone_set('UTC');
-                    $date = date();
+                    $date = date('M d,Y H:i:s');
                     $hash = md5( rand(0,1000) );
                     $add_user_query = "INSERT INTO users (firstname, lastname, othername, email, verified, country, phonenumber, username, password, Registration_date,randhash,admin) 
                     VALUES('$firstname', '$lastname', '$othername', '$email',0 ,'$country','$phonenumber','$username','$hashed_password','$date','$hash','$admin')";
