@@ -225,18 +225,17 @@ if(!isset($_SESSION['username'])){
                             $fsql = mysqli_query($con,"SELECT * FROM matches WHERE ToBePaidBy='$username'");
                             while ($frow = $fsql->fetch_assoc()){
                                    $Musername = $frow['ToPayTo'];
-                                
+                            
                             $nsql = mysqli_query($con,"SELECT * FROM users WHERE username='$Musername'");
                             while ($nrow = $nsql->fetch_assoc()){
-                                    $Mphonenumber = '123456';
-                                     
-                            if($NoOfMatchesFound == 1){
-                                $Musername = $frow['ToPayTo']; 
-                                $Mphonenumber = $nrow['phonenumber'];
-                            }else{
-                                $Musername = 'not_found';
-                                $Mphonenumber = 'no contact info';
-                                }
+                                    if($NoOfMatchesFound == 1){
+                                        $Musername = $frow['ToPayTo']; 
+                                        $Mphonenumber = $nrow['phonenumber'];
+                                    }else{
+                                        $Musername = 'not_found';
+                                        $Mphonenumber = 'no contact info';
+                                        }
+                                    }
                                         
                                             echo "<tr>
                                                     <td>" . $row["PackageType"] ."</td>
@@ -252,7 +251,7 @@ if(!isset($_SESSION['username'])){
                                                     <td>" . "<button onclick='deleteqry($InvestmentId)' class='btn btn-danger'>Cancel Investment</button>" .   "</td>
                                                     </tr>";
                                         } 
-                                   }
+                                   
                             }
                         ?>
                                                 <script type="text/javascript">
@@ -262,7 +261,7 @@ if(!isset($_SESSION['username'])){
                                                 </script> 
                                                 <script type="text/javascript">
                                                              function confirm(InvestmentId){
-                                                                 alert('You can only confirm payment if you have a match');
+                                                                 alert('Note 1: Make sure you upload evidence of payment.\nNote2:You can only confirm payment if you have a match');
                                                                  window.location.replace('confirm.php?con=' + InvestmentId);
                                                              }
                                                              
