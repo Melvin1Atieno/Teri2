@@ -217,28 +217,27 @@ if(!isset($_SESSION['username'])){
                             $username = $_SESSION['username'];
                             $Musername = 'not_found';
                             $Mphonenumber = '00000000';
-                            $sql = "SELECT * FROM investments WHERE InvestorsUsername='$username'";
-                            $records = mysqli_query($con,$sql);
-                            while ($row = $records->fetch_assoc()){
+                            $sql = mysqli_query($con, "SELECT * FROM investments WHERE InvestorsUsername='$username'");
+                            while ($row = $sql->fetch_assoc()){
                                     $InvestmentId = $row['InvestmentID'];
                                     $NoOfMatchesFound = $row['NoOfMatchesFound'];
-                                    $fsql = "SELECT * FROM matches WHERE ToBePaidBy='$username'";
-                                    $fresults = mysqli_query($con,$fsql);
-                                    while ($frow = $fresults->fetch_assoc()){
-                                        $Musername = $frow['ToPayTo'];
-                                        $nsql = "SELECT * FROM users WHERE username='$Musername'";
-                                        $nrecords = mysqli_query($con,$nsql);
-                                        while ($nrow = $nrecords->fetch_assoc()){
-                                             $Mphonenumber = $nrow['phonenumber'];
-                                            }
-                                            if($NoOfMatchesFound == 1){
-                                                $Musername = $frow['ToPayTo']; 
-                                                $Mphonenumber = $nrow['phonenumber'];
-                                            }else{
-                                                $Musername = 'not_found';
-                                                $Mphonenumber = 'no contact info';
-                                                }
-                                        }
+                                
+                            $fsql = mysqli_query($con,"SELECT * FROM matches WHERE ToBePaidBy='$username'");
+                            while ($frow = $fsql->fetch_assoc()){
+                                   $Musername = $frow['ToPayTo'];
+                                
+                            $nsql = mysqli_query($con,"SELECT * FROM users WHERE username='$Musername'");
+                            while ($nrow = $nsql->fetch_assoc()){
+                                    $Mphonenumber = '123456';
+                                     
+                            if($NoOfMatchesFound == 1){
+                                $Musername = $frow['ToPayTo']; 
+                                $Mphonenumber = $nrow['phonenumber'];
+                            }else{
+                                $Musername = 'not_found';
+                                $Mphonenumber = 'no contact info';
+                                }
+                                        
                                             echo "<tr>
                                                     <td>" . $row["PackageType"] ."</td>
                                                     <td>" . $row["Amount"]."</td>
@@ -252,7 +251,9 @@ if(!isset($_SESSION['username'])){
                                                     <td>" . "<button onclick='confirm($InvestmentId)' class='btn btn-success'>Confirm payment</button>" . "</td>
                                                     <td>" . "<button onclick='deleteqry($InvestmentId)' class='btn btn-danger'>Cancel Investment</button>" .   "</td>
                                                     </tr>";
-                                                }
+                                        } 
+                                   }
+                            }
                         ?>
                                                 <script type="text/javascript">
                                                             function deleteqry(InvestmentId) {
