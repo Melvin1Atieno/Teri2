@@ -36,7 +36,7 @@
         }
     }
         // get match from same country
-        $nquery = mysqli_query($con, "SELECT * FROM investments WHERE InvestorsUsername IN(SELECT * FROM users WHERE country=$usercountry) AND InvestorsUsername!='$Username' AND NoOfMatchesFound !=1 AND Amount='$Amount'");
+        $nquery = mysqli_query($con, "SELECT * FROM investments WHERE InvestorsUsername IN(SELECT username FROM users WHERE country='$usercountry') AND InvestorsUsername!='$Username' AND NoOfMatchesFound !=1 AND Amount='$Amount'");
         while ($nrow = $nquery->fetch_assoc()){
             $musername = $nrow['InvestorsUsername'];
             //update user who's been merged
