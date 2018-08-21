@@ -1,3 +1,8 @@
+
+<?php
+    session_start();
+    require('config.php');
+ ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -61,28 +66,39 @@
              </div>
         </nav>
         <div class=" home-section container-fluid">
-            <form class="form-horizontal">
+            <form class="form-horizontal" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                 <div style="text-align:center">
                     <h2>Send Us an Email</h2><hr>
                 </div>
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="your name">
+                    <input type="text" class="form-control" name="name" id="name" placeholder="your name">
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="text" class="form-control" id="email" placeholder="your email">
+                    <input type="text" class="form-control" name="email" id="email" placeholder="your email">
                 </div>
                 <div class="form-group">
                     <label for="subject">Subject</label>
-                    <input type="text" class="form-control" id="subject" placeholder="subject">
+                    <input type="text" class="form-control" name="subject" id="subject" placeholder="subject">
                 </div>
                 <div class="form-group">
                     <label for="password">Query</label>
-                    <textarea type="text" class="form-control" id="query" placeholder="Enter your text here"></textarea>
+                    <textarea type="text" class="form-control" name="query" id="query" placeholder="Enter your text here"></textarea>
                 </div>
                 <button type="submit" class="btn btn-success">Submit</button>
             </form>
+            <?php
+            if($_SERVER["REQUEST_METHOD"] === "POST"){
+               $username = $_SESSION['username'];
+               $useremail = $con->real_escape_string($_POST["email"]); 
+               $to =    'info@clubfreedom.co';
+               $subject = $con->real_escape_string($_POST["subject"]);
+               $message = $con->real_escape_string($_POST["query"]);
+               $headers = 'From:'.$username.$useremail;
+               mail($to,$subject,$message,$headers);
+            }
+            ?>
         </div>
         <footer class-"footer" style="margin:0">
             <div class="container-fluid">
