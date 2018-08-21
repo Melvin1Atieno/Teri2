@@ -206,7 +206,8 @@ if(!isset($_SESSION['username'])){
                                 <th>Match Contcat Info<th>
                                 <th>Paid</th>
                                 <th>Expected Returns</th>
-                                <th>Make Payment</th>
+                                <th>Payment Evidence</th>
+                                <th>Confirm Payment</th>
                                 <th>Cancel Investment</th>
                             </tr>
                         </thead>
@@ -247,15 +248,23 @@ if(!isset($_SESSION['username'])){
                                                     <td>" . "</td>
                                                     <td>" . $row["Paid"]. "</td>
                                                     <td>" . $row["ExpectedReturns"]. "</td>
-                                                    <td>" . "<button id='confirm'class='btn btn-success'><a style='color:white'href='#'data-toggle='modal' data-target='#makepaymentmmodal'>Confirm Payment made</a></button>" . "</td>
-                                                    <td>" . "<button  onclick='deleteqry($InvestmentId)' class='btn btn-danger'>Cancel Investment</button>" .   "</td>
-                                                </tr>";
+                                                    <td>" . "<button id='confirm'class='btn btn-success'><a style='color:white'href='#'data-toggle='modal' data-target='#makepaymentmmodal'>Evidence of Payment</a></button>" . "</td>
+                                                    <td>" . "<button onclick='confirm($InvestmentId)' class='btn btn-success'>Confirm payment</button>" . "</td>
+                                                    <td>" . "<button onclick='deleteqry($InvestmentId)' class='btn btn-danger'>Cancel Investment</button>" .   "</td>
+                                                    </tr>";
                                                 }
                         ?>
                                                 <script type="text/javascript">
                                                             function deleteqry(InvestmentId) {
                                                                 window.location.replace('delete.php?rem=' + InvestmentId);
                                                              }
+                                                </script> 
+                                                <script type="text/javascript">
+                                                             function confirm(InvestmentId){
+                                                                 alert('You can only confirm payment if you have a match');
+                                                                 window.location.replace('confirm.php?con=' + InvestmentId);
+                                                             }
+                                                             
                                                 </script> 
                         </tbody>
                     </table>
@@ -490,7 +499,7 @@ if(!isset($_SESSION['username'])){
                         </div>
                         <div class="form-group">
                             <label for="dateofpayment">Payment date: </label>
-                            <input class="form-control" id="dateofpayment" name="dateofpayment" type="datetime-local" required>
+                            <input class="form-control" id="dateofpayment" name="dateofpayment" type="date" required>
                         </div><br>
                         <div class="form-group">
                             <input onclick="alert('Please wait as payment reception to be confirmed')" type="submit" value="Confirm" class="btn btn-success">
