@@ -131,12 +131,12 @@
                                         <td>". $row["ExpectedReturns"]. "</td>
                                         <td>".$row["Merged"]. "</td>
                                         <td>"  .   "</td>
-                                        <td>" . "<button  onclick='deleteqry($InvestmentId)' class='btn btn-danger'>Remove Investment</a></button>"."</td>
+                                        <td>" . "<button  onclick='adeleteqry($InvestmentId)' class='btn btn-danger'>Remove Investment</a></button>"."</td>
                                         </tr>";
                                 }     
                          ?>
                         <script type="text/javascript">
-                            function deleteqry(InvestmentId) {
+                            function adeleteqry(InvestmentId) {
                                 window.location.replace('deleteadmin.php?rem=' + InvestmentId);
                                 }
                         </script> 
