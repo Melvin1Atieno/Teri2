@@ -178,11 +178,9 @@ if(!isset($_SESSION['username'])){
 
                             //If the countdown is over, write some text
                             if(distance < 0){
-                                function remove() {
-                                        window.location.replace('remove.php?rem=expired');
-                                        }
-                                clearInterval(x);
-                                document.getElementById("timer").innerHTML = "EXPIRED";
+                                  window.location.replace('remove.php?rem=expired');
+                                  clearInterval(x);
+                                  document.getElementById("timer").innerHTML = "EXPIRED";
                             }
                         },1000) ;              
                 </script>
@@ -236,6 +234,8 @@ if(!isset($_SESSION['username'])){
                                         $Mphonenumber = 'no contact info';
                                         }
                                     }
+                                }
+                                    
                                         
                                             echo "<tr>
                                                     <td>" . $row["PackageType"] ."</td>
@@ -249,10 +249,12 @@ if(!isset($_SESSION['username'])){
                                                     <td>" . "<button id='confirm'class='btn btn-success'><a style='color:white'href='#'data-toggle='modal' data-target='#makepaymentmmodal'>Evidence of Payment</a></button>" . "</td>
                                                     <td>" . "<button onclick='confirm($InvestmentId)' class='btn btn-success'>Confirm payment</button>" . "</td>
                                                     <td>" . "<button onclick='deleteqry($InvestmentId)' class='btn btn-danger'>Cancel Investment</button>" .   "</td>
+                                                 
                                                     </tr>";
-                                        } 
+                                                    
+                                  }      
                                    
-                            }
+                            
                         ?>
                                                 <script type="text/javascript">
                                                             function deleteqry(InvestmentId) {
@@ -332,10 +334,11 @@ if(!isset($_SESSION['username'])){
                     <div class="service panel-group">
                         <div class="panel panel-success">
                             <div class="panel-heading">Level 1</div>
-                            <div id="gone" class="level-one panel-body service"><a href="#">Gold<br>
+                            <div id="gone" class="level-one panel-body service"><a class="
+                            " href="#">Gold<br>
                             <?php echo  $geoplugin->convert(100,$float=0) ?></a>
                             </div>
-                            <div id="sone" class="level-two panel-body service"><a>Silver<br>
+                            <div  id="sone" class="level-two panel-body service"><a>Silver<br>
                             <?php echo  $geoplugin->convert(50, $float=0) ?></a>
                             </div>
                             <div id="bone" class="level-three panel-body service"><a>Bronze<br>

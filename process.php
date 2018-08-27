@@ -5,6 +5,7 @@
     $geoplugin = new geoPlugin();
     $geoplugin->locate();
     $username = $_SESSION['username'];
+    // header("Refresh:60");
 
     
 
@@ -13,11 +14,19 @@
         $amount = (int)$_POST["amount"];
         $ramount = (int)($geoplugin->convert($amount,$float=1,$symbol=false));
         $expected_amount = $ramount*2;
-                
-        $result = "INSERT INTO investments (PackageType,Amount,ExpectedReturns,InvestorsUsername,Paid,InvestmentDate,NoOfMatchesFound,Merged)
-            VALUES('$goldone','$ramount','$expected_amount','$username','not_paid', NOW(),0,0)";
-        $results = mysqli_query($con, $result);
-    }
+
+        $check = mysqli_query($con, "SELECT * FROM investments WHERE InvestorsUsername = '$username' AND Amount ='$ramount'");
+        
+        if($check->num_rows < 1){
+            $result = "INSERT INTO investments (PackageType,Amount,ExpectedReturns,InvestorsUsername,Paid,InvestmentDate,NoOfMatchesFound,Merged)
+                VALUES('$goldone','$ramount','$expected_amount','$username','not_paid', NOW(),0,0)";
+            $results = mysqli_query($con, $result);
+        }else{ 
+            $Error = 'you can only make one investment';
+            echo $Error;
+
+              }  
+         }
     //select user to merge
     $query = mysqli_query($con,"SELECT * FROM investments WHERE Merged < 2 LIMIT 1");
     $Username = "";
