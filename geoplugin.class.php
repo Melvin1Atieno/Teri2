@@ -73,7 +73,7 @@ zh-CN
 
 	}
 
-function locate($ip= null) {
+function locate($ip='41.60.238.145'){
 		
 		global $_SERVER;
 		

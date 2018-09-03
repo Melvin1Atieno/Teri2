@@ -24,8 +24,9 @@
             }
         }
         else{
-            $query = mysqli_query($con, "DELETE FROM users WHERE username='$username'");
-            $squery = mysqli_query($con,"DELETE FROM investments WHERE InvestorsUsername='$username' AND");
+            $delete_user = mysqli_query($con, "DELETE FROM users WHERE username='$username'");
+            $delete_invesment = mysqli_query($con,"DELETE FROM investments WHERE InvestorsUsername='$username'");
+            $delete_matches = mysqli_query($con,"DELETE FROM matches WHERE ToBePaidBy = '$username' OR ToPayTo = '$username'");
             unset($_SESSION["username"]);
             session_destroy();
             header('location:index.php');

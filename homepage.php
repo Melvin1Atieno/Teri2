@@ -5,6 +5,7 @@ include('geoplugin.class.php');
 $geoplugin = new geoPlugin();
 $geoplugin->locate();
 $username = $_SESSION['username'];
+header("Refresh:15");
 if(!isset($_SESSION['username'])){
     header('location: index.php');
     session_destroy();
@@ -484,7 +485,7 @@ if(!isset($_SESSION['username'])){
                     </div>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" enctype="multipart/form-data"  method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" >
                         <div class="form-group">
                             <label for="myFile">Upload payment evidence: </label>
                             <input class="form-control" type="file" id="myFile"name="myFile" placeholder="Add snapshot of payment receipt" required>

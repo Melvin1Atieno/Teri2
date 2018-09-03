@@ -113,6 +113,9 @@
                                 <th>Paid</th>
                                 <th>Expected Returns</th>
                                 <th>NO of Merges</th>
+                                <th>View</th>
+                                <th>Remove Investor</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -130,7 +133,7 @@
                                         <td>" . $row["Paid"]. "</td>
                                         <td>". $row["ExpectedReturns"]. "</td>
                                         <td>".$row["Merged"]. "</td>
-                                        <td>"  .   "</td>
+                                        <td>" . "<button onclick='viewevidence($InvestmentId)'class='btn btn-success'>View</a></button>"."</td>
                                         <td>" . "<button  onclick='adeleteqry($InvestmentId)' class='btn btn-danger'>Remove Investment</a></button>"."</td>
                                         </tr>";
                                 }     
@@ -139,6 +142,9 @@
                             function adeleteqry(InvestmentId) {
                                 window.location.replace('deleteadmin.php?rem=' + InvestmentId);
                                 }
+                            function viewevidence(InvestmentId){
+                                window.location.replace('view.php?view='+InvestmentId);
+                            }
                         </script> 
                         </tbody>
                     </table>
